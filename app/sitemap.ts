@@ -1,7 +1,8 @@
 import type { MetadataRoute } from 'next'
 import { RULES_CHAPTERS } from '@/lib/rules-of-the-road'
+import { SITE_URL } from '@/lib/school'
 
-const BASE = 'https://www.skdriving.co.za'
+const BASE = SITE_URL
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()

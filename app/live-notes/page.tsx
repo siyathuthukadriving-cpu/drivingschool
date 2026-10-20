@@ -4,6 +4,7 @@ import { createClient } from '@/lib/supabase-server'
 import { hasFullAccess } from '@/lib/access'
 import LockedContent from '@/components/LockedContent'
 import ProgressVisit from '@/components/ProgressVisit'
+import { SITE_URL } from '@/lib/school'
 
 const LIVE_NOTES_DESC = 'Read the full Road Traffic Signs Manual — all 18 chapters with chapter quizzes — with full access.'
 
@@ -16,11 +17,11 @@ export const metadata: Metadata = {
     "South African road signs", "K53 learner driver manual", "learners licence chapters",
     "K53 chapter quiz",
   ],
-  alternates: { canonical: 'https://www.skdriving.co.za/live-notes' },
+  alternates: { canonical: `${SITE_URL}/live-notes` },
   openGraph: {
-    title: "K53 Study Notes — Road Signs Manual & Rules of the Road | SK Driving",
+    title: "K53 Study Notes — Road Signs Manual & Rules of the Road | Sathuthuka Driving School",
     description: "Study the full South African K53 manual chapter by chapter. Road signs, rules of the road — with a quiz after each chapter.",
-    url: 'https://www.skdriving.co.za/live-notes',
+    url: `${SITE_URL}/live-notes`,
   },
 }
 
@@ -135,7 +136,7 @@ export default async function LiveNotesPage() {
           let statusEl: React.ReactNode
           if (isPassed)        statusEl = <span className="text-xs text-green-700 bg-green-100 px-2 py-0.5 rounded-full font-medium whitespace-nowrap">✓ Passed</span>
           else if (hasScore)   statusEl = <span className="text-xs text-yellow-700 bg-yellow-100 px-2 py-0.5 rounded-full font-medium whitespace-nowrap">Retry</span>
-          else if (isRead)     statusEl = <span className="text-xs text-blue-700 bg-blue-100 px-2 py-0.5 rounded-full font-medium whitespace-nowrap">Read ✓</span>
+          else if (isRead)     statusEl = <span className="text-xs text-brand-700 bg-brand-100 px-2 py-0.5 rounded-full font-medium whitespace-nowrap">Read ✓</span>
           else if (ch.progress) statusEl = <span className="text-xs text-orange-700 bg-orange-100 px-2 py-0.5 rounded-full font-medium whitespace-nowrap">Started</span>
           else                  statusEl = <span className="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full whitespace-nowrap">Not started</span>
 

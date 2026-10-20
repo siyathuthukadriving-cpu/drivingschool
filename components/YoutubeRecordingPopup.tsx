@@ -6,7 +6,7 @@
  */
 import { useEffect, useState } from 'react'
 
-const YOUTUBE_URL      = 'https://www.skdriving.co.za/videos'
+const YOUTUBE_URL      = '/videos'
 const WINDOW_START     = Date.parse('2026-08-10T21:00:00+02:00') // after live session ends
 const WINDOW_END       = Date.parse('2026-08-17T21:00:00+02:00') // 7 days
 

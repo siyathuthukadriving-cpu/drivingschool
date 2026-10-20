@@ -3,18 +3,20 @@
 import { useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase-browser'
-import type { Affiliate, AffiliateStats, AffiliateCommission } from '@/lib/types'
+import AffiliateScoreboard from '@/components/affiliate/AffiliateScoreboard'
+import type { Affiliate, AffiliateStats, AffiliateCommission, Scoreboard } from '@/lib/types'
 
 function rand(cents: number) {
   return `R${(cents / 100).toLocaleString('en-ZA', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
 }
 
 export default function AffiliateDashboard({
-  affiliate, stats, commissions,
+  affiliate, stats, commissions, scoreboard,
 }: {
   affiliate: Affiliate
   stats: AffiliateStats
   commissions: AffiliateCommission[]
+  scoreboard: Scoreboard
 }) {
   const router = useRouter()
   const [copied, setCopied] = useState(false)
@@ -56,7 +58,7 @@ export default function AffiliateDashboard({
     else setBankMsg(data.error ?? 'Could not save.')
   }
 
-  const inp = 'w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500'
+  const inp = 'w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500'
 
   const missingBank = !affiliate.bank_account_name || !affiliate.bank_name || !affiliate.account_number
 
@@ -64,7 +66,7 @@ export default function AffiliateDashboard({
     <div className="max-w-3xl mx-auto space-y-6">
       <div className="flex items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-extrabold text-blue-700">Affiliate dashboard</h1>
+          <h1 className="text-2xl font-extrabold text-brand-700">Affiliate dashboard</h1>
           <p className="text-sm text-gray-500">
             {affiliate.first_name} {affiliate.last_name} · earn {Math.round(affiliate.commission_rate * 100)}% on every payment through your link
           </p>
@@ -89,7 +91,7 @@ export default function AffiliateDashboard({
         <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Your referral link</label>
         <div className="flex flex-col sm:flex-row gap-2">
           <input readOnly value={link} onFocus={e => e.currentTarget.select()} className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm bg-gray-50 text-gray-700" />
-          <button onClick={copy} className="bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg text-sm hover:bg-blue-800 transition-colors shrink-0">
+          <button onClick={copy} className="bg-brand-700 text-white font-semibold px-4 py-2 rounded-lg text-sm hover:bg-brand-800 transition-colors shrink-0">
             {copied ? '✓ Copied!' : 'Copy link'}
           </button>
         </div>
@@ -126,11 +128,14 @@ export default function AffiliateDashboard({
         </div>
       </div>
 
+      {/* Programme leaderboard */}
+      <AffiliateScoreboard scoreboard={scoreboard} />
+
       {/* Bank details */}
       <div className="bg-white rounded-2xl shadow-md p-5">
         <div className="flex items-center justify-between mb-3">
           <h2 className="font-bold text-gray-800">Payout bank account</h2>
-          <button onClick={() => setEditingBank(!editingBank)} className="text-xs text-blue-600 font-semibold hover:underline">
+          <button onClick={() => setEditingBank(!editingBank)} className="text-xs text-brand-600 font-semibold hover:underline">
             {editingBank ? 'Cancel' : 'Edit'}
           </button>
         </div>
@@ -147,7 +152,7 @@ export default function AffiliateDashboard({
             </div>
             <input value={bank.accountNumber} onChange={e => setBank(b => ({ ...b, accountNumber: e.target.value }))} required placeholder="Account number" inputMode="numeric" className={inp} />
             {bankMsg && <p className={`text-xs ${bankMsg.includes('saved') ? 'text-green-600' : 'text-red-500'}`}>{bankMsg}</p>}
-            <button type="submit" disabled={bankSaving} className="bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg text-sm hover:bg-blue-800 disabled:opacity-60">
+            <button type="submit" disabled={bankSaving} className="bg-brand-700 text-white font-semibold px-4 py-2 rounded-lg text-sm hover:bg-brand-800 disabled:opacity-60">
               {bankSaving ? 'Saving…' : 'Save bank details'}
             </button>
           </form>

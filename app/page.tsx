@@ -2,14 +2,29 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import BookSlideshow from '@/components/BookSlideshow'
 import BuyAccessButton from '@/components/BuyAccessButton'
+import GamificationTeaser from '@/components/GamificationTeaser'
+import Hero from '@/components/Hero'
 import { hasFullAccess } from '@/lib/access'
 import { WHATSAPP_URL, ACCESS_PRICE, ACCESS_PRICE_ORIGINAL, ACCESS_DURATION_DAYS } from '@/lib/contact'
+import ContactDetails from '@/components/ContactDetails'
+import {
+  SCHOOL_BLURB,
+  SCHOOL_BOOKING_URL,
+  SCHOOL_MOTTO,
+  SCHOOL_NAME,
+  SCHOOL_PHONE_DISPLAY,
+  SCHOOL_PHONE_TEL,
+  SCHOOL_SCHEMA,
+  SCHOOL_SERVICES,
+  SCHOOL_TAGLINE,
+} from '@/lib/school'
+import { SITE_URL } from '@/lib/school'
 
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: "Free K53 Learner's Licence Practice Tests South Africa | SK Driving",
-  description: "Study for your South African learner's licence with free K53 practice tests. Covers road signs, vehicle controls, and rules of the road for Code 8, Code 10 and Code 14. Pass first time.",
+  title: { absolute: 'Sathuthuka Driving School — Code 8, Code 10 & Learner’s Licence in KwaZulu-Natal' },
+  description: `${SCHOOL_BLURB} ${SCHOOL_TAGLINE} Free K53 practice tests for Code 8, Code 10 and Code 14.`,
   keywords: [
     "learners licence test South Africa", "K53 practice test", "free learners licence test",
     "K53 questions and answers", "learners licence road signs", "learners licence rules of the road",
@@ -17,24 +32,24 @@ export const metadata: Metadata = {
     "learners licence study guide South Africa", "K53 learner driver manual",
     "learners test questions South Africa", "learners licence test online free",
   ],
-  alternates: { canonical: 'https://www.skdriving.co.za' },
+  alternates: { canonical: SITE_URL },
   openGraph: {
-    title: "Free K53 Learner's Licence Practice Tests | SK Driving",
-    description: "Pass your South African learner's licence first time. Free K53 practice tests for Code 8, Code 10 and Code 14 — road signs, vehicle controls, rules of the road.",
-    url: 'https://www.skdriving.co.za',
+    title: 'Sathuthuka Driving School — Learn to Drive. Learn to Arrive.',
+    description: `${SCHOOL_BLURB} Free K53 practice tests for Code 8, Code 10 and Code 14.`,
+    url: SITE_URL,
   },
 }
 
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: "SK Driving — K53 Learner's Licence Practice Tests",
-  url: 'https://www.skdriving.co.za',
+  name: SCHOOL_NAME,
+  url: SITE_URL,
   description: "Free K53 learner's licence practice tests for South Africa. Road signs, vehicle controls and rules of the road for Code 8, Code 10 and Code 14.",
   inLanguage: 'en-ZA',
   potentialAction: {
     '@type': 'SearchAction',
-    target: 'https://www.skdriving.co.za/centers?province={search_term_string}',
+    target: `${SITE_URL}/centers?province={search_term_string}`,
     'query-input': 'required name=search_term_string',
   },
 }
@@ -45,7 +60,7 @@ const appSchema = {
   name: "K53 Learner's Licence Practice Tests",
   applicationCategory: 'EducationalApplication',
   operatingSystem: 'Web',
-  url: 'https://www.skdriving.co.za/courses',
+  url: `${SITE_URL}/courses`,
   description: "Interactive K53 practice tests for the South African learner's licence — road signs, vehicle controls, rules of the road.",
   offers: {
     '@type': 'Offer',
@@ -87,51 +102,9 @@ const faqSchema = {
     {
       '@type': 'Question',
       name: "Can I practise for the K53 learner's licence test online?",
-      acceptedAnswer: { '@type': 'Answer', text: 'Yes. SK Driving offers free K53 practice tests online covering all three sections. Practising with timed tests regularly is the best way to prepare and pass first time.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Sathuthuka offers free K53 practice tests online covering all three sections. Practising with timed tests regularly is the best way to prepare and pass first time.' },
     },
   ],
-}
-
-function HeroRoadSVG() {
-  return (
-    <svg
-      className="absolute inset-0 w-full h-full pointer-events-none"
-      viewBox="0 0 1200 600"
-      fill="none"
-      preserveAspectRatio="xMidYMid slice"
-      aria-hidden="true"
-    >
-      {/* Road curve */}
-      <path
-        d="M-100 500 Q300 350 600 400 T1300 250"
-        stroke="rgba(255,255,255,0.06)"
-        strokeWidth="120"
-        fill="none"
-      />
-      {/* Centre dashes */}
-      <path
-        d="M-100 500 Q300 350 600 400 T1300 250"
-        stroke="rgba(255,255,255,0.1)"
-        strokeWidth="3"
-        strokeDasharray="20 20"
-        fill="none"
-        style={{ animation: 'roadDash 1.5s linear infinite' }}
-      />
-      {/* Road sign shape top-right */}
-      <polygon
-        points="1060,60 1100,40 1140,60 1140,110 1060,110"
-        fill="rgba(255,255,255,0.04)"
-      />
-      <rect x="1095" y="110" width="10" height="40" fill="rgba(255,255,255,0.04)" />
-      {/* Circle sign bottom-left */}
-      <circle cx="100" cy="400" r="30" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="4" />
-      {/* Subtle grid dots */}
-      <pattern id="hero-dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-        <circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.03)" />
-      </pattern>
-      <rect width="100%" height="100%" fill="url(#hero-dots)" />
-    </svg>
-  )
 }
 
 function FeatureIcon({ type }: { type: 'signs' | 'controls' | 'rules' }) {
@@ -145,10 +118,10 @@ function FeatureIcon({ type }: { type: 'signs' | 'controls' | 'rules' }) {
     ),
     controls: (
       <svg viewBox="0 0 48 48" className="w-12 h-12" fill="none" aria-hidden="true">
-        <rect x="6" y="16" width="36" height="20" rx="6" className="fill-blue-100 stroke-blue-500" strokeWidth="2" />
+        <rect x="6" y="16" width="36" height="20" rx="6" className="fill-brand-100 stroke-brand-500" strokeWidth="2" />
         <circle cx="16" cy="36" r="5" className="fill-gray-200 stroke-gray-400" strokeWidth="2" />
         <circle cx="32" cy="36" r="5" className="fill-gray-200 stroke-gray-400" strokeWidth="2" />
-        <rect x="10" y="18" width="12" height="7" rx="2" className="fill-sky-200/60 stroke-blue-400" strokeWidth="1.5" />
+        <rect x="10" y="18" width="12" height="7" rx="2" className="fill-brand-200/60 stroke-brand-400" strokeWidth="1.5" />
         <circle cx="35" cy="22" r="3" className="fill-amber-300 stroke-amber-500" strokeWidth="1.5" />
       </svg>
     ),
@@ -169,74 +142,78 @@ export default async function Home() {
   const fullAccess = await hasFullAccess()
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHOOL_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* ─── Hero ─── */}
-      <section className="relative bg-gradient-to-br from-brand-800 via-brand-700 to-brand-600 text-white overflow-hidden">
-        <HeroRoadSVG />
-        <div className="relative section-container py-16 sm:py-24 lg:py-28 text-center">
-          {/* Pass rate badge */}
-          <div className="inline-flex items-center gap-2.5 bg-accent-400 text-brand-900 text-xs sm:text-sm font-extrabold uppercase tracking-wider px-5 py-2 rounded-full mb-6 shadow-md">
-            <svg viewBox="0 0 20 20" className="w-4 h-4 fill-brand-800" aria-hidden="true">
-              <path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78z" />
-            </svg>
-            90% Learner Pass Rate
+      <Hero />
+
+      {/* ─── Services ─── */}
+      <section id="services" className="py-14 sm:py-20 scroll-mt-20">
+        <div className="section-container">
+          <div className="text-center mb-10 sm:mb-12">
+            <span className="inline-block text-xs font-bold text-brand-600 uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full mb-3">What we teach</span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">From learner’s to licence holder</h2>
+            <p className="mt-3 text-gray-500 text-sm sm:text-base max-w-2xl mx-auto">{SCHOOL_MOTTO}</p>
           </div>
-
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.25rem] font-extrabold mb-5 tracking-tight leading-[1.15] max-w-3xl mx-auto text-balance">
-            Prepare to Pass Your K53 the First Time
-          </h1>
-          <p className="text-base sm:text-lg lg:text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Get ready for your South African learner&apos;s licence with exam-style practice tests
-            covering road signs, vehicle controls and rules of the road.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
-            <Link
-              href="/courses"
-              className="bg-white text-brand-700 font-bold px-8 py-4 rounded-full text-base hover:bg-blue-50 transition-all duration-200 shadow-hero inline-flex items-center gap-2 hover:gap-3 active:scale-[0.97]"
-            >
-              Start Practising
-              <svg viewBox="0 0 20 20" className="w-4 h-4 fill-current" aria-hidden="true"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" /></svg>
-            </Link>
-            <Link
-              href="/pricing"
-              className="bg-white/10 border-2 border-white/30 text-white font-bold px-8 py-4 rounded-full text-base hover:bg-white/20 hover:border-white/50 transition-all duration-200 inline-block backdrop-blur-sm active:scale-[0.97]"
-            >
-              Get Full Access — {ACCESS_PRICE}
-            </Link>
-          </div>
-
-          {/* Trust strip */}
-          <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs sm:text-sm text-blue-200">
-            {[
-              '90% pass rate',
-              '350+ practice questions',
-              'Code 8, 10 & 14',
-              `Two months' access`,
-            ].map(item => (
-              <li key={item} className="flex items-center gap-2">
-                <svg viewBox="0 0 16 16" className="w-4 h-4 fill-green-400 shrink-0" aria-hidden="true">
-                  <path fillRule="evenodd" d="M8 16A8 8 0 108 0a8 8 0 000 16zm3.78-9.72a.75.75 0 00-1.06-1.06L7.25 8.69 5.28 6.72a.75.75 0 00-1.06 1.06l2.5 2.5a.75.75 0 001.06 0l4-4z" clipRule="evenodd" />
-                </svg>
-                {item}
-              </li>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+            {SCHOOL_SERVICES.map(service => (
+              <div key={service.key} className="card-elevated p-6 flex flex-col border-t-4 border-t-brand-600">
+                <span className="self-start text-[0.65rem] font-bold uppercase tracking-widest text-brand-700 bg-brand-50 px-2.5 py-1 rounded-full">{service.badge}</span>
+                <h3 className="mt-4 font-bold text-lg text-gray-900">{service.title}</h3>
+                <p className="mt-2 text-sm text-gray-500 leading-relaxed flex-1">{service.desc}</p>
+                {service.key === 'learners' ? (
+                  <Link href="/courses" className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-brand-700 hover:text-brand-600 hover:gap-2.5 transition-all">
+                    Start practising
+                    <svg viewBox="0 0 20 20" className="w-4 h-4 fill-current" aria-hidden="true"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" /></svg>
+                  </Link>
+                ) : (
+                  <a href={SCHOOL_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-brand-700 hover:text-brand-600 hover:gap-2.5 transition-all">
+                    Enquire on WhatsApp
+                    <svg viewBox="0 0 20 20" className="w-4 h-4 fill-current" aria-hidden="true"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" /></svg>
+                  </a>
+                )}
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
-        {/* Bottom curve */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 48" fill="none" className="w-full h-8 sm:h-12" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M0 48h1440V24C1200 0 960 48 720 48S240 0 0 24v24z" fill="#f8fafc" />
-          </svg>
+      </section>
+
+      {/* ─── About the school ─── */}
+      <section className="bg-brand-900 text-white py-14 sm:py-16 border-y-4 border-brand-600">
+        <div className="section-container grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="lg:col-span-7 text-center lg:text-left">
+            <span className="inline-block text-xs font-bold text-accent-300 uppercase tracking-widest mb-3">About {SCHOOL_NAME}</span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold leading-tight">Over 30 years on KwaZulu-Natal roads</h2>
+            <p className="mt-4 text-gray-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              {SCHOOL_BLURB} {SCHOOL_MOTTO}
+            </p>
+          </div>
+          <dl className="lg:col-span-5 grid grid-cols-3 gap-3 sm:gap-4 text-center">
+            {[
+              { k: '30+', v: 'years teaching KZN to drive' },
+              { k: '4', v: 'courses: learner’s, Code 8, Code 10/14, motorcycle' },
+              { k: 'Verulam', v: 'KwaZulu-Natal' },
+            ].map(({ k, v }) => (
+              <div key={v} className="rounded-2xl border border-white/10 bg-white/5 px-2 py-5">
+                <dt className="text-xl sm:text-2xl font-extrabold text-accent-400">{k}</dt>
+                <dd className="mt-1 text-[0.7rem] sm:text-xs text-gray-300 leading-snug">{v}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
       {/* ─── Feature cards ─── */}
       <section className="py-14 sm:py-20 -mt-2">
         <div className="section-container">
+          <div className="text-center mb-10 sm:mb-12">
+            <span className="inline-block text-xs font-bold text-brand-600 uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full mb-3">Learner’s licence prep</span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">Practise online for your K53 test</h2>
+            <p className="mt-3 text-gray-500 text-sm sm:text-base max-w-2xl mx-auto">Study road signs, vehicle controls and rules of the road, then take exam-style practice tests.</p>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
             {([
               { type: 'signs' as const, title: 'Road Signs', desc: 'Learn South African road signs through clear images and exam-style questions.' },
@@ -305,6 +282,9 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* ─── Gamification teaser ─── */}
+      <GamificationTeaser />
+
       {/* ─── Live Notes callout ─── */}
       <section className="py-0">
         <div className="section-container">
@@ -332,7 +312,7 @@ export default async function Home() {
       </section>
 
       {/* ─── Free study guide hub ─── */}
-      <section className="bg-gradient-to-r from-brand-50 to-blue-50 border-t border-b border-brand-100 px-4 py-12 sm:py-14 sm:px-6">
+      <section className="bg-gradient-to-r from-brand-50 to-accent-100 border-t border-b border-brand-100 px-4 py-12 sm:py-14 sm:px-6">
         <div className="section-container flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-xs font-bold uppercase tracking-widest text-brand-600 mb-2">Free K53 study guide</p>
@@ -413,13 +393,13 @@ export default async function Home() {
           <h2 className="text-2xl sm:text-3xl font-extrabold mb-3">
             Everything You Need to Prepare for Only {ACCESS_PRICE}
           </h2>
-          <p className="text-blue-100 mb-8 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+          <p className="text-gray-300 mb-8 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
             Get two months of access to lessons, practice tests, road signs, vehicle controls
             and rules of the road.
           </p>
           <Link
             href="/pricing"
-            className="inline-flex items-center gap-2 bg-white text-brand-700 font-bold px-8 py-4 rounded-full text-base hover:bg-blue-50 transition-all duration-200 shadow-hero active:scale-[0.97]"
+            className="inline-flex items-center gap-2 bg-white text-brand-700 font-bold px-8 py-4 rounded-full text-base hover:bg-brand-50 transition-all duration-200 shadow-hero active:scale-[0.97]"
           >
             Get Full Access for {ACCESS_PRICE}
             <svg viewBox="0 0 20 20" className="w-4 h-4 fill-current" aria-hidden="true"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" /></svg>
@@ -456,7 +436,7 @@ export default async function Home() {
             },
             {
               q: "Can I practise for the K53 learner's licence test online?",
-              a: "Yes — SK Driving offers free K53 practice tests online covering all three sections. Practising with timed tests regularly is the best way to prepare and pass first time.",
+              a: "Yes — Sathuthuka offers free K53 practice tests online covering all three sections. Practising with timed tests regularly is the best way to prepare and pass first time.",
             },
           ].map(({ q, a }) => (
             <details key={q} className="card-elevated px-6 py-5 group cursor-pointer">
@@ -479,80 +459,37 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* ─── Featured driving school ─── */}
-      <section className="py-14 sm:py-16 bg-gray-50 border-t border-gray-100">
-        <div className="section-container max-w-3xl text-center">
-          <span className="inline-block text-xs font-bold text-brand-600 uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full mb-3">Recommended</span>
-          <h2 className="text-2xl sm:text-2xl font-extrabold text-gray-900 mb-2">
-            Need a Driving School?
-          </h2>
-          <p className="text-gray-500 text-sm sm:text-base mb-8 max-w-xl mx-auto">
-            Once you&apos;ve passed your learner&apos;s, book practical lessons with a trusted local driving school.
-          </p>
-
-          <div className="card-elevated p-6 sm:p-8 text-left max-w-lg mx-auto">
-            <div className="flex items-start gap-4 mb-5">
-              <div className="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center shrink-0">
-                <svg viewBox="0 0 24 24" className="w-6 h-6 text-brand-600 fill-current" aria-hidden="true">
-                  <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-lg font-extrabold text-gray-900">Thompo Driving School</h3>
-                <p className="text-sm text-gray-500">Pretoria &amp; Johannesburg</p>
-              </div>
-            </div>
-
-            <div className="space-y-3 text-sm">
-              <div className="flex items-start gap-3 p-3 rounded-xl bg-gray-50">
-                <span className="shrink-0 text-base">📍</span>
-                <div>
-                  <p className="font-semibold text-gray-800">Address</p>
-                  <p className="text-gray-600">81 Celliers St, Sunnyside, Pretoria, 0002 · Adverto Tower</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3 p-3 rounded-xl bg-gray-50">
-                <span className="shrink-0 text-base">📞</span>
-                <div>
-                  <p className="font-semibold text-gray-800">Phone</p>
-                  <a href="tel:0127721616" className="text-brand-700 hover:underline">012 772 1616</a>
-                </div>
-              </div>
-              <div className="flex items-start gap-3 p-3 rounded-xl bg-gray-50">
-                <span className="shrink-0 text-base">💬</span>
-                <div>
-                  <p className="font-semibold text-gray-800">WhatsApp</p>
-                  <a href="https://wa.me/27699075971" target="_blank" rel="noopener noreferrer" className="text-green-700 hover:underline">
-                    +27 69 907 5971
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-6 flex flex-col sm:flex-row gap-3">
+      {/* ─── Visit / contact ─── */}
+      <section id="contact" className="bg-brand-900 text-white py-14 sm:py-20 scroll-mt-20">
+        <div className="section-container grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div>
+            <span className="inline-block text-xs font-bold text-accent-300 uppercase tracking-widest mb-3">Find us</span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold mb-8">Visit us, call us or message us</h2>
+            <ContactDetails tone="dark" />
+          </div>
+          <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-brand-800 via-brand-700 to-brand-600 p-7 sm:p-10 text-center lg:text-left shadow-hero">
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent-300">{SCHOOL_TAGLINE}</p>
+            <h3 className="mt-3 text-2xl sm:text-3xl font-extrabold leading-tight">Book your first lesson today</h3>
+            <p className="mt-3 text-sm sm:text-base text-white/85 leading-relaxed">
+              {SCHOOL_MOTTO} Message us on WhatsApp or call {SCHOOL_PHONE_DISPLAY} and we’ll take it from there.
+            </p>
+            <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
               <a
-                href="https://wa.me/27699075971"
+                href={SCHOOL_BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 btn-accent flex items-center justify-center gap-2 py-3 rounded-xl text-sm"
+                className="inline-flex items-center justify-center gap-2 bg-white text-brand-700 font-bold px-7 py-3.5 rounded-full text-sm hover:bg-brand-50 transition-colors active:scale-[0.97]"
               >
-                WhatsApp Us
+                Book on WhatsApp
               </a>
               <a
-                href="tel:0127721616"
-                className="flex-1 flex items-center justify-center gap-2 border-2 border-gray-200 text-gray-700 font-semibold py-3 rounded-xl hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 text-sm"
+                href={`tel:${SCHOOL_PHONE_TEL}`}
+                className="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white font-bold px-7 py-3.5 rounded-full text-sm hover:bg-white/10 transition-colors active:scale-[0.97]"
               >
-                Call now
+                Call {SCHOOL_PHONE_DISPLAY}
               </a>
             </div>
           </div>
-
-          <p className="text-xs text-gray-400 mt-5">
-            Want your school listed here?{' '}
-            <Link href="/driving-schools" className="text-brand-600 hover:underline font-medium">
-              Browse all driving schools
-            </Link>
-          </p>
         </div>
       </section>
     </main>

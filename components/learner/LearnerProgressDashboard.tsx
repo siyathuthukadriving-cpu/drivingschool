@@ -30,17 +30,17 @@ export default function LearnerProgressDashboard({ progress }: { progress: Learn
       <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-blue-600">Learner dashboard</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-brand-600">Learner dashboard</p>
             <h2 id="learner-progress-heading" className="mt-1 text-xl font-extrabold text-gray-900">Your K53 progress</h2>
             <p className="mt-1 text-sm text-gray-500">Every completed activity helps shape your next recommendation.</p>
           </div>
           <div className="shrink-0 text-right">
-            <div className="text-3xl font-extrabold text-blue-700">{progress.progressPercentage}%</div>
+            <div className="text-3xl font-extrabold text-brand-700">{progress.progressPercentage}%</div>
             <div className="text-xs text-gray-400">course readiness</div>
           </div>
         </div>
         <div className="mt-4 h-3 overflow-hidden rounded-full bg-gray-100" role="progressbar" aria-valuenow={progress.progressPercentage} aria-valuemin={0} aria-valuemax={100}>
-          <div className="h-full rounded-full bg-blue-600 transition-all" style={{ width: `${progress.progressPercentage}%` }} />
+          <div className="h-full rounded-full bg-brand-600 transition-all" style={{ width: `${progress.progressPercentage}%` }} />
         </div>
 
         <div className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2">
@@ -88,7 +88,7 @@ export default function LearnerProgressDashboard({ progress }: { progress: Learn
                   <div className="truncate text-sm font-semibold text-gray-800">{test.testName}</div>
                   <div className="text-xs text-gray-400">Best score {test.bestPercentage}%</div>
                 </div>
-                <span className="shrink-0 rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-blue-700">
+                <span className="shrink-0 rounded-full bg-brand-100 px-3 py-1 text-xs font-bold text-brand-700">
                   {test.attempts} attempt{test.attempts === 1 ? '' : 's'}
                 </span>
               </div>

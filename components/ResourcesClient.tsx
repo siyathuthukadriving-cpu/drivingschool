@@ -19,7 +19,7 @@ const resources = [
 
 const categoryColours: Record<string, string> = {
   Reference: 'bg-purple-100 text-purple-700',
-  'Code 8':  'bg-blue-100 text-blue-700',
+  'Code 8':  'bg-brand-100 text-brand-700',
   'Code 10': 'bg-green-100 text-green-700',
 }
 
@@ -48,7 +48,7 @@ function ResourceCard({ resource }: { resource: typeof resources[0] }) {
       <p className="text-sm text-gray-500 leading-relaxed flex-1">{resource.description}</p>
       <div className="flex gap-3 pt-1">
         <a href={resource.url} target="_blank" rel="noopener noreferrer"
-          className="flex-1 text-center bg-blue-600 text-white text-sm font-semibold py-2.5 px-4 rounded-xl hover:bg-blue-700 transition-colors">
+          className="flex-1 text-center bg-brand-600 text-white text-sm font-semibold py-2.5 px-4 rounded-xl hover:bg-brand-700 transition-colors">
           View PDF
         </a>
         <a href={resource.url} download
@@ -106,13 +106,13 @@ export default function ResourcesClient() {
       <div className="flex gap-4 mb-10 flex-wrap">
         {Object.entries(grouped).map(([cat, items]) => (
           <div key={cat} className="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 shadow-sm">
-            <span className={`w-2 h-2 rounded-full ${cat === 'Reference' ? 'bg-purple-500' : cat === 'Code 8' ? 'bg-blue-500' : 'bg-green-500'}`} />
+            <span className={`w-2 h-2 rounded-full ${cat === 'Reference' ? 'bg-purple-500' : cat === 'Code 8' ? 'bg-brand-500' : 'bg-green-500'}`} />
             <span className="text-sm font-medium text-gray-700">{cat}</span>
             <span className="text-sm text-gray-400">{items.length} files</span>
           </div>
         ))}
         <div className="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 shadow-sm ml-auto">
-          <span className="text-sm font-bold text-blue-600">{resources.length} PDFs total</span>
+          <span className="text-sm font-bold text-brand-600">{resources.length} PDFs total</span>
         </div>
       </div>
       {Object.entries(grouped).map(([category, items]) => (

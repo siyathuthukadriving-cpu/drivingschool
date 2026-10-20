@@ -15,7 +15,7 @@
  *   1. Create a Resend account and verify the sending domain.
  *   2. Set RESEND_API_KEY in Vercel, for Production and Preview.
  *   3. Set EMAIL_FROM to an address on the verified domain,
- *      e.g. "SK Driving <noreply@skdriving.co.za>".
+ *      e.g. "Sathuthuka Driving School <noreply@your-domain>".
  *
  * Swapping provider means replacing deliver() and nothing else.
  */

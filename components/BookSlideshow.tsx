@@ -39,16 +39,16 @@ export default function BookSlideshow() {
   return (
     <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 max-w-3xl mx-auto">
       {/* ── Header bar ── */}
-      <div className="flex items-center justify-between bg-blue-700 px-6 py-4">
+      <div className="flex items-center justify-between bg-brand-700 px-6 py-4">
         <div>
-          <p className="text-xs font-semibold text-blue-200 uppercase tracking-widest mb-0.5">
+          <p className="text-xs font-semibold text-brand-200 uppercase tracking-widest mb-0.5">
             Study Resource
           </p>
           <h3 className="text-white font-extrabold text-lg leading-tight">
             Code 10 Memo &mdash; Part 1
           </h3>
         </div>
-        <span className="bg-blue-600 text-blue-100 text-sm font-mono px-3 py-1.5 rounded-full shrink-0">
+        <span className="bg-brand-600 text-brand-100 text-sm font-mono px-3 py-1.5 rounded-full shrink-0">
           {index + 1} / {total}
         </span>
       </div>
@@ -74,7 +74,7 @@ export default function BookSlideshow() {
           aria-label="Previous slide"
           className="flex items-center gap-1.5 px-5 py-2 rounded-lg bg-white border border-gray-200
                      text-gray-700 font-semibold text-sm
-                     hover:bg-blue-50 hover:border-blue-400 hover:text-blue-700
+                     hover:bg-brand-50 hover:border-brand-400 hover:text-brand-700
                      disabled:opacity-30 disabled:cursor-not-allowed
                      transition-all"
         >
@@ -93,8 +93,8 @@ export default function BookSlideshow() {
                 aria-label={`Go to slide ${idx + 1}`}
                 className={`rounded-full transition-all ${
                   offset === 0
-                    ? 'w-3 h-3 bg-blue-600'
-                    : 'w-2 h-2 bg-gray-300 hover:bg-blue-300'
+                    ? 'w-3 h-3 bg-brand-600'
+                    : 'w-2 h-2 bg-gray-300 hover:bg-brand-300'
                 }`}
               />
             )
@@ -107,8 +107,8 @@ export default function BookSlideshow() {
           disabled={index === total - 1}
           aria-label="Next slide"
           className="flex items-center gap-1.5 px-5 py-2 rounded-lg
-                     bg-blue-600 text-white font-semibold text-sm
-                     hover:bg-blue-700
+                     bg-brand-600 text-white font-semibold text-sm
+                     hover:bg-brand-700
                      disabled:opacity-30 disabled:cursor-not-allowed
                      transition-all"
         >

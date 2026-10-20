@@ -53,7 +53,7 @@ export default function AdminLoginPage() {
     <main className="min-h-screen flex items-center justify-center bg-slate-950 px-4 py-12">
       <div className="w-full max-w-md rounded-2xl bg-white p-8 shadow-2xl">
         <div className="mb-7 text-center">
-          <p className="mb-2 text-xs font-extrabold uppercase tracking-[0.2em] text-blue-600">SK Online</p>
+          <p className="mb-2 text-xs font-extrabold uppercase tracking-[0.2em] text-brand-600">SK Online</p>
           <h1 className="text-2xl font-extrabold text-slate-950">Administrator login</h1>
           <p className="mt-2 text-sm text-slate-500">Sign in to manage members and access.</p>
         </div>
@@ -69,7 +69,7 @@ export default function AdminLoginPage() {
               inputMode="email"
               value={email}
               onChange={event => setEmail(event.target.value)}
-              className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-blue-600 focus:ring-2 focus:ring-blue-200"
+              className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-brand-600 focus:ring-2 focus:ring-brand-200"
               placeholder="admin@example.com"
             />
           </div>
@@ -83,7 +83,7 @@ export default function AdminLoginPage() {
               autoComplete="current-password"
               value={password}
               onChange={event => setPassword(event.target.value)}
-              className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-blue-600 focus:ring-2 focus:ring-blue-200"
+              className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-brand-600 focus:ring-2 focus:ring-brand-200"
               placeholder="Enter your password"
             />
           </div>
@@ -93,14 +93,14 @@ export default function AdminLoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-xl bg-blue-700 py-3 font-bold text-white transition hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-60"
+            className="w-full rounded-xl bg-brand-700 py-3 font-bold text-white transition hover:bg-brand-800 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {loading ? 'Signing in…' : 'Sign in to admin'}
           </button>
         </form>
 
         <div className="mt-6 flex items-center justify-between text-sm">
-          <Link href="/forgot-password?next=/admin" className="font-semibold text-blue-700 hover:underline">
+          <Link href="/forgot-password?next=/admin" className="font-semibold text-brand-700 hover:underline">
             Forgot password?
           </Link>
           <Link href="/" className="text-slate-500 hover:text-slate-800">

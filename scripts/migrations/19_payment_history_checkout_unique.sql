@@ -1,5 +1,5 @@
 -- ================================================================
--- SK Driving — payment_history as the per-checkout idempotency ledger
+-- Sathuthuka Driving School — payment_history as the per-checkout idempotency ledger
 -- Run in: Supabase Dashboard → SQL Editor → New Query → Run
 --
 -- lib/payments.ts inserts a payment_history row BEFORE granting access and

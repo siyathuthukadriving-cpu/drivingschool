@@ -11,23 +11,29 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        // Sathuthuka Driving School palette, sampled from the school banner:
+        // signature red #cb120d, near-black ground, white, and the gold used
+        // for "OVER 30 YEARS". 50-300 are tints, 600 is the logo red.
         brand: {
-          50:  '#eef3ff',
-          100: '#dce6ff',
-          200: '#b9cdff',
-          300: '#84a9ff',
-          400: '#4d7cff',
-          500: '#2563eb',
-          600: '#1d4ed8',
-          700: '#1a3fa8',
-          800: '#0f2a6e',
-          900: '#0a1d4a',
-          950: '#061030',
+          50:  '#fff1f0',
+          100: '#ffe0dd',
+          200: '#ffc2bc',
+          300: '#ff968d',
+          400: '#f2574d',
+          500: '#e02a21',
+          600: '#cb120d',
+          700: '#a50e0a',
+          800: '#141414',
+          900: '#0a0a0a',
+          950: '#000000',
         },
         accent: {
-          400: '#facc15',
-          500: '#eab308',
-          600: '#ca8a04',
+          100: '#fdecc8',
+          200: '#fcce80',
+          300: '#f7c25a',
+          400: '#f2a916',
+          500: '#e09201',
+          600: '#b87400',
         },
       },
       boxShadow: {

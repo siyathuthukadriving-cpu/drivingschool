@@ -1,5 +1,4 @@
 import { redirect } from 'next/navigation'
-import { headers } from 'next/headers'
 import { getAdminUser, isPrimaryAdminEmail } from '@/lib/admin'
 import { createAdminClient } from '@/lib/supabase-admin'
 import { getLatestRecordingUrl, getPromoWindow } from '@/lib/settings'
@@ -19,8 +18,7 @@ const CARD_PAYMENT_SOURCES = '("payment","access_code")'
 export default async function AdminPage() {
   const admin = await getAdminUser()
   if (!admin) {
-    const host = headers().get('host')?.split(':')[0].toLowerCase()
-    redirect(host === 'skonline.co.za' || host === 'www.skonline.co.za' ? '/admin-login' : '/login')
+    redirect('/login')
   }
 
   // Primary (super) admin sees everything, including card payments. Every other

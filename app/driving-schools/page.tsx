@@ -52,7 +52,7 @@ const PROVINCE_META: Record<string, { title: string; description: string; keywor
 }
 
 const DEFAULT_META = {
-  title: "Find a Driving School Near You | SK Driving",
+  title: "Find a Driving School Near You",
   description: "Search verified driving schools across South Africa — Gauteng, Western Cape, KwaZulu-Natal and all 9 provinces. Filter by licence code (Code 8, Code 10, motorcycles), view contact details and get directions.",
   keywords: [
     'driving school near me', 'K53 driving school', 'cheap driving lessons South Africa',
@@ -101,7 +101,7 @@ export default function DrivingSchoolsPage({
 
       {/* Hero */}
       <div className="text-center mb-10">
-        <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">
+        <span className="text-xs font-bold text-brand-600 uppercase tracking-widest">
           {validProvince ? validProvince : 'All 9 Provinces'}
         </span>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2 mb-3 leading-tight">
@@ -131,18 +131,18 @@ export default function DrivingSchoolsPage({
               href={`/driving-schools?province=${encodeURIComponent(p.name)}`}
               className={`border rounded-xl p-4 transition-all ${
                 validProvince === p.name
-                  ? 'bg-blue-700 border-blue-700 text-white shadow'
-                  : 'bg-white border-gray-200 hover:border-blue-400 hover:shadow-sm'
+                  ? 'bg-brand-700 border-brand-700 text-white shadow'
+                  : 'bg-white border-gray-200 hover:border-brand-400 hover:shadow-sm'
               }`}
             >
               <p className={`font-semibold text-sm ${validProvince === p.name ? 'text-white' : 'text-gray-900'}`}>{p.name}</p>
-              <p className={`text-xs mt-0.5 truncate ${validProvince === p.name ? 'text-blue-100' : 'text-gray-400'}`}>{p.eg}</p>
+              <p className={`text-xs mt-0.5 truncate ${validProvince === p.name ? 'text-brand-100' : 'text-gray-400'}`}>{p.eg}</p>
             </Link>
           ))}
         </div>
         {validProvince && (
           <div className="text-center mt-4">
-            <Link href="/driving-schools" className="text-sm text-blue-600 hover:underline">
+            <Link href="/driving-schools" className="text-sm text-brand-600 hover:underline">
               ← Show all provinces
             </Link>
           </div>
@@ -150,9 +150,9 @@ export default function DrivingSchoolsPage({
       </section>
 
       {/* Info strip */}
-      <section className="mt-12 bg-blue-50 border border-blue-100 rounded-2xl p-6 text-sm text-blue-900">
+      <section className="mt-12 bg-brand-50 border border-brand-100 rounded-2xl p-6 text-sm text-brand-900">
         <h2 className="font-bold mb-2">Choosing a driving school</h2>
-        <ul className="text-blue-800 leading-relaxed space-y-1 list-disc list-inside">
+        <ul className="text-brand-800 leading-relaxed space-y-1 list-disc list-inside">
           <li>Confirm the school is registered with the <strong>Department of Transport</strong> and that instructors hold valid PrDP certificates.</li>
           <li>Ask whether the school&apos;s car is dual-controlled and has valid roadworthy and insurance certificates.</li>
           <li>Avoid paying the full package upfront — pay per lesson until you are satisfied.</li>
@@ -166,7 +166,7 @@ export default function DrivingSchoolsPage({
       {/* Final CTA */}
       <div className="mt-10 text-center">
         <p className="text-gray-600 mb-4 text-sm">Booked your lessons? Start preparing for the K53 theory test now.</p>
-        <Link href="/courses" className="inline-block bg-blue-700 text-white font-bold px-10 py-4 rounded-full hover:bg-blue-800 transition-colors">
+        <Link href="/courses" className="inline-block bg-brand-700 text-white font-bold px-10 py-4 rounded-full hover:bg-brand-800 transition-colors">
           Start K53 Practice Tests →
         </Link>
       </div>

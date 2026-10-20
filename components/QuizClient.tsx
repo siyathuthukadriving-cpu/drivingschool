@@ -163,7 +163,7 @@ function SplitResultsScreen({
         <div className="flex gap-3 mb-6">
           <Link
             href={`/quiz/${courseId}?test=2`}
-            className="flex-1 text-center bg-blue-600 text-white font-semibold py-3 rounded-xl hover:bg-blue-700 transition-colors"
+            className="flex-1 text-center bg-brand-600 text-white font-semibold py-3 rounded-xl hover:bg-brand-700 transition-colors"
           >
             Try Again
           </Link>
@@ -178,7 +178,7 @@ function SplitResultsScreen({
         {/* Review toggle */}
         <button
           onClick={() => setShowReview(r => !r)}
-          className="w-full text-center text-blue-600 font-semibold py-3 mb-4 hover:underline"
+          className="w-full text-center text-brand-600 font-semibold py-3 mb-4 hover:underline"
         >
           {showReview ? '▲ Hide Answer Review' : '▼ Review All Answers'}
         </button>
@@ -293,7 +293,7 @@ function StandardResultsScreen({
             <div className="text-xs text-gray-500 mt-1">Incorrect</div>
           </div>
           <div className="bg-white rounded-xl p-4 text-center border border-gray-100 shadow-sm">
-            <div className="text-2xl font-bold text-blue-600">{total}</div>
+            <div className="text-2xl font-bold text-brand-600">{total}</div>
             <div className="text-xs text-gray-500 mt-1">Total</div>
           </div>
         </div>
@@ -311,7 +311,7 @@ function StandardResultsScreen({
         <div className="flex gap-3 mb-6">
           <Link
             href={`/quiz/${courseId}?test=${testNumber}`}
-            className="flex-1 text-center bg-blue-600 text-white font-semibold py-3 rounded-xl hover:bg-blue-700 transition-colors"
+            className="flex-1 text-center bg-brand-600 text-white font-semibold py-3 rounded-xl hover:bg-brand-700 transition-colors"
           >
             Try Again
           </Link>
@@ -325,7 +325,7 @@ function StandardResultsScreen({
 
         <button
           onClick={() => setShowReview(r => !r)}
-          className="w-full text-center text-blue-600 font-semibold py-3 mb-4 hover:underline"
+          className="w-full text-center text-brand-600 font-semibold py-3 mb-4 hover:underline"
         >
           {showReview ? '▲ Hide Answer Review' : '▼ Review All Answers'}
         </button>
@@ -530,12 +530,12 @@ export default function QuizClient({ questions, courseTitle, courseId, testNumbe
       <div className="min-h-screen bg-gray-50 px-4 py-6 sm:py-10">
         <main className="mx-auto max-w-3xl">
           <div className="mb-4 text-center">
-            <div className="text-xs font-bold uppercase tracking-widest text-blue-600">Test A · Motorcycle section</div>
+            <div className="text-xs font-bold uppercase tracking-widest text-brand-600">Test A · Motorcycle section</div>
             <h1 className="mt-1 text-2xl font-extrabold text-gray-900">Motorcycle controls refresher</h1>
             <p className="mt-2 text-sm text-gray-500">Review the numbered controls and their functions before continuing. This refresher is not scored.</p>
           </div>
 
-          <div className="overflow-hidden rounded-2xl border border-blue-200 bg-white shadow-sm">
+          <div className="overflow-hidden rounded-2xl border border-brand-200 bg-white shadow-sm">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/final-test/motorcycle-controls-refresher.png"
@@ -548,7 +548,7 @@ export default function QuizClient({ questions, courseTitle, courseId, testNumbe
           <div className="mt-5 grid gap-2 sm:grid-cols-2">
             {MOTORCYCLE_CONTROLS.map(([number, name, description]) => (
               <div key={number} className="flex items-start gap-3 rounded-xl border border-gray-200 bg-white p-3">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">{number}</span>
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-600 text-sm font-bold text-white">{number}</span>
                 <span>
                   <span className="block text-sm font-bold text-gray-900">{name}</span>
                   <span className="block text-xs leading-relaxed text-gray-500">{description}</span>
@@ -560,7 +560,7 @@ export default function QuizClient({ questions, courseTitle, courseId, testNumbe
           <button
             type="button"
             onClick={() => setMotorcycleRefresherSeen(true)}
-            className="mt-6 w-full rounded-xl bg-blue-600 py-4 text-base font-bold text-white transition-colors hover:bg-blue-700"
+            className="mt-6 w-full rounded-xl bg-brand-600 py-4 text-base font-bold text-white transition-colors hover:bg-brand-700"
           >
             Start motorcycle questions →
           </button>
@@ -572,7 +572,7 @@ export default function QuizClient({ questions, courseTitle, courseId, testNumbe
   const optionStyle = (key: Option) => {
     const base = 'w-full text-left px-4 py-3.5 rounded-xl border-2 transition-all flex items-start gap-3'
     if (!revealed) {
-      return `${base} border-gray-200 bg-white hover:border-blue-400 hover:bg-blue-50 cursor-pointer active:scale-[0.99]`
+      return `${base} border-gray-200 bg-white hover:border-accent-400 hover:bg-accent-100 cursor-pointer active:scale-[0.99]`
     }
     if (key === q.correct_answer) return `${base} border-green-500 bg-green-50 cursor-default`
     if (key === selected)         return `${base} border-red-400  bg-red-50  cursor-default`
@@ -607,7 +607,7 @@ export default function QuizClient({ questions, courseTitle, courseId, testNumbe
             className={`text-xs font-bold px-2.5 py-1 rounded-full shrink-0 tabular-nums ${
               secondsLeft <= (isPremium ? 60 : 30)
                 ? 'bg-red-100 text-red-700'
-                : isPremium ? 'bg-blue-100 text-blue-700' : 'bg-amber-100 text-amber-700'
+                : isPremium ? 'bg-brand-100 text-brand-700' : 'bg-amber-100 text-amber-700'
             }`}
             title={isPremium ? 'Time remaining' : 'Free preview time remaining'}
           >
@@ -620,7 +620,7 @@ export default function QuizClient({ questions, courseTitle, courseId, testNumbe
         <div className="max-w-2xl mx-auto px-4 pb-2">
           <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
             <div
-              className="h-full bg-blue-600 rounded-full transition-all duration-300"
+              className="h-full bg-brand-600 rounded-full transition-all duration-300"
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -636,14 +636,14 @@ export default function QuizClient({ questions, courseTitle, courseId, testNumbe
             role="checkbox"
             aria-checked={skipMotorcycle}
             onClick={() => handleMotorcyclePreference(!skipMotorcycle)}
-            className="w-full flex items-start gap-3 rounded-xl border border-blue-200 bg-blue-50 px-4 py-3 text-left"
+            className="w-full flex items-start gap-3 rounded-xl border border-brand-200 bg-brand-50 px-4 py-3 text-left"
           >
             <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded border-2 text-xs font-bold ${
-              skipMotorcycle ? 'border-blue-600 bg-blue-600 text-white' : 'border-gray-400 bg-white text-transparent'
+              skipMotorcycle ? 'border-brand-600 bg-brand-600 text-white' : 'border-gray-400 bg-white text-transparent'
             }`} aria-hidden="true">✓</span>
             <span>
-              <span className="block text-sm font-bold text-blue-900">Skip motorcycle questions</span>
-              <span className="mt-0.5 block text-xs leading-relaxed text-blue-700">
+              <span className="block text-sm font-bold text-brand-900">Skip motorcycle questions</span>
+              <span className="mt-0.5 block text-xs leading-relaxed text-brand-700">
                 {skipMotorcycle
                   ? `${motorcycleCount} motorcycle-only questions excluded · score calculated out of ${baseOrdered.length - motorcycleCount}`
                   : `Include all ${baseOrdered.length} questions in the combined score`}
@@ -656,7 +656,7 @@ export default function QuizClient({ questions, courseTitle, courseId, testNumbe
       {/* Section divider shown at the transition point */}
       {isSplitTest && current === rulesCount && (
         <div className="max-w-2xl mx-auto px-4 pt-5">
-          <div className="bg-blue-50 border border-blue-200 rounded-xl px-5 py-3 text-sm text-blue-800 font-medium text-center">
+          <div className="bg-brand-50 border border-brand-200 rounded-xl px-5 py-3 text-sm text-brand-800 font-medium text-center">
             Section 2 — Road Signs &amp; Controls
           </div>
         </div>
@@ -737,7 +737,7 @@ export default function QuizClient({ questions, courseTitle, courseId, testNumbe
 
             <button
               onClick={handleNext}
-              className="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 active:scale-[0.99] transition-all text-base"
+              className="w-full bg-brand-600 text-white font-bold py-4 rounded-xl hover:bg-brand-700 active:scale-[0.99] transition-all text-base"
             >
               {current === ordered.length - 1 ? '🏁 See My Results' : 'Next Question →'}
             </button>

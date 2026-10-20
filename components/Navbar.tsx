@@ -2,10 +2,11 @@
 
 import { useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { useRouter, usePathname } from 'next/navigation'
 import { createClient } from '@/lib/supabase-browser'
 import { ACCESS_PRICE } from '@/lib/contact'
+import { SCHOOL_PHONE_DISPLAY, SCHOOL_PHONE_TEL } from '@/lib/school'
+import Logo from '@/components/Logo'
 import { isAdminEmail } from '@/lib/admin-emails'
 import type { User } from '@supabase/supabase-js'
 
@@ -16,6 +17,7 @@ const LINKS = [
   { href: '/centers',                   label: 'Find a Centre' },
   { href: '/live-notes',                label: 'Live Notes' },
   { href: '/videos',                    label: 'Videos' },
+  { href: '/contact',                   label: 'Contact' },
 ]
 
 export default function Navbar() {
@@ -51,24 +53,24 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="bg-brand-800 text-white shadow-nav sticky top-0 z-50 backdrop-blur-sm bg-opacity-[0.97]">
-      <div className="section-container h-16 flex items-center justify-between gap-6">
+    <nav className="bg-brand-900 text-white shadow-nav sticky top-0 z-50 backdrop-blur-sm bg-opacity-[0.97] border-b-2 border-brand-600">
+      <div className="section-container h-[4.25rem] flex items-center justify-between gap-4">
 
         {/* Logo */}
-        <Link href="/" className="shrink-0 hover:opacity-90 transition-opacity">
-          <Image src="/logo-nav.png" alt="SK Driving" width={160} height={50} className="h-10 w-auto" priority />
+        <Link href="/" aria-label="Sathuthuka Driving School — home" className="shrink-0 hover:opacity-90 transition-opacity">
+          <Logo compact />
         </Link>
 
         {/* Desktop nav links */}
-        <div className="hidden lg:flex items-center gap-0.5 flex-1 justify-center">
+        <div className="hidden xl:flex items-center gap-0.5 flex-1 justify-center">
           {navLinks.map(l => (
             <Link
               key={l.href}
               href={l.href}
-              className={`relative px-3.5 py-2 rounded-lg text-[13px] font-semibold tracking-wide transition-all duration-200 ${
+              className={`relative whitespace-nowrap px-3 py-2 rounded-lg text-[13px] font-semibold tracking-wide transition-all duration-200 ${
                 isActive(l.href)
                   ? 'bg-white/15 text-white'
-                  : 'text-blue-200 hover:text-white hover:bg-white/10'
+                  : 'text-gray-300 hover:text-white hover:bg-white/10'
               }`}
             >
               {l.label}
@@ -80,7 +82,22 @@ export default function Navbar() {
         </div>
 
         {/* Desktop right side */}
-        <div className="hidden lg:flex items-center gap-3 shrink-0">
+        <div className="hidden xl:flex items-center gap-3 shrink-0">
+          <a
+            href={`tel:${SCHOOL_PHONE_TEL}`}
+            aria-label={`Call ${SCHOOL_PHONE_DISPLAY}`}
+            className="inline-flex items-center gap-2 rounded-full border border-white/20 px-3 py-2 text-xs font-bold text-white hover:bg-white/10 transition-colors"
+          >
+            <svg viewBox="0 0 20 20" className="w-4 h-4 fill-brand-500" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.15a1 1 0 01.99.84l.5 3a1 1 0 01-.55 1.05l-1.3.65a11.04 11.04 0 005.02 5.02l.65-1.3a1 1 0 011.05-.55l3 .5a1 1 0 01.84.99V17a1 1 0 01-1 1h-1C7.82 18 2 12.18 2 5V3z" /></svg>
+            <span className="hidden 2xl:inline">{SCHOOL_PHONE_DISPLAY}</span>
+          </a>
+          {user ? (
+            <Link href="/account" className="inline-flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-sm font-semibold text-white">
+                {user.email ? user.email.charAt(0).toUpperCase() : 'U'}
+              </div>
+            </Link>
+          ) : null}
           {isAdmin || user ? (
             <button
               onClick={logout}
@@ -100,7 +117,14 @@ export default function Navbar() {
         </div>
 
         {/* Mobile: hamburger */}
-        <div className="flex lg:hidden items-center gap-1">
+        <div className="flex xl:hidden items-center gap-1">
+          <a
+            href={`tel:${SCHOOL_PHONE_TEL}`}
+            aria-label={`Call ${SCHOOL_PHONE_DISPLAY}`}
+            className="w-11 h-11 flex items-center justify-center rounded-xl bg-brand-600 hover:bg-brand-700 transition-colors"
+          >
+            <svg viewBox="0 0 20 20" className="w-5 h-5 fill-white" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.15a1 1 0 01.99.84l.5 3a1 1 0 01-.55 1.05l-1.3.65a11.04 11.04 0 005.02 5.02l.65-1.3a1 1 0 011.05-.55l3 .5a1 1 0 01.84.99V17a1 1 0 01-1 1h-1C7.82 18 2 12.18 2 5V3z" /></svg>
+          </a>
           <button
             onClick={() => setOpen(o => !o)}
             aria-label={open ? 'Close menu' : 'Open menu'}
@@ -116,7 +140,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile dropdown */}
-      <div className={`lg:hidden overflow-hidden transition-all duration-300 ease-out ${open ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+      <div className={`xl:hidden overflow-hidden transition-all duration-300 ease-out ${open ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className="bg-brand-900 border-t border-white/10 px-4 pt-2 pb-4">
           <div className="space-y-0.5 mb-3">
             {navLinks.map(l => (
@@ -126,7 +150,7 @@ export default function Navbar() {
                 className={`flex items-center px-4 py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
                   isActive(l.href)
                     ? 'bg-white/15 text-white'
-                    : 'text-blue-200 hover:bg-white/10 hover:text-white'
+                    : 'text-gray-300 hover:bg-white/10 hover:text-white'
                 }`}
               >
                 {l.label}

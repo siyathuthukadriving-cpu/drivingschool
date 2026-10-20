@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { SCHOOL_EMAIL } from '@/lib/school'
 
 export default function SubscribeFailedPage() {
   return (
@@ -26,7 +27,7 @@ export default function SubscribeFailedPage() {
         <div className="flex flex-col gap-3">
           <Link
             href="/pricing"
-            className="block bg-blue-600 text-white font-bold py-3 rounded-xl hover:bg-blue-700 transition-colors"
+            className="block bg-brand-600 text-white font-bold py-3 rounded-xl hover:bg-brand-700 transition-colors"
           >
             Try again →
           </Link>
@@ -40,8 +41,8 @@ export default function SubscribeFailedPage() {
 
         <p className="text-xs text-gray-400 mt-6">
           Need help? Contact us at{' '}
-          <a href="mailto:support@skdriving.co.za" className="underline">
-            support@skdriving.co.za
+          <a href={`mailto:${SCHOOL_EMAIL}`} className="underline">
+            {SCHOOL_EMAIL}
           </a>
         </p>
       </div>

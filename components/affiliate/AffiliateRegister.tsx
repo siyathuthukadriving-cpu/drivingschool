@@ -44,13 +44,13 @@ export default function AffiliateRegister({ loggedIn = false }: { loggedIn?: boo
     }
   }
 
-  const input = 'w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500'
+  const input = 'w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500'
 
   return (
     <div className="bg-white rounded-2xl shadow-md p-8 max-w-lg mx-auto">
       <div className="text-center mb-6">
         <div className="text-4xl mb-2">🤝</div>
-        <h1 className="text-2xl font-extrabold text-blue-700">Become an affiliate</h1>
+        <h1 className="text-2xl font-extrabold text-brand-700">Become an affiliate</h1>
         <p className="text-sm text-gray-500 mt-1">
           Share your link and earn <strong>30%</strong> of every successful payment. Payouts to your
           bank account every Monday.
@@ -110,14 +110,14 @@ export default function AffiliateRegister({ loggedIn = false }: { loggedIn?: boo
 
         {error && <p className="text-red-500 text-sm">{error}</p>}
 
-        <button type="submit" disabled={loading} className="w-full bg-blue-700 text-white font-semibold py-2.5 rounded-lg hover:bg-blue-800 transition-colors disabled:opacity-60">
+        <button type="submit" disabled={loading} className="w-full bg-brand-700 text-white font-semibold py-2.5 rounded-lg hover:bg-brand-800 transition-colors disabled:opacity-60">
           {loading ? 'Creating your affiliate account…' : 'Join the affiliate programme'}
         </button>
       </form>
 
       <p className="text-sm text-center text-gray-500 mt-5">
         Already an affiliate?{' '}
-        <Link href="/login" className="text-blue-700 font-medium hover:underline">Log in</Link>
+        <Link href="/login" className="text-brand-700 font-medium hover:underline">Log in</Link>
       </p>
     </div>
   )

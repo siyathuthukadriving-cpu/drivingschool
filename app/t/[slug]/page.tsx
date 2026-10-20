@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!data) return { title: 'Trainer not found' }
   return {
     title: `${data.name} — K53 Driving Instructor${data.province ? ` | ${data.province}` : ''}`,
-    description: data.bio ?? `Book learner's licence lessons with ${data.name} on SK Driving.`,
+    description: data.bio ?? `Book learner's licence lessons with ${data.name} on Sathuthuka.`,
   }
 }
 
@@ -35,7 +35,7 @@ export default async function TrainerPage({ params }: { params: { slug: string }
 
       {/* Trainer profile */}
       <div className="flex flex-col sm:flex-row items-start gap-6 mb-10">
-        <div className="w-20 h-20 rounded-full bg-blue-700 text-white flex items-center justify-center text-3xl font-extrabold shrink-0">
+        <div className="w-20 h-20 rounded-full bg-brand-700 text-white flex items-center justify-center text-3xl font-extrabold shrink-0">
           {trainer.name.charAt(0).toUpperCase()}
         </div>
         <div className="flex-1">
@@ -46,7 +46,7 @@ export default async function TrainerPage({ params }: { params: { slug: string }
           {trainer.bio && <p className="text-gray-600 text-sm leading-relaxed max-w-xl">{trainer.bio}</p>}
           <div className="flex flex-wrap gap-4 mt-4 text-sm">
             {trainer.phone && (
-              <a href={`tel:${trainer.phone}`} className="flex items-center gap-1.5 text-blue-600 hover:underline font-medium">
+              <a href={`tel:${trainer.phone}`} className="flex items-center gap-1.5 text-brand-600 hover:underline font-medium">
                 📞 {trainer.phone}
               </a>
             )}
@@ -68,9 +68,9 @@ export default async function TrainerPage({ params }: { params: { slug: string }
 
         {/* Info */}
         <section>
-          <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-4">
-            <h3 className="font-bold text-blue-900 mb-2">How it works</h3>
-            <ol className="text-sm text-blue-800 space-y-2 list-decimal list-inside leading-relaxed">
+          <div className="bg-brand-50 border border-brand-100 rounded-2xl p-5 mb-4">
+            <h3 className="font-bold text-brand-900 mb-2">How it works</h3>
+            <ol className="text-sm text-brand-800 space-y-2 list-decimal list-inside leading-relaxed">
               <li>Sign up with your name and email above</li>
               <li>Pay {price ? <strong>{price}</strong> : 'the lesson fee'} directly to {trainer.name}</li>
               <li>Once payment is confirmed, return here and enter your email to access your study materials</li>
@@ -78,8 +78,8 @@ export default async function TrainerPage({ params }: { params: { slug: string }
           </div>
           <div className="bg-gray-50 border border-gray-200 rounded-2xl p-5">
             <h3 className="font-bold text-gray-800 mb-2 text-sm">Also practice for free</h3>
-            <p className="text-xs text-gray-500 mb-3">Use SK Driving&apos;s free K53 practice tests to prepare for your theory exam.</p>
-            <Link href="/courses" className="block text-center bg-blue-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl hover:bg-blue-800 transition-colors">
+            <p className="text-xs text-gray-500 mb-3">Use Sathuthuka&apos;s free K53 practice tests to prepare for your theory exam.</p>
+            <Link href="/courses" className="block text-center bg-brand-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl hover:bg-brand-800 transition-colors">
               Start free practice tests →
             </Link>
           </div>

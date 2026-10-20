@@ -3,13 +3,14 @@ import { YouTubeCard, DriveCard } from '@/components/VideoCard'
 import { hasFullAccess } from '@/lib/access'
 import LockedContent from '@/components/LockedContent'
 import { getLatestRecording } from '@/lib/settings'
+import { SITE_URL } from '@/lib/school'
 
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'K53 Videos — Study Resources',
   description: "Watch K53 learner's licence study videos covering road signs, rules of the road, and vehicle controls.",
-  alternates: { canonical: 'https://www.skdriving.co.za/videos' },
+  alternates: { canonical: `${SITE_URL}/videos` },
 }
 
 const youtubeVideos = [
@@ -114,7 +115,7 @@ export default async function VideosPage() {
           <h2 className="text-xl font-bold text-gray-900">Live Session Recordings</h2>
           <span className="ml-auto text-sm text-gray-400">Mon–Thu, 8pm</span>
         </div>
-        <div className="bg-indigo-50 border border-indigo-200 rounded-xl px-4 py-3 text-sm text-indigo-800 mb-6 flex items-start gap-2">
+        <div className="bg-brand-50 border border-brand-200 rounded-xl px-4 py-3 text-sm text-brand-800 mb-6 flex items-start gap-2">
           <span className="text-lg shrink-0">📹</span>
           <span>Missed a live evening session? Catch up here — recordings of our 8pm sessions are posted in this section.</span>
         </div>

@@ -64,7 +64,7 @@ function AccessCodeForm() {
         <h1 className="text-2xl font-extrabold text-gray-900 mb-2">You&apos;re in!</h1>
         <p className="text-sm text-gray-500 mb-6">Full access is now unlocked on this account.</p>
         <div className="flex flex-col gap-3">
-          <Link href="/courses" className="block bg-blue-700 text-white font-bold py-3 rounded-xl hover:bg-blue-800 transition-colors">Start practising →</Link>
+          <Link href="/courses" className="block bg-brand-700 text-white font-bold py-3 rounded-xl hover:bg-brand-800 transition-colors">Start practising →</Link>
           <Link href="/live-notes" className="block border-2 border-gray-200 text-gray-600 font-semibold py-3 rounded-xl hover:border-gray-400 transition-colors">Go to Live Notes</Link>
         </div>
       </div>
@@ -73,7 +73,7 @@ function AccessCodeForm() {
 
   return (
     <div className="bg-white rounded-2xl shadow-md p-8 w-full max-w-md">
-      <h1 className="text-2xl font-extrabold text-blue-700 mb-2">Enter your access code</h1>
+      <h1 className="text-2xl font-extrabold text-brand-700 mb-2">Enter your access code</h1>
       <p className="text-sm text-gray-600 mb-6">
         We emailed this to you when your payment went through. It unlocks the account you are
         signed in to right now, which is what you want if you happened to sign up more than once.
@@ -95,14 +95,14 @@ function AccessCodeForm() {
           autoComplete="off"
           autoCapitalize="characters"
           spellCheck={false}
-          className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 font-mono tracking-widest uppercase focus:border-blue-600 focus:outline-none"
+          className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 font-mono tracking-widest uppercase focus:border-brand-600 focus:outline-none"
         />
         <p className="text-xs text-gray-400 mt-1.5">Dashes and spaces do not matter.</p>
         {error && <p className="text-red-600 text-sm mt-3">{error}</p>}
         <button
           type="submit"
           disabled={busy || !code.trim()}
-          className="w-full mt-5 bg-blue-700 text-white font-bold py-3 rounded-xl hover:bg-blue-800 transition-colors disabled:opacity-60"
+          className="w-full mt-5 bg-brand-700 text-white font-bold py-3 rounded-xl hover:bg-brand-800 transition-colors disabled:opacity-60"
         >
           {busy ? 'Unlocking…' : 'Unlock my access'}
         </button>

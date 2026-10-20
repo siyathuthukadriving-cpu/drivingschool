@@ -19,6 +19,7 @@ import { normaliseCode } from '@/lib/access-codes'
 import { sendAccessCodeEmail } from '@/lib/access-code-email'
 import { isEmailConfigured } from '@/lib/email'
 import { ACCESS_DURATION_DAYS } from '@/lib/contact'
+import { SITE_URL } from '@/lib/school'
 
 export const dynamic = 'force-dynamic'
 export const maxDuration = 30
@@ -136,7 +137,7 @@ export async function POST(req: NextRequest) {
     to,
     code: row.code as string,
     durationDays: (row.duration_days as number) || ACCESS_DURATION_DAYS,
-    baseUrl: process.env.NEXT_PUBLIC_BASE_URL ?? 'https://www.skdriving.co.za',
+    baseUrl: process.env.NEXT_PUBLIC_BASE_URL ?? SITE_URL,
   })
   if (!result.sent) {
     const message = result.reason === 'not_configured'

@@ -8,7 +8,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { getAccessStatus } from '@/lib/access-cache'
 
-const YOUTUBE_URL       = 'https://www.skdriving.co.za/videos'
+const YOUTUBE_URL       = '/videos'
 const YOUTUBE_EMBED_URL = 'https://www.youtube.com/embed/btSIocehZcU?autoplay=1'
 const POPUP_START       = Date.parse('2026-08-31T19:55:00+02:00') // 7:55pm — 5 min before
 const SESSION_START     = Date.parse('2026-08-31T20:00:00+02:00') // 8pm SAST
