@@ -2,7 +2,7 @@
 // Usage: SUPABASE_SERVICE_ROLE_KEY=... node scripts/seed-live-notes.mjs
 // Requires the 03_live_notes_schema.sql migration to have been run first.
 
-const SUPABASE_URL = 'https://wzqgjzqylkbwyvzyzywu.supabase.co'
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL
 const KEY = process.env.SUPABASE_SERVICE_ROLE_KEY
 
 if (!KEY) { console.error('ERROR: Set SUPABASE_SERVICE_ROLE_KEY'); process.exit(1) }

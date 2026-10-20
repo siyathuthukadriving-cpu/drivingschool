@@ -1,5 +1,5 @@
 // Seed Code 10 Test 2 — correct answers verified from Word doc memo
-const SUPABASE_URL = 'https://wzqgjzqylkbwyvzyzywu.supabase.co'
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL
 const KEY = process.env.SUPABASE_SERVICE_ROLE_KEY
 
 if (!KEY) {

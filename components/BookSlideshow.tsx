@@ -11,7 +11,7 @@ const SLIDE_NUMBERS: number[] = [
 ]
 
 const BASE =
-  'https://wzqgjzqylkbwyvzyzywu.supabase.co/storage/v1/object/public/' +
+  `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/` +
   'Code%2010%20Memo%20Slide%20Show/code%2010%20Memo%20Part%201/'
 
 const slideUrl = (n: number) => `${BASE}${n}.png`
