@@ -359,12 +359,12 @@ export default function CenterFinder({ initialProvince = '' }: { initialProvince
             value={query}
             onChange={e => setQuery(e.target.value)}
             placeholder="e.g. Philippi, Soweto, Randburg…"
-            className="flex-1 border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-1 border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
           />
           <button
             type="submit"
             disabled={loading}
-            className="bg-blue-700 text-white font-bold px-5 py-3 rounded-xl hover:bg-blue-800 disabled:opacity-50 transition-colors text-sm"
+            className="bg-brand-700 text-white font-bold px-5 py-3 rounded-xl hover:bg-brand-800 disabled:opacity-50 transition-colors text-sm"
           >
             Search
           </button>
@@ -374,7 +374,7 @@ export default function CenterFinder({ initialProvince = '' }: { initialProvince
           <select
             value={province}
             onChange={e => handleProvinceChange(e.target.value)}
-            className="flex-1 border border-gray-300 rounded-xl px-4 py-3 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-1 border border-gray-300 rounded-xl px-4 py-3 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-brand-500"
           >
             {PROVINCES.map(p => <option key={p}>{p}</option>)}
           </select>
@@ -383,7 +383,7 @@ export default function CenterFinder({ initialProvince = '' }: { initialProvince
             type="button"
             onClick={handleGeolocate}
             disabled={loading}
-            className="flex items-center justify-center gap-2 border-2 border-blue-600 text-blue-700 font-semibold px-5 py-3 rounded-xl hover:bg-blue-50 disabled:opacity-50 transition-colors text-sm"
+            className="flex items-center justify-center gap-2 border-2 border-brand-600 text-brand-700 font-semibold px-5 py-3 rounded-xl hover:bg-brand-50 disabled:opacity-50 transition-colors text-sm"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -446,18 +446,18 @@ export default function CenterFinder({ initialProvince = '' }: { initialProvince
 
             if (info.status === 'available') {
               return (
-                <div className="bg-blue-50 border border-blue-200 rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center gap-3">
+                <div className="bg-brand-50 border border-brand-200 rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center gap-3">
                   <div className="flex-1">
-                    <p className="text-sm font-bold text-blue-800 flex items-center gap-1.5">
+                    <p className="text-sm font-bold text-brand-800 flex items-center gap-1.5">
                       <span>🌐</span> Online booking available — {effectiveProv}
                     </p>
-                    <p className="text-xs text-blue-700 mt-0.5 leading-relaxed">{info.note}</p>
+                    <p className="text-xs text-brand-700 mt-0.5 leading-relaxed">{info.note}</p>
                   </div>
                   <a
                     href={NATIS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="shrink-0 bg-blue-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl hover:bg-blue-700 transition-colors text-center"
+                    className="shrink-0 bg-brand-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl hover:bg-brand-700 transition-colors text-center"
                   >
                     Book your test online ↗
                   </a>
@@ -502,14 +502,14 @@ export default function CenterFinder({ initialProvince = '' }: { initialProvince
               key={c.id}
               className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm flex flex-col sm:flex-row sm:items-start gap-4"
             >
-              <div className="flex-shrink-0 w-9 h-9 rounded-full bg-blue-700 text-white flex items-center justify-center font-bold text-sm">
+              <div className="flex-shrink-0 w-9 h-9 rounded-full bg-brand-700 text-white flex items-center justify-center font-bold text-sm">
                 {i + 1}
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-start gap-2 flex-wrap">
                   <h3 className="font-bold text-gray-900 text-base leading-tight">{c.name}</h3>
                   {c.is_smart_hub && (
-                    <span className="text-[10px] font-bold bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full uppercase tracking-wide shrink-0">
+                    <span className="text-[10px] font-bold bg-brand-100 text-brand-700 px-2 py-0.5 rounded-full uppercase tracking-wide shrink-0">
                       Smart Hub
                     </span>
                   )}
@@ -517,7 +517,7 @@ export default function CenterFinder({ initialProvince = '' }: { initialProvince
                 <p className="text-sm text-gray-500 mt-0.5">{c.province}</p>
                 <p className="text-sm text-gray-600 mt-1">{c.address}</p>
                 {c.phone && (
-                  <a href={`tel:${c.phone}`} className="text-sm text-blue-600 hover:underline mt-0.5 block">
+                  <a href={`tel:${c.phone}`} className="text-sm text-brand-600 hover:underline mt-0.5 block">
                     {c.phone}
                   </a>
                 )}
@@ -530,7 +530,7 @@ export default function CenterFinder({ initialProvince = '' }: { initialProvince
                   href={mapsUrl(c)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs font-semibold text-blue-600 hover:text-blue-800 hover:underline flex items-center gap-1"
+                  className="text-xs font-semibold text-brand-600 hover:text-brand-800 hover:underline flex items-center gap-1"
                 >
                   Directions ↗
                 </a>
@@ -539,14 +539,14 @@ export default function CenterFinder({ initialProvince = '' }: { initialProvince
           ))}
 
           {/* CTA */}
-          <div className="mt-8 bg-blue-700 rounded-2xl p-6 text-center text-white">
+          <div className="mt-8 bg-brand-700 rounded-2xl p-6 text-center text-white">
             <p className="font-bold text-lg mb-1">Found your centre?</p>
-            <p className="text-blue-100 text-sm mb-5">
+            <p className="text-brand-100 text-sm mb-5">
               Start practising now — you need 75% to pass the learner&apos;s licence test.
             </p>
             <Link
               href="/courses"
-              className="inline-block bg-white text-blue-700 font-bold px-8 py-3 rounded-full hover:bg-blue-50 transition-colors"
+              className="inline-block bg-white text-brand-700 font-bold px-8 py-3 rounded-full hover:bg-brand-50 transition-colors"
             >
               Start practising for your test →
             </Link>

@@ -14,6 +14,7 @@ import YoutubeLiveSessionPopup from "@/components/YoutubeLiveSessionPopup";
 import YoutubeRecordingPopup from "@/components/YoutubeRecordingPopup";
 import FreePromoBanner from "@/components/FreePromoBanner";
 import FreePromoPopup from "@/components/FreePromoPopup";
+import { SITE_URL } from '@/lib/school'
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -27,13 +28,15 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://www.skdriving.co.za'),
+    metadataBase: new URL(SITE_URL),
     title: {
-        default: "Free K53 Learner's Licence Practice Tests | SK Driving",
-        template: '%s | SK Driving',
+        default: "Sathuthuka Driving School — Code 8, Code 10 & Learner's Licence in KwaZulu-Natal",
+        template: '%s | Sathuthuka Driving School',
     },
-    description: "Pass your K53 learner's licence test first time. Free practice tests covering road signs, vehicle controls and rules of the road — for Code 8, Code 10 and Code 14 in South Africa.",
+    description: "Teaching people across KwaZulu-Natal to drive for a generation. Code 8 lessons, Code 10 truck training, and learner's licence preparation. Learn to drive. Learn to arrive.",
     keywords: [
+        "Sathuthuka Driving School", "driving school Verulam", "driving lessons KwaZulu-Natal",
+        "Code 8 driving lessons", "Code 10 truck training", "Code 14 driving school",
         "learners licence test", "K53 learners licence", "learners licence practice test",
         "K53 test questions", "learners licence questions South Africa",
         "K53 road signs", "learners licence study guide", "how to pass learners licence",
@@ -42,16 +45,16 @@ export const metadata: Metadata = {
         "learners licence road signs", "South African learner driver",
     ],
     openGraph: {
-        siteName: "SK Driving",
+        siteName: "Sathuthuka Driving School",
         locale: 'en_ZA',
         type: 'website',
-        title: "Free K53 Learner's Licence Practice Tests | SK Driving",
-        description: "Pass your K53 learner's licence test first time. Free practice tests — road signs, vehicle controls, rules of the road — for all licence codes in South Africa.",
+        title: "Sathuthuka Driving School — Learn to Drive. Learn to Arrive.",
+        description: "Code 8 lessons, Code 10 truck training and learner's licence preparation across KwaZulu-Natal. Over 30 years of teaching people to drive.",
     },
     twitter: {
         card: 'summary_large_image',
-        title: "Free K53 Learner's Licence Practice Tests | SK Driving",
-        description: "Pass your South African learner's licence test first time. Free K53 practice tests online.",
+        title: "Sathuthuka Driving School — Learn to Drive. Learn to Arrive.",
+        description: "Code 8 lessons, Code 10 truck training and learner's licence preparation across KwaZulu-Natal.",
     },
     verification: {
         google: "6uUYkLVNLPmMYVkSoW2wSlMcyOyA5MdR2vQxRUOUp7c",

@@ -48,7 +48,7 @@ export default async function QuizPage({ params, searchParams }: Props) {
       <div className="min-h-screen flex items-center justify-center px-4">
         <div className="text-center">
           <p className="text-gray-500 mb-4">No questions found for this test.</p>
-          <a href={`/courses/${params.id}`} className="text-blue-600 hover:underline">← Back to Course</a>
+          <a href={`/courses/${params.id}`} className="text-brand-600 hover:underline">← Back to Course</a>
         </div>
       </div>
     )

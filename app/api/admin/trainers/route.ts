@@ -2,6 +2,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createAdminClient } from '@/lib/supabase-admin'
 import { getAdminUser, isPrimaryAdminEmail } from '@/lib/admin'
+import { SITE_URL } from '@/lib/school'
 
 export async function GET() {
   const admin = await getAdminUser()
@@ -31,7 +32,7 @@ export async function POST(req: NextRequest) {
 
   // Invite the trainer via Supabase — creates auth account and sends invite email
   const { data: invited, error: inviteErr } = await db.auth.admin.inviteUserByEmail(email, {
-    redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.skdriving.co.za'}/trainer/dashboard`,
+    redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL ?? SITE_URL}/trainer/dashboard`,
   })
   if (inviteErr) return NextResponse.json({ error: inviteErr.message }, { status: 500 })
 

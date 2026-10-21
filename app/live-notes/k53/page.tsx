@@ -87,7 +87,7 @@ export default async function K53UnpackedPage() {
           let statusEl: React.ReactNode
           if (isPassed)         statusEl = <span className="text-xs text-green-700 bg-green-100 px-2 py-0.5 rounded-full font-medium whitespace-nowrap">✓ Passed</span>
           else if (hasScore)    statusEl = <span className="text-xs text-yellow-700 bg-yellow-100 px-2 py-0.5 rounded-full font-medium whitespace-nowrap">Retry</span>
-          else if (isRead)      statusEl = <span className="text-xs text-blue-700 bg-blue-100 px-2 py-0.5 rounded-full font-medium whitespace-nowrap">Read ✓</span>
+          else if (isRead)      statusEl = <span className="text-xs text-brand-700 bg-brand-100 px-2 py-0.5 rounded-full font-medium whitespace-nowrap">Read ✓</span>
           else if (ch.progress) statusEl = <span className="text-xs text-orange-700 bg-orange-100 px-2 py-0.5 rounded-full font-medium whitespace-nowrap">Started</span>
           else                  statusEl = <span className="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full whitespace-nowrap">Not started</span>
 

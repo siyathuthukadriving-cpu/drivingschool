@@ -3,7 +3,7 @@
 // Keeps chapters, pages and quizzes intact — only replaces questions + options.
 // Usage: SUPABASE_SERVICE_ROLE_KEY=... node scripts/seed-live-notes-k53-questions.mjs
 
-const SUPABASE_URL = 'https://wzqgjzqylkbwyvzyzywu.supabase.co'
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL
 const KEY = process.env.SUPABASE_SERVICE_ROLE_KEY
 if (!KEY) { console.error('ERROR: Set SUPABASE_SERVICE_ROLE_KEY'); process.exit(1) }
 

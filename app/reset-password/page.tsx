@@ -91,13 +91,13 @@ function ResetPasswordForm() {
       <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
         <div className="bg-white rounded-2xl shadow-md p-8 w-full max-w-md text-center">
           <div className="text-4xl mb-3">⚠️</div>
-          <h1 className="text-2xl font-extrabold text-blue-700 mb-2">This link isn&apos;t valid</h1>
+          <h1 className="text-2xl font-extrabold text-brand-700 mb-2">This link isn&apos;t valid</h1>
           <p className="text-sm text-gray-600 mb-6">
             Your reset link may have already been used or expired. Request a new one and try again.
           </p>
           <Link
             href={nextPath ? `/forgot-password?next=${encodeURIComponent(nextPath)}` : '/forgot-password'}
-            className="inline-block bg-blue-700 text-white font-semibold px-6 py-2.5 rounded-lg text-sm hover:bg-blue-800 transition-colors"
+            className="inline-block bg-brand-700 text-white font-semibold px-6 py-2.5 rounded-lg text-sm hover:bg-brand-800 transition-colors"
           >
             Send me a new link
           </Link>
@@ -111,7 +111,7 @@ function ResetPasswordForm() {
       <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
         <div className="bg-white rounded-2xl shadow-md p-8 w-full max-w-md text-center">
           <div className="text-5xl mb-3">✅</div>
-          <h1 className="text-2xl font-extrabold text-blue-700 mb-2">Password updated</h1>
+          <h1 className="text-2xl font-extrabold text-brand-700 mb-2">Password updated</h1>
           <p className="text-sm text-gray-500">Taking you back into your account…</p>
         </div>
       </div>
@@ -121,7 +121,7 @@ function ResetPasswordForm() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
       <div className="bg-white rounded-2xl shadow-md p-8 w-full max-w-md">
-        <h1 className="text-2xl font-extrabold text-blue-700 mb-2 text-center">Set a new password</h1>
+        <h1 className="text-2xl font-extrabold text-brand-700 mb-2 text-center">Set a new password</h1>
         <p className="text-sm text-gray-500 text-center mb-6">Pick something you&apos;ll remember.</p>
 
         <form onSubmit={submit} className="space-y-4">
@@ -130,7 +130,7 @@ function ResetPasswordForm() {
             <input
               type="password" required minLength={6} value={password} onChange={e => setPassword(e.target.value)}
               autoComplete="new-password"
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
               placeholder="At least 6 characters"
             />
           </div>
@@ -139,14 +139,14 @@ function ResetPasswordForm() {
             <input
               type="password" required minLength={6} value={password2} onChange={e => setPassword2(e.target.value)}
               autoComplete="new-password"
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
               placeholder="Type it again"
             />
           </div>
           {error && <p className="text-red-500 text-sm">{error}</p>}
           <button
             type="submit" disabled={status === 'updating'}
-            className="w-full bg-blue-700 text-white font-semibold py-2 rounded-lg hover:bg-blue-800 transition-colors disabled:opacity-60"
+            className="w-full bg-brand-700 text-white font-semibold py-2 rounded-lg hover:bg-brand-800 transition-colors disabled:opacity-60"
           >
             {status === 'updating' ? 'Updating…' : 'Update password'}
           </button>

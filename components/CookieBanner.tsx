@@ -24,7 +24,7 @@ export default function CookieBanner() {
     <div className="fixed bottom-0 left-0 right-0 bg-brand-950/95 backdrop-blur-md border-t border-white/10 p-4 shadow-2xl z-[999]">
       <div className="section-container flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="text-sm text-gray-300 leading-relaxed">
-          We use cookies to improve your experience, personalize content, and serve relevant ads. By continuing to use our site, you consent to our use of cookies as described in our <Link href="/cookie-policy" className="text-blue-400 hover:text-blue-300 underline underline-offset-2">Cookie Policy</Link> and <Link href="/privacy-policy" className="text-blue-400 hover:text-blue-300 underline underline-offset-2">Privacy Policy</Link>.
+          We use cookies to improve your experience, personalize content, and serve relevant ads. By continuing to use our site, you consent to our use of cookies as described in our <Link href="/cookie-policy" className="text-brand-400 hover:text-brand-300 underline underline-offset-2">Cookie Policy</Link> and <Link href="/privacy-policy" className="text-brand-400 hover:text-brand-300 underline underline-offset-2">Privacy Policy</Link>.
         </div>
         <button
           onClick={acceptCookies}

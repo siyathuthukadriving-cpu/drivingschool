@@ -52,7 +52,7 @@ const PROVINCE_META: Record<string, { title: string; description: string; keywor
 }
 
 const DEFAULT_META = {
-  title: "Find Your Nearest Learner's Licence Writing Centre (DLTC) | SK Driving",
+  title: "Find Your Nearest Learner's Licence Writing Centre (DLTC)",
   description: "Find the closest official learner's licence writing centre (DLTC) near you. View address, contact details, how to book, what to bring, and get directions to testing centres across all 9 provinces.",
   keywords: [
     'learners writing centre', 'a learners writing center', 'learners licence writing centre',
@@ -132,7 +132,7 @@ export default function CentersPage({
 
         {/* Hero */}
         <div className="text-center mb-10">
-          <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">
+          <span className="text-xs font-bold text-brand-600 uppercase tracking-widest">
             {validProvince ? validProvince : 'All 9 Provinces'}
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2 mb-3 leading-tight">
@@ -162,18 +162,18 @@ export default function CentersPage({
                 href={`/centers?province=${encodeURIComponent(p.name)}`}
                 className={`border rounded-xl p-4 transition-all ${
                   validProvince === p.name
-                    ? 'bg-blue-700 border-blue-700 text-white shadow'
-                    : 'bg-white border-gray-200 hover:border-blue-400 hover:shadow-sm'
+                    ? 'bg-brand-700 border-brand-700 text-white shadow'
+                    : 'bg-white border-gray-200 hover:border-brand-400 hover:shadow-sm'
                 }`}
               >
                 <p className={`font-semibold text-sm ${validProvince === p.name ? 'text-white' : 'text-gray-900'}`}>{p.name}</p>
-                <p className={`text-xs mt-0.5 truncate ${validProvince === p.name ? 'text-blue-100' : 'text-gray-400'}`}>{p.eg}</p>
+                <p className={`text-xs mt-0.5 truncate ${validProvince === p.name ? 'text-brand-100' : 'text-gray-400'}`}>{p.eg}</p>
               </Link>
             ))}
           </div>
           {validProvince && (
             <div className="text-center mt-4">
-              <Link href="/centers" className="text-sm text-blue-600 hover:underline">
+              <Link href="/centers" className="text-sm text-brand-600 hover:underline">
                 ← Show all provinces
               </Link>
             </div>
@@ -193,7 +193,7 @@ export default function CentersPage({
               { n: '5', title: 'Write your K53 test', body: 'The computerised test has 64 questions across Road Signs (28), Rules of the Road (28), and Vehicle Controls (8). You must pass all three sections.' },
             ].map(({ n, title, body }) => (
               <li key={n} className="flex items-start gap-3">
-                <span className="shrink-0 w-7 h-7 rounded-full bg-blue-700 text-white text-xs font-bold flex items-center justify-center">{n}</span>
+                <span className="shrink-0 w-7 h-7 rounded-full bg-brand-700 text-white text-xs font-bold flex items-center justify-center">{n}</span>
                 <div>
                   <p className="text-sm font-bold text-gray-900">{title}</p>
                   <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">{body}</p>
@@ -204,9 +204,9 @@ export default function CentersPage({
         </section>
 
         {/* About writing centres */}
-        <section className="mt-6 bg-blue-50 border border-blue-100 rounded-2xl p-6 text-sm text-blue-900">
+        <section className="mt-6 bg-brand-50 border border-brand-100 rounded-2xl p-6 text-sm text-brand-900">
           <h2 className="font-bold mb-2">About learner&apos;s licence writing centres (DLTCs)</h2>
-          <p className="text-blue-800 leading-relaxed">
+          <p className="text-brand-800 leading-relaxed">
             South Africa has over 190 official learner&apos;s licence writing centres — known as Driving Licence Testing Centres (DLTCs) — regulated under the National Road Traffic Act. Online booking via the{' '}
             <a href="https://online.natis.gov.za/#/auth/identify" target="_blank" rel="noopener noreferrer" className="underline font-semibold">
               eNaTIS portal
@@ -215,11 +215,11 @@ export default function CentersPage({
           </p>
         </section>
 
-        {/* Pitch SK Driving */}
+        {/* Pitch Sathuthuka */}
         <section className="mt-6 bg-green-50 border border-green-200 rounded-2xl p-5 flex flex-col sm:flex-row items-center gap-4">
           <div className="flex-1">
             <p className="text-sm font-bold text-green-900">Preparing for your writing centre test?</p>
-            <p className="text-xs text-green-700 mt-0.5">SK Driving is South Africa&apos;s #1 online K53 learners course. Our practice tests mirror the real DLTC exam — pass your learner&apos;s test first time.</p>
+            <p className="text-xs text-green-700 mt-0.5">Sathuthuka is South Africa&apos;s #1 online K53 learners course. Our practice tests mirror the real DLTC exam — pass your learner&apos;s test first time.</p>
           </div>
           <Link href="/courses" className="shrink-0 bg-green-600 text-white font-bold px-6 py-3 rounded-full hover:bg-green-700 transition-colors text-sm whitespace-nowrap">
             Start Free Practice Tests →
@@ -229,7 +229,7 @@ export default function CentersPage({
         {/* Final CTA */}
         <div className="mt-8 text-center">
           <p className="text-gray-600 mb-4 text-sm">Ready to prepare? Our practice tests mirror the real exam.</p>
-          <Link href="/courses" className="inline-block bg-blue-700 text-white font-bold px-10 py-4 rounded-full hover:bg-blue-800 transition-colors">
+          <Link href="/courses" className="inline-block bg-brand-700 text-white font-bold px-10 py-4 rounded-full hover:bg-brand-800 transition-colors">
             Start Practising Now →
           </Link>
         </div>

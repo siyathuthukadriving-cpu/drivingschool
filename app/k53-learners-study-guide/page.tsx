@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/school'
 
-const BASE_URL = 'https://www.skdriving.co.za'
+const BASE_URL = SITE_URL
 const PAGE_URL = `${BASE_URL}/k53-learners-study-guide`
 
 export const metadata: Metadata = {
@@ -21,14 +22,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'article',
     url: PAGE_URL,
-    title: 'Free K53 Learners Study Guide for South Africa | SK Driving',
+    title: 'Free K53 Learners Study Guide for South Africa | Sathuthuka Driving School',
     description:
-      "Study the K53 test sections, pass marks, licence categories and booking steps, then download SK Driving's free original PDF checklist.",
+      "Study the K53 test sections, pass marks, licence categories and booking steps, then download Sathuthuka's free original PDF checklist.",
   },
   twitter: {
     card: 'summary',
     title: 'Free K53 Learners Study Guide for South Africa',
-    description: 'Pass marks, categories, booking checklist, free PDF and practice tests from SK Driving.',
+    description: 'Pass marks, categories, booking checklist, free PDF and practice tests from Sathuthuka.',
   },
 }
 
@@ -36,7 +37,7 @@ const faqs = [
   {
     question: "Where can I get free K53 learner's licence study material in South Africa?",
     answer:
-      "SK Driving provides this free online K53 study guide, an original downloadable summary PDF and interactive practice tests covering Rules of the Road, Road Traffic Signs and Vehicle Controls.",
+      "Sathuthuka provides this free online K53 study guide, an original downloadable summary PDF and interactive practice tests covering Rules of the Road, Road Traffic Signs and Vehicle Controls.",
   },
   {
     question: "What are the pass marks for the K53 learner's licence test?",
@@ -73,8 +74,8 @@ const webPageSchema = {
     "A free guide to South Africa's K53 learner's licence test, including pass marks, licence categories, booking steps and study resources.",
   inLanguage: 'en-ZA',
   dateModified: '2026-07-16',
-  isPartOf: { '@type': 'WebSite', name: 'SK Driving', url: BASE_URL },
-  publisher: { '@type': 'Organization', name: 'SK Driving', url: BASE_URL },
+  isPartOf: { '@type': 'WebSite', name: 'Sathuthuka', url: BASE_URL },
+  publisher: { '@type': 'Organization', name: 'Sathuthuka', url: BASE_URL },
 }
 
 const faqSchema = {
@@ -94,9 +95,9 @@ export default function K53StudyGuidePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <header className="bg-blue-700 px-4 py-14 text-white sm:px-6 sm:py-20">
+      <header className="bg-brand-700 px-4 py-14 text-white sm:px-6 sm:py-20">
         <div className="mx-auto max-w-4xl">
-          <nav aria-label="Breadcrumb" className="mb-6 text-sm text-blue-100">
+          <nav aria-label="Breadcrumb" className="mb-6 text-sm text-brand-100">
             <Link href="/" className="hover:text-white hover:underline">Home</Link>
             <span aria-hidden="true" className="mx-2">/</span>
             <span aria-current="page">K53 study guide</span>
@@ -105,24 +106,24 @@ export default function K53StudyGuidePage() {
           <h1 className="max-w-3xl text-3xl font-extrabold leading-tight sm:text-5xl">
             Free K53 Learners Study Guide for South Africa
           </h1>
-          <p className="mt-5 max-w-3xl text-lg leading-relaxed text-blue-100">
+          <p className="mt-5 max-w-3xl text-lg leading-relaxed text-brand-100">
             Learn the three test sections, exact pass requirements, licence categories and booking steps.
             Then use the free PDF summary and exam-style practice tests to prepare.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href="/downloads/sk-driving-free-k53-learners-study-guide.pdf"
+              href="/downloads/sathuthuka-free-k53-learners-study-guide.pdf"
               download
-              className="rounded-full bg-yellow-300 px-6 py-3 text-center font-bold text-blue-950 hover:bg-yellow-200"
+              className="rounded-full bg-yellow-300 px-6 py-3 text-center font-bold text-brand-950 hover:bg-yellow-200"
             >
-              Download the SK Driving Free K53 Learners Study Guide PDF
+              Download the Sathuthuka Free K53 Learners Study Guide PDF
             </a>
-            <Link href="/courses" className="rounded-full border-2 border-blue-300 px-6 py-3 text-center font-bold hover:bg-blue-600">
+            <Link href="/courses" className="rounded-full border-2 border-brand-300 px-6 py-3 text-center font-bold hover:bg-brand-600">
               Start free practice tests
             </Link>
           </div>
-          <p className="mt-4 text-xs text-blue-200">
-            Original SK Driving summary — not a copy of a commercial K53 book.
+          <p className="mt-4 text-xs text-brand-200">
+            Original Sathuthuka summary — not a copy of a commercial K53 book.
           </p>
         </div>
       </header>
@@ -160,7 +161,7 @@ export default function K53StudyGuidePage() {
           <div className="mt-6 overflow-x-auto rounded-2xl border border-gray-200">
             <table className="w-full border-collapse text-left text-sm">
               <caption className="sr-only">South African learner&apos;s licence test questions and minimum pass scores</caption>
-              <thead className="bg-blue-50 text-blue-950">
+              <thead className="bg-brand-50 text-brand-950">
                 <tr>
                   <th scope="col" className="px-5 py-4 font-bold">Test section</th>
                   <th scope="col" className="px-5 py-4 font-bold">Questions</th>
@@ -220,23 +221,23 @@ export default function K53StudyGuidePage() {
             <li className="list-decimal pl-2 leading-7"><strong className="text-gray-900">Pay the issue fee after passing.</strong> Booking and issue fees vary by DLTC or municipality; contact the centre for the current amount.</li>
           </ol>
           <div className="mt-6 flex flex-wrap gap-3">
-            <a href="https://online.natis.gov.za/" target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-700 hover:underline">Open the official eNaTIS portal</a>
+            <a href="https://online.natis.gov.za/" target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-700 hover:underline">Open the official eNaTIS portal</a>
             <span aria-hidden="true" className="text-gray-300">•</span>
-            <Link href="/centers" className="font-semibold text-blue-700 hover:underline">Find a learner&apos;s licence testing centre near you</Link>
+            <Link href="/centers" className="font-semibold text-brand-700 hover:underline">Find a learner&apos;s licence testing centre near you</Link>
           </div>
         </section>
 
-        <section aria-labelledby="study-next" className="mt-14 rounded-3xl bg-blue-50 p-6 sm:p-8">
+        <section aria-labelledby="study-next" className="mt-14 rounded-3xl bg-brand-50 p-6 sm:p-8">
           <h2 id="study-next" className="text-2xl font-extrabold text-gray-900">Where to study next</h2>
           <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-            <li><Link href="/courses" className="block rounded-xl bg-white p-4 font-bold text-blue-700 shadow-sm hover:underline">Take K53 practice tests online</Link></li>
-            <li><Link href="/live-notes" className="block rounded-xl bg-white p-4 font-bold text-blue-700 shadow-sm hover:underline">Read K53 road signs and rules notes</Link></li>
-            <li><Link href="/videos" className="block rounded-xl bg-white p-4 font-bold text-blue-700 shadow-sm hover:underline">Watch K53 study videos</Link></li>
-            <li><Link href="/pricing" className="block rounded-xl bg-white p-4 font-bold text-blue-700 shadow-sm hover:underline">View SK Driving lesson and study packages</Link></li>
+            <li><Link href="/courses" className="block rounded-xl bg-white p-4 font-bold text-brand-700 shadow-sm hover:underline">Take K53 practice tests online</Link></li>
+            <li><Link href="/live-notes" className="block rounded-xl bg-white p-4 font-bold text-brand-700 shadow-sm hover:underline">Read K53 road signs and rules notes</Link></li>
+            <li><Link href="/videos" className="block rounded-xl bg-white p-4 font-bold text-brand-700 shadow-sm hover:underline">Watch K53 study videos</Link></li>
+            <li><Link href="/pricing" className="block rounded-xl bg-white p-4 font-bold text-brand-700 shadow-sm hover:underline">View Sathuthuka lesson and study packages</Link></li>
           </ul>
           <p className="mt-6 leading-7 text-gray-700">
             If you are ready to prepare with the complete platform, view our{' '}
-            <Link href="/pricing" className="font-bold text-blue-700 hover:underline">SK Driving access packages</Link>.
+            <Link href="/pricing" className="font-bold text-brand-700 hover:underline">Sathuthuka access packages</Link>.
           </p>
         </section>
 
@@ -256,9 +257,9 @@ export default function K53StudyGuidePage() {
           <h2 id="sources" className="text-lg font-bold text-gray-900">Official sources and review date</h2>
           <p className="mt-3 text-sm leading-6 text-gray-600">This guide was reviewed on 16 July 2026. Requirements can change, so confirm local fees and photo requirements with your DLTC.</p>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600">
-            <li><a href="https://www.gov.za/services/driving-licence/apply-learners-licence" target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:underline">South African Government: Apply for a learner&apos;s licence</a></li>
-            <li><a href="https://www.natis.gov.za/images/learners/1_Rules_of_the_Road_v100_Jun_2012.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:underline">Department of Transport: SA Learner Driver Manual — Rules of the Road</a></li>
-            <li><a href="https://www.gov.za/sites/default/files/gcis_document/201409/28446b.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:underline">National Road Traffic Regulations: learner&apos;s licence testing requirements</a></li>
+            <li><a href="https://www.gov.za/services/driving-licence/apply-learners-licence" target="_blank" rel="noopener noreferrer" className="text-brand-700 hover:underline">South African Government: Apply for a learner&apos;s licence</a></li>
+            <li><a href="https://www.natis.gov.za/images/learners/1_Rules_of_the_Road_v100_Jun_2012.pdf" target="_blank" rel="noopener noreferrer" className="text-brand-700 hover:underline">Department of Transport: SA Learner Driver Manual — Rules of the Road</a></li>
+            <li><a href="https://www.gov.za/sites/default/files/gcis_document/201409/28446b.pdf" target="_blank" rel="noopener noreferrer" className="text-brand-700 hover:underline">National Road Traffic Regulations: learner&apos;s licence testing requirements</a></li>
           </ul>
         </section>
       </article>

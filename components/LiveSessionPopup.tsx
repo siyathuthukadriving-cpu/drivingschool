@@ -76,8 +76,8 @@ export default function LiveSessionPopup() {
           <svg viewBox="0 0 20 20" className="w-5 h-5 fill-current" aria-hidden="true"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" /></svg>
         </button>
 
-        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-indigo-100 mb-4">
-          <svg viewBox="0 0 24 24" className="w-8 h-8 text-indigo-600 fill-current" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-100 mb-4">
+          <svg viewBox="0 0 24 24" className="w-8 h-8 text-brand-600 fill-current" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
         </div>
         <h2 className="text-2xl font-extrabold text-gray-900 mb-2">Watch Learner&apos;s Licence Videos</h2>
         <p className="text-sm text-gray-600 mb-1">
@@ -90,7 +90,7 @@ export default function LiveSessionPopup() {
           target="_blank"
           rel="noopener noreferrer"
           onClick={dismiss}
-          className="block w-full bg-indigo-600 text-white font-bold py-3.5 rounded-xl hover:bg-indigo-700 transition-all duration-200 shadow-sm hover:shadow-md active:scale-[0.98]"
+          className="block w-full bg-brand-600 text-white font-bold py-3.5 rounded-xl hover:bg-brand-700 transition-all duration-200 shadow-sm hover:shadow-md active:scale-[0.98]"
         >
           Watch Learner&apos;s Licence Videos
         </a>

@@ -23,12 +23,12 @@ export default function QuizPaywall({ courseId }: { courseId: number }) {
       <div className="bg-white rounded-2xl shadow-xl max-w-md w-full overflow-hidden">
 
         {/* Header */}
-        <div className="bg-blue-700 text-white px-8 py-6 text-center">
+        <div className="bg-brand-700 text-white px-8 py-6 text-center">
           <div className="text-4xl mb-2">⏱️</div>
           <h1 className="text-2xl font-extrabold mb-1">Your free preview has ended</h1>
-          <p className="text-blue-200 text-sm">
+          <p className="text-brand-200 text-sm">
             Get full access for{' '}
-            <span className="line-through text-blue-300 mr-1">{ACCESS_PRICE_ORIGINAL}</span>
+            <span className="line-through text-brand-300 mr-1">{ACCESS_PRICE_ORIGINAL}</span>
             <strong className="text-white text-lg">{ACCESS_PRICE}</strong>
             {' '}· {ACCESS_DURATION_DAYS} days
           </p>
@@ -76,7 +76,7 @@ export default function QuizPaywall({ courseId }: { courseId: number }) {
           <div className="flex gap-3 mt-3">
             <Link
               href="/login"
-              className="flex-1 text-center text-blue-700 font-semibold py-2.5 rounded-xl border border-blue-200 hover:bg-blue-50 transition-colors text-sm"
+              className="flex-1 text-center text-brand-700 font-semibold py-2.5 rounded-xl border border-brand-200 hover:bg-brand-50 transition-colors text-sm"
             >
               Log in
             </Link>

@@ -33,6 +33,7 @@ import {
 } from '@/lib/contact'
 import { mintCodeForCheckout, type MintedCode } from '@/lib/access-codes'
 import { sendAccessCodeEmail } from '@/lib/access-code-email'
+import { SITE_URL } from '@/lib/school'
 
 type AdminClient = ReturnType<typeof createAdminClient>
 
@@ -59,7 +60,7 @@ async function deliverAccessCode(admin: AdminClient, userId: string, minted: Min
       to: email,
       code: minted.code,
       durationDays: minted.durationDays,
-      baseUrl: process.env.NEXT_PUBLIC_BASE_URL ?? 'https://www.skdriving.co.za',
+      baseUrl: process.env.NEXT_PUBLIC_BASE_URL ?? SITE_URL,
     })
     if (result.sent) {
       await admin.from('access_codes')

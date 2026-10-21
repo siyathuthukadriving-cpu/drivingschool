@@ -94,7 +94,7 @@ export default function SubscribeSuccessPage() {
             <LiveSessionCard className="mb-5" />
 
             <div className="flex flex-col gap-3">
-              <Link href="/courses" className="block bg-blue-700 text-white font-bold py-3 rounded-xl hover:bg-blue-800 transition-colors">Start practising →</Link>
+              <Link href="/courses" className="block bg-brand-700 text-white font-bold py-3 rounded-xl hover:bg-brand-800 transition-colors">Start practising →</Link>
               <Link href="/live-notes" className="block border-2 border-gray-200 text-gray-600 font-semibold py-3 rounded-xl hover:border-gray-400 transition-colors">Go to Live Notes</Link>
             </div>
           </>
@@ -107,7 +107,7 @@ export default function SubscribeSuccessPage() {
               Your session expired while you were paying. Log in with the email you used to pay and your access will be unlocked automatically.
             </p>
             <div className="flex flex-col gap-3">
-              <Link href="/login?next=/subscribe/success" className="block w-full bg-blue-700 text-white font-bold py-3 rounded-xl hover:bg-blue-800 transition-colors text-center">Log in to unlock access</Link>
+              <Link href="/login?next=/subscribe/success" className="block w-full bg-brand-700 text-white font-bold py-3 rounded-xl hover:bg-brand-800 transition-colors text-center">Log in to unlock access</Link>
               <a href={WHATSAPP_QUERIES_URL} target="_blank" rel="noopener noreferrer" className="block w-full bg-green-600 text-white font-bold py-3 rounded-xl hover:bg-green-700 transition-colors text-center">
                 WhatsApp us about my payment
               </a>
@@ -130,8 +130,8 @@ export default function SubscribeSuccessPage() {
               account you sign in to, in case you have more than one.
             </p>
             <div className="flex flex-col gap-3">
-              <button onClick={() => { attempts.current = 0; setGrantError(''); setStatus('confirming'); confirm() }} className="block w-full bg-blue-700 text-white font-bold py-3 rounded-xl hover:bg-blue-800 transition-colors">Unlock my access</button>
-              <Link href="/access-code" className="block border-2 border-blue-200 text-blue-700 font-semibold py-3 rounded-xl hover:border-blue-400 transition-colors text-center">I have an access code</Link>
+              <button onClick={() => { attempts.current = 0; setGrantError(''); setStatus('confirming'); confirm() }} className="block w-full bg-brand-700 text-white font-bold py-3 rounded-xl hover:bg-brand-800 transition-colors">Unlock my access</button>
+              <Link href="/access-code" className="block border-2 border-brand-200 text-brand-700 font-semibold py-3 rounded-xl hover:border-brand-400 transition-colors text-center">I have an access code</Link>
               <Link href="/courses" className="block border-2 border-gray-200 text-gray-600 font-semibold py-3 rounded-xl hover:border-gray-400 transition-colors text-center">Go to courses</Link>
               <a href={WHATSAPP_QUERIES_URL} target="_blank" rel="noopener noreferrer" className="block w-full text-sm text-gray-500 hover:text-gray-700 underline underline-offset-2 py-1 text-center">
                 Still stuck after an hour? Message us

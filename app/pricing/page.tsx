@@ -7,11 +7,12 @@ import {
   WHATSAPP_URL, WHATSAPP_QUERIES_URL, ACCESS_PRICE, ACCESS_PRICE_ORIGINAL,
   ACCESS_DISCOUNT_LABEL, ACCESS_DURATION_DAYS,
 } from '@/lib/contact'
+import { SITE_URL } from '@/lib/school'
 
 export const metadata = {
   title: 'Get Full Access — K53 Learner\'s',
   description: 'Unlock unlimited K53 practice tests, Live Notes, resources and videos.',
-  alternates: { canonical: 'https://www.skdriving.co.za/pricing' },
+  alternates: { canonical: `${SITE_URL}/pricing` },
 }
 
 const FEATURES = [
@@ -25,13 +26,13 @@ const FEATURES = [
 const productSchema = {
   '@context': 'https://schema.org',
   '@type': 'Product',
-  name: 'SK Driving K53 Full Access',
+  name: 'Sathuthuka K53 Full Access',
   description: `Unlimited K53 practice tests, study notes, resources and videos for ${ACCESS_DURATION_DAYS} days.`,
-  brand: { '@type': 'Brand', name: 'SK Driving' },
-  url: 'https://www.skdriving.co.za/pricing',
+  brand: { '@type': 'Brand', name: 'Sathuthuka' },
+  url: `${SITE_URL}/pricing`,
   offers: {
     '@type': 'Offer',
-    url: 'https://www.skdriving.co.za/pricing',
+    url: `${SITE_URL}/pricing`,
     priceCurrency: 'ZAR',
     price: '99.00',
     availability: 'https://schema.org/InStock',
@@ -68,15 +69,15 @@ export default async function PricingPage({
   return (
     <main className="bg-gray-50 min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
-      <div className="bg-blue-700 text-white py-14 px-4 text-center">
-        <span className="text-xs font-bold tracking-widest uppercase text-blue-200 block mb-3">SK Driving</span>
+      <div className="bg-brand-700 text-white py-14 px-4 text-center">
+        <span className="text-xs font-bold tracking-widest uppercase text-brand-200 block mb-3">Sathuthuka</span>
         <h1 className="text-3xl sm:text-4xl font-extrabold mb-3 leading-tight">Prepare to Pass Your K53 the First Time</h1>
-        <p className="text-blue-100 text-base sm:text-lg max-w-xl mx-auto">
+        <p className="text-brand-100 text-base sm:text-lg max-w-xl mx-auto">
           Try any test free for 2 minutes. Unlock everything for{' '}
           <span className="line-through opacity-60 mr-1">{ACCESS_PRICE_ORIGINAL}</span>
           <span className="font-extrabold text-white">{ACCESS_PRICE}</span>.
         </p>
-        <span className="inline-block mt-3 bg-yellow-300 text-blue-900 text-xs font-extrabold tracking-wide uppercase px-3 py-1 rounded-full">
+        <span className="inline-block mt-3 bg-yellow-300 text-brand-900 text-xs font-extrabold tracking-wide uppercase px-3 py-1 rounded-full">
           Special · {ACCESS_DISCOUNT_LABEL}
         </span>
       </div>
@@ -88,17 +89,17 @@ export default async function PricingPage({
             <p className="mt-1">Complete payment below to activate premium access. Signing in alone does not unlock paid features.</p>
           </div>
         )}
-        <div className="relative bg-white rounded-2xl border-2 border-blue-600 shadow-lg p-7">
+        <div className="relative bg-white rounded-2xl border-2 border-brand-600 shadow-lg p-7">
           {/* Discount ribbon */}
           <span className="absolute -top-3 right-5 bg-red-600 text-white text-xs font-extrabold tracking-wider uppercase px-3 py-1 rounded-full shadow">
             {ACCESS_DISCOUNT_LABEL}
           </span>
 
           <div className="text-center mb-5">
-            <div className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-1">Full Access</div>
+            <div className="text-xs font-bold text-brand-600 uppercase tracking-widest mb-1">Full Access</div>
             <div className="flex items-end justify-center gap-2">
               <span className="text-2xl font-semibold text-gray-400 line-through mb-1">{ACCESS_PRICE_ORIGINAL}</span>
-              <span className="text-4xl font-extrabold text-blue-700">{ACCESS_PRICE}</span>
+              <span className="text-4xl font-extrabold text-brand-700">{ACCESS_PRICE}</span>
               <span className="text-sm text-gray-400 mb-1">/ {durationDays} days</span>
             </div>
             <p className="text-xs font-semibold text-red-600 mt-1">
@@ -135,7 +136,7 @@ export default async function PricingPage({
             Pay via WhatsApp instead
           </a>
 
-          <Link href="/login?next=/pricing%3Fpay%3D1" className="block text-center text-blue-700 font-semibold py-3 mt-1 hover:underline text-sm">
+          <Link href="/login?next=/pricing%3Fpay%3D1" className="block text-center text-brand-700 font-semibold py-3 mt-1 hover:underline text-sm">
             Already have an account? Log in
           </Link>
 

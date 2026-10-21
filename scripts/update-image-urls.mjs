@@ -3,9 +3,9 @@
  * Run once:  node scripts/update-image-urls.mjs
  */
 
-const SUPABASE_URL = 'https://wzqgjzqylkbwyvzyzywu.supabase.co'
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL
 const SERVICE_KEY  = process.env.SUPABASE_SERVICE_ROLE_KEY ?? ''
-const BASE         = 'https://wzqgjzqylkbwyvzyzywu.supabase.co/storage/v1/object/public/resources/code8/test2/images'
+const BASE         = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/resources/code8/test2/images`
 
 const headers = {
   'Content-Type':  'application/json',

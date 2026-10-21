@@ -19,6 +19,7 @@ import { REF_COOKIE } from '@/lib/referral'
 import { attributionMetadata, resolveAffiliateAttribution } from '@/lib/affiliate-attribution'
 import { ACCESS_PRICE_CENTS } from '@/lib/contact'
 import { accessDurationDaysFor } from '@/lib/entitlement'
+import { SITE_URL } from '@/lib/school'
 
 /**
  * The base URL Yoco redirects back to MUST match the domain the buyer is on,
@@ -36,7 +37,7 @@ function resolveBaseUrl(req: NextRequest): string {
     return `${proto}://${host}`
   }
   try { return req.nextUrl.origin } catch {}
-  return process.env.NEXT_PUBLIC_BASE_URL ?? 'https://www.skdriving.co.za'
+  return process.env.NEXT_PUBLIC_BASE_URL ?? SITE_URL
 }
 
 export async function POST(req: NextRequest) {

@@ -25,7 +25,7 @@ export default async function AccountPage() {
           <h1 className="text-xl font-bold text-gray-800 mb-2">Log in to view your account</h1>
           <Link
             href="/login"
-            className="mt-4 inline-block bg-blue-700 text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-blue-800 transition-colors"
+            className="mt-4 inline-block bg-brand-700 text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-brand-800 transition-colors"
           >
             Log in
           </Link>
@@ -55,7 +55,7 @@ export default async function AccountPage() {
   return (
     <main className="max-w-2xl mx-auto px-4 py-12 space-y-6">
       <div>
-        <h1 className="text-2xl font-extrabold text-blue-700">My account</h1>
+        <h1 className="text-2xl font-extrabold text-brand-700">My account</h1>
         <p className="text-sm text-gray-500 truncate">{user.email}</p>
       </div>
 
@@ -100,7 +100,7 @@ export default async function AccountPage() {
             {!lifetime && (
               <Link
                 href="/pricing"
-                className="mt-5 inline-block bg-blue-700 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-blue-800 transition-colors text-sm"
+                className="mt-5 inline-block bg-brand-700 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-800 transition-colors text-sm"
               >
                 Renew or upgrade
               </Link>
@@ -118,7 +118,7 @@ export default async function AccountPage() {
             </p>
             <Link
               href="/pricing"
-              className="inline-block bg-blue-700 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-blue-800 transition-colors text-sm"
+              className="inline-block bg-brand-700 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-800 transition-colors text-sm"
             >
               View access passes
             </Link>

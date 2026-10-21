@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { createClient } from '@/lib/supabase-browser'
+import { SCHOOL_EMAIL } from '@/lib/school'
 
 const PROVINCES = [
   'Gauteng', 'Western Cape', 'KwaZulu-Natal', 'Eastern Cape',
@@ -76,11 +77,11 @@ export default function TrainerRegisterForm() {
         <h2 className="text-2xl font-extrabold text-gray-900 mb-2">Application received!</h2>
         <p className="text-gray-500 text-sm mb-6 leading-relaxed">
           Your trainer account is pending activation. Please pay the R1,500 annual fee via Yoco and send your proof of payment to{' '}
-          <a href="mailto:support@skdriving.co.za" className="text-blue-600 underline">support@skdriving.co.za</a>.
+          <a href={`mailto:${SCHOOL_EMAIL}`} className="text-brand-600 underline">{SCHOOL_EMAIL}</a>.
           We&apos;ll activate your account within 24 hours.
         </p>
         <p className="text-sm text-gray-400">
-          Your trainer page will be at: <strong className="text-gray-700">skdriving.co.za/t/{slug}</strong>
+          Your trainer page will be at: <strong className="text-gray-700">/t/{slug}</strong>
         </p>
       </div>
     )
@@ -96,32 +97,32 @@ export default function TrainerRegisterForm() {
         <div>
           <label className="block text-xs font-semibold text-gray-700 mb-1">Full name *</label>
           <input value={name} onChange={e => handleNameChange(e.target.value)} required
-            className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500" />
         </div>
         <div>
           <label className="block text-xs font-semibold text-gray-700 mb-1">Phone number</label>
           <input value={phone} onChange={e => setPhone(e.target.value)} type="tel"
-            className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500" />
         </div>
       </div>
 
       <div>
         <label className="block text-xs font-semibold text-gray-700 mb-1">Email address *</label>
         <input value={email} onChange={e => setEmail(e.target.value)} type="email" required
-          className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500" />
       </div>
 
       <div>
         <label className="block text-xs font-semibold text-gray-700 mb-1">Password * (min 8 characters)</label>
         <input value={password} onChange={e => setPassword(e.target.value)} type="password" required minLength={8}
-          className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500" />
       </div>
 
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <label className="block text-xs font-semibold text-gray-700 mb-1">Province *</label>
           <select value={province} onChange={e => setProvince(e.target.value)} required
-            className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+            className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-brand-500">
             <option value="">Select province</option>
             {PROVINCES.map(p => <option key={p}>{p}</option>)}
           </select>
@@ -129,14 +130,14 @@ export default function TrainerRegisterForm() {
         <div>
           <label className="block text-xs font-semibold text-gray-700 mb-1">Learner price (R)</label>
           <input value={price} onChange={e => setPrice(e.target.value)} type="number" min="0" placeholder="e.g. 250"
-            className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500" />
         </div>
       </div>
 
       <div>
         <label className="block text-xs font-semibold text-gray-700 mb-1">Your page URL *</label>
-        <div className="flex items-center border border-gray-300 rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-blue-500">
-          <span className="px-3 py-3 text-sm text-gray-400 bg-gray-50 border-r border-gray-300">skdriving.co.za/t/</span>
+        <div className="flex items-center border border-gray-300 rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-brand-500">
+          <span className="px-3 py-3 text-sm text-gray-400 bg-gray-50 border-r border-gray-300">/t/</span>
           <input value={slug} onChange={e => setSlug(slugify(e.target.value))} required
             className="flex-1 px-3 py-3 text-sm focus:outline-none" placeholder="your-name" />
         </div>
@@ -145,11 +146,11 @@ export default function TrainerRegisterForm() {
       <div>
         <label className="block text-xs font-semibold text-gray-700 mb-1">Short bio (shown on your public page)</label>
         <textarea value={bio} onChange={e => setBio(e.target.value)} rows={3} placeholder="Tell learners about yourself and your experience…"
-          className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none" />
+          className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 resize-none" />
       </div>
 
       <button type="submit" disabled={loading}
-        className="w-full bg-blue-700 text-white font-bold py-4 rounded-xl hover:bg-blue-800 disabled:opacity-50 transition-colors">
+        className="w-full bg-brand-700 text-white font-bold py-4 rounded-xl hover:bg-brand-800 disabled:opacity-50 transition-colors">
         {loading ? 'Registering…' : 'Submit Application →'}
       </button>
 

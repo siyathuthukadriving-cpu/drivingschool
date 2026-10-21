@@ -69,13 +69,13 @@ export default async function CoursePage({ params }: Props) {
 
   return (
     <main className="max-w-3xl mx-auto px-6 py-12">
-      <Link href="/courses" className="text-blue-600 hover:underline text-sm font-medium mb-8 inline-block">
+      <Link href="/courses" className="text-brand-600 hover:underline text-sm font-medium mb-8 inline-block">
         ← Back to Practice Tests
       </Link>
 
       {/* Course header */}
       <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm mb-8">
-        <div className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">{c.code}</div>
+        <div className="text-xs font-bold text-brand-600 uppercase tracking-widest mb-3">{c.code}</div>
         <h1 className="text-3xl font-extrabold text-gray-900 mb-3">{c.title}</h1>
         <p className="text-gray-500 leading-relaxed">{c.description}</p>
       </div>
@@ -92,15 +92,15 @@ export default async function CoursePage({ params }: Props) {
             <Link
               key={t.number}
               href={t.href}
-              className="flex items-center justify-between p-4 rounded-xl border-2 border-gray-200 hover:border-blue-500 hover:bg-blue-50 transition-all group"
+              className="flex items-center justify-between p-4 rounded-xl border-2 border-gray-200 hover:border-brand-500 hover:bg-brand-50 transition-all group"
             >
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="font-semibold text-gray-900 group-hover:text-blue-700">
+                  <span className="font-semibold text-gray-900 group-hover:text-brand-700">
                     Test {t.number}
                   </span>
                   {t.badge && (
-                    <span className="text-xs font-bold bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">
+                    <span className="text-xs font-bold bg-brand-100 text-brand-700 px-2 py-0.5 rounded-full">
                       {t.badge}
                     </span>
                   )}
@@ -109,7 +109,7 @@ export default async function CoursePage({ params }: Props) {
                   {t.count} questions · {t.label} · {t.passInfo}
                 </div>
               </div>
-              <div className="bg-blue-600 text-white text-sm font-bold px-4 py-2 rounded-lg group-hover:bg-blue-700 transition-colors shrink-0">
+              <div className="bg-brand-600 text-white text-sm font-bold px-4 py-2 rounded-lg group-hover:bg-brand-700 transition-colors shrink-0">
                 Start →
               </div>
             </Link>

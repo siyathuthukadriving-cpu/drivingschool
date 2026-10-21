@@ -96,7 +96,7 @@ export function DriveCard({ fileId, index, url }: DriveCardProps) {
         ) : (
           <button
             onClick={() => setPlaying(true)}
-            className="absolute inset-0 w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 focus:outline-none"
+            className="absolute inset-0 w-full h-full bg-gradient-to-br from-brand-600 to-brand-800 focus:outline-none"
             aria-label={`Play Google Drive video ${index + 1}`}
           >
             {/* Grid pattern background */}
@@ -135,14 +135,14 @@ export function DriveCard({ fileId, index, url }: DriveCardProps) {
 
       <div className="px-4 py-3 flex items-center justify-between">
         <div>
-          <span className="text-xs font-bold text-blue-500 uppercase tracking-wide">Google Drive</span>
+          <span className="text-xs font-bold text-brand-500 uppercase tracking-wide">Google Drive</span>
           <p className="text-sm font-semibold text-gray-800 mt-0.5">Video {index + 1}</p>
         </div>
         <a
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-xs font-semibold text-blue-600 hover:text-blue-800 hover:underline"
+          className="text-xs font-semibold text-brand-600 hover:text-brand-800 hover:underline"
         >
           Open ↗
         </a>

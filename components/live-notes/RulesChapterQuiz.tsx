@@ -44,7 +44,7 @@ export default function RulesChapterQuiz({ questions, chapterSlug }: { questions
     const base = 'w-full text-left px-4 py-3 rounded-xl border-2 transition-all flex items-start gap-3 text-sm'
     const selected = answers[qi] === key
     if (!submitted) {
-      return `${base} ${selected ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white hover:border-blue-300'} cursor-pointer`
+      return `${base} ${selected ? 'border-accent-500 bg-accent-100' : 'border-gray-200 bg-white hover:border-accent-300'} cursor-pointer`
     }
     if (key === q.answer) return `${base} border-green-500 bg-green-50 cursor-default`
     if (selected) return `${base} border-red-400 bg-red-50 cursor-default`
@@ -72,7 +72,7 @@ export default function RulesChapterQuiz({ questions, chapterSlug }: { questions
                   <span className={`shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold ${
                     submitted && key === q.answer ? 'border-green-500 bg-green-500 text-white'
                       : submitted && answers[qi] === key ? 'border-red-400 bg-red-400 text-white'
-                      : answers[qi] === key ? 'border-blue-500 text-blue-600' : 'border-gray-300 text-gray-500'
+                      : answers[qi] === key ? 'border-accent-500 text-accent-600' : 'border-gray-300 text-gray-500'
                   }`}>{key}</span>
                   <span className="pt-0.5">{q.options[key]}</span>
                 </button>
@@ -92,7 +92,7 @@ export default function RulesChapterQuiz({ questions, chapterSlug }: { questions
         <button
           onClick={submit}
           disabled={answeredCount < total}
-          className="mt-5 w-full bg-blue-700 text-white font-bold py-3.5 rounded-xl hover:bg-blue-800 transition-colors disabled:opacity-50"
+          className="mt-5 w-full bg-brand-700 text-white font-bold py-3.5 rounded-xl hover:bg-brand-800 transition-colors disabled:opacity-50"
         >
           {answeredCount < total ? `Answer all questions (${answeredCount}/${total})` : 'Submit answers'}
         </button>

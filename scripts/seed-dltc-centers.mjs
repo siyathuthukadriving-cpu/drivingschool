@@ -6,7 +6,7 @@
  * proximity ranking without needing any external geocoding API.
  */
 
-const SUPABASE_URL = 'https://wzqgjzqylkbwyvzyzywu.supabase.co'
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL
 const SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY
 
 if (!SERVICE_ROLE_KEY) {

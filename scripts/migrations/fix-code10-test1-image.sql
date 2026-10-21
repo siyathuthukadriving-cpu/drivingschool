@@ -8,7 +8,7 @@
 -- Fix the broken image URL for Q18 (id = 187)
 -- "When the main traffic signal light is red and a red arrow flashes to the left..."
 UPDATE quiz_questions
-SET image_url = 'https://wzqgjzqylkbwyvzyzywu.supabase.co/storage/v1/object/public/resources/code10/test 1/C10.14,img.png'
+SET image_url = 'https://tbxguxaxitpwyyvsavmd.supabase.co/storage/v1/object/public/resources/code10/test 1/C10.14,img.png'
 WHERE id = 187
   AND image_url LIKE '%C10.14.img.png%';
 

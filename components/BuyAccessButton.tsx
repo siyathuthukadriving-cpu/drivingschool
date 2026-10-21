@@ -107,7 +107,7 @@ export default function BuyAccessButton({
       <button
         onClick={pay}
         disabled={loading}
-        className="flex items-center justify-center gap-2 w-full bg-blue-700 text-white font-bold py-3.5 rounded-xl hover:bg-blue-800 transition-colors disabled:opacity-60"
+        className="flex items-center justify-center gap-2 w-full bg-brand-700 text-white font-bold py-3.5 rounded-xl hover:bg-brand-800 transition-colors disabled:opacity-60"
       >
         {loading ? (
           'Redirecting to payment…'

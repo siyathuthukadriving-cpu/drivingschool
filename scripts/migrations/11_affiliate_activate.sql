@@ -1,5 +1,5 @@
 -- ================================================================
--- SK Driving — Affiliate Programme (activate, 30% + bank details)
+-- Sathuthuka Driving School — Affiliate Programme (activate, 30% + bank details)
 -- Run in: Supabase Dashboard → SQL Editor → New Query → Run
 --
 -- Affiliates self-register (name, email, bank details), get a unique referral

@@ -28,7 +28,7 @@ export default function LockedContent({
             <span className="text-green-600">✓</span>
             <span>
               <span className="line-through text-gray-400 mr-1">{ACCESS_PRICE_ORIGINAL}</span>
-              <strong className="text-blue-700">{ACCESS_PRICE}</strong>
+              <strong className="text-brand-700">{ACCESS_PRICE}</strong>
               {' '}· {ACCESS_DURATION_DAYS} days full access
             </span>
           </li>
@@ -55,7 +55,7 @@ export default function LockedContent({
           Pay via WhatsApp instead
         </a>
 
-        <Link href="/login" className="block w-full text-blue-700 font-semibold py-3 mt-2 hover:underline text-sm">
+        <Link href="/login" className="block w-full text-brand-700 font-semibold py-3 mt-2 hover:underline text-sm">
           Already have an account? Log in
         </Link>
       </div>

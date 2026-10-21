@@ -1,5 +1,5 @@
 -- Code 10 Test 2 — 54 questions with correct answers verified from Word doc memo
--- Run this in Supabase SQL Editor: https://supabase.com/dashboard/project/wzqgjzqylkbwyvzyzywu/sql/new
+-- Run this in Supabase SQL Editor: https://supabase.com/dashboard/project/tbxguxaxitpwyyvsavmd/sql/new
 
 -- Clear existing Test 2 questions first
 DELETE FROM quiz_questions WHERE course_id = 3 AND test_number = 2;

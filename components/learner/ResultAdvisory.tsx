@@ -49,13 +49,13 @@ export default function ResultAdvisory(props: Props) {
       <section className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-900">
         <h2 className="font-bold">Your result is ready</h2>
         <p className="mt-1">{error}</p>
-        {loginRequired && <Link href="/login" className="mt-3 inline-block font-bold text-blue-700 hover:underline">Log in to track progress →</Link>}
+        {loginRequired && <Link href="/login" className="mt-3 inline-block font-bold text-brand-700 hover:underline">Log in to track progress →</Link>}
       </section>
     )
   }
 
   return (
-    <section className="rounded-2xl border border-blue-100 bg-white p-5 text-sm text-gray-500" aria-live="polite">
+    <section className="rounded-2xl border border-brand-100 bg-white p-5 text-sm text-gray-500" aria-live="polite">
       Saving your result and preparing your next step…
     </section>
   )

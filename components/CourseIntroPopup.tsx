@@ -37,41 +37,41 @@ export default function CourseIntroPopup() {
 
       <div className="relative bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden animate-[fadeIn_0.2s_ease-out]">
         {/* header band */}
-        <div className="bg-blue-700 text-white px-7 pt-7 pb-6 text-center relative">
+        <div className="bg-brand-700 text-white px-7 pt-7 pb-6 text-center relative">
           <button
             onClick={dismiss}
             aria-label="Close"
-            className="absolute top-3 right-4 text-blue-200 hover:text-white text-2xl leading-none"
+            className="absolute top-3 right-4 text-brand-200 hover:text-white text-2xl leading-none"
           >×</button>
-          <span className="inline-block bg-white/15 text-blue-100 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
+          <span className="inline-block bg-white/15 text-brand-100 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
             Welcome
           </span>
           <div className="text-5xl mb-2">🎯</div>
           <h2 className="text-2xl font-extrabold mb-1">Get the best out of this course</h2>
-          <p className="text-sm text-blue-100">A 2-minute plan to pass your learner&apos;s test first time</p>
+          <p className="text-sm text-brand-100">A 2-minute plan to pass your learner&apos;s test first time</p>
         </div>
 
         {/* body */}
         <div className="px-7 py-6">
           <ol className="space-y-3 text-sm text-gray-700 mb-5">
             <li className="flex gap-3">
-              <span className="shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center">1</span>
+              <span className="shrink-0 w-6 h-6 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">1</span>
               <span><strong>Watch the intro video</strong> — it shows exactly how to use the course.</span>
             </li>
             <li className="flex gap-3">
-              <span className="shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center">2</span>
+              <span className="shrink-0 w-6 h-6 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">2</span>
               <span><strong>Do all 3 practice tests</strong> for your licence code — don&apos;t skip any.</span>
             </li>
             <li className="flex gap-3">
-              <span className="shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center">3</span>
+              <span className="shrink-0 w-6 h-6 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">3</span>
               <span><strong>Aim for 85%+</strong> before booking your test — the pass mark is 75%, give yourself margin.</span>
             </li>
             <li className="flex gap-3">
-              <span className="shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center">4</span>
+              <span className="shrink-0 w-6 h-6 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">4</span>
               <span><strong>Retake the ones you fail</strong> — read the explanation on every wrong answer.</span>
             </li>
             <li className="flex gap-3">
-              <span className="shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center">5</span>
+              <span className="shrink-0 w-6 h-6 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">5</span>
               <span><strong>Join the 7pm live session</strong> for last-minute questions the night before.</span>
             </li>
           </ol>
@@ -81,7 +81,7 @@ export default function CourseIntroPopup() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={dismiss}
-            className="block w-full bg-blue-600 text-white font-bold py-3 rounded-xl hover:bg-blue-700 transition-colors text-center"
+            className="block w-full bg-brand-600 text-white font-bold py-3 rounded-xl hover:bg-brand-700 transition-colors text-center"
           >
             Watch the intro video →
           </a>

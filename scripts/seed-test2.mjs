@@ -3,7 +3,7 @@
  * Run once:  node scripts/seed-test2.mjs
  */
 
-const SUPABASE_URL = 'https://wzqgjzqylkbwyvzyzywu.supabase.co'
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL
 const ANON_KEY     = process.env.SUPABASE_SERVICE_ROLE_KEY ?? ''
 
 // Image base path served from Next.js public folder

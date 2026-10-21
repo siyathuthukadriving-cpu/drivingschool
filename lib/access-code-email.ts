@@ -13,7 +13,7 @@ export interface AccessCodeEmailParams {
   to: string
   code: string
   durationDays: number
-  /** Origin of the site the buyer paid on, e.g. https://www.skdriving.co.za */
+  /** Origin of the site the buyer paid on, e.g. https://your-domain */
   baseUrl: string
 }
 
@@ -36,7 +36,7 @@ export function accessCodeEmailText({ code, durationDays, baseUrl }: Omit<Access
     '',
     'Still stuck? Reply to this email or message us on WhatsApp and we will sort it out.',
     '',
-    'SK Driving',
+    'Sathuthuka',
   ].join('\n')
 }
 
@@ -73,7 +73,7 @@ export async function sendAccessCodeEmail(params: AccessCodeEmailParams): Promis
   const { to, ...rest } = params
   return sendEmail({
     to,
-    subject: `Your SK Driving access code — ${rest.code}`,
+    subject: `Your Sathuthuka access code — ${rest.code}`,
     text: accessCodeEmailText(rest),
     html: accessCodeEmailHtml(rest),
   })

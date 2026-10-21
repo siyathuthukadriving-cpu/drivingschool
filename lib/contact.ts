@@ -1,32 +1,28 @@
+import { SITE_URL } from './school'
+
 /**
  * lib/contact.ts — WhatsApp purchase contact details + headline price.
  *
- * Paid access is arranged over WhatsApp or via Yoco card payment. The price
- * is ACCESS_PRICE and the window is ACCESS_DURATION_DAYS; both are defined
- * below and every surface reads them rather than restating the numbers.
+ * Paid access is arranged over WhatsApp or via Yoco card payment for R139 →
+ * 60 days of full access.
  */
-export const WHATSAPP_NUMBER = '27699075971'           // +27 69 907 5971
+export const WHATSAPP_NUMBER = '27767545780'           // +27 76 754 5780 (Sathuthuka Driving School)
 export const WHATSAPP_MESSAGE = "I'm interested in buying the course for R99 (special, down from R150)."
 export const WHATSAPP_URL =
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`
 
-/**
- * Support line for checkout / payment queries — the number shown to someone
- * who has paid but cannot get in. Deliberately separate from
- * WHATSAPP_NUMBER, which is the sales line: these reach different people and
- * changing one must not silently change the other.
- */
-export const WHATSAPP_QUERIES_NUMBER = '27661063292'   // +27 66 106 3292
+/** Support line for checkout / payment queries. */
+export const WHATSAPP_QUERIES_NUMBER = '27767545780'   // +27 76 754 5780 (Sathuthuka Driving School)
 export const WHATSAPP_QUERIES_MESSAGE = 'Hi, I have a query about my course payment / checkout.'
 export const WHATSAPP_QUERIES_URL =
   `https://wa.me/${WHATSAPP_QUERIES_NUMBER}?text=${encodeURIComponent(WHATSAPP_QUERIES_MESSAGE)}`
 
 /** Live online evening study sessions on YouTube. */
-export const LIVE_SESSION_URL = 'https://www.skdriving.co.za/videos'
+export const LIVE_SESSION_URL = `${SITE_URL}/videos`
 export const LIVE_SESSION_SCHEDULE = 'Every day, 8pm–9pm'
 export const LIVE_SESSION_NOTE = 'Sessions are recorded, so you can catch up if you miss one.'
 /** Recording of the live session on YouTube. */
-export const LIVE_SESSION_RECORDING_URL = 'https://www.skdriving.co.za/videos'
+export const LIVE_SESSION_RECORDING_URL = `${SITE_URL}/videos`
 export const LIVE_SESSION_RECORDING_FILE_ID = ''
 
 /**

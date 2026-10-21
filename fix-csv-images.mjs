@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
-const SUPABASE_URL   = 'https://wzqgjzqylkbwyvzyzywu.supabase.co'
+const SUPABASE_URL   = process.env.NEXT_PUBLIC_SUPABASE_URL
 const BUCKET         = 'resources'
 const SHARED_FOLDER  = 'code8/shared'
 const TEST1_FOLDER   = 'code8/test1'

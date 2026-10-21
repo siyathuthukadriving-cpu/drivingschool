@@ -4,6 +4,7 @@ import { supabase } from '@/lib/supabase'
 import { hasFullAccess } from '@/lib/access'
 import LiveSessionCard from '@/components/LiveSessionCard'
 import type { Course } from '@/lib/types'
+import { SITE_URL } from '@/lib/school'
 
 export const metadata: Metadata = {
   title: "Online K53 Learners Course — Code 8 & Code 10 Practice Tests",
@@ -14,11 +15,11 @@ export const metadata: Metadata = {
     "Code 10 learners test", "K53 road signs questions", "learners licence study online",
     "free learners course South Africa", "learners licence mock test",
   ],
-  alternates: { canonical: 'https://www.skdriving.co.za/courses' },
+  alternates: { canonical: `${SITE_URL}/courses` },
   openGraph: {
-    title: "Online K53 Learners Course — Code 8 & Code 10 | SK Driving",
+    title: "Online K53 Learners Course — Code 8 & Code 10 | Sathuthuka Driving School",
     description: "The best online K53 learners licence course in South Africa. Practice road signs, rules of the road and vehicle controls for Code 8 and Code 10.",
-    url: 'https://www.skdriving.co.za/courses',
+    url: `${SITE_URL}/courses`,
   },
 }
 
@@ -42,7 +43,7 @@ export default async function CoursesPage() {
   const courseSchema = courses && courses.length > 0 ? {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: "SK Driving K53 learner's licence courses",
+    name: "Sathuthuka K53 learner's licence courses",
     itemListElement: (courses as Course[]).map((course, index) => ({
       '@type': 'ListItem',
       position: index + 1,
@@ -50,8 +51,8 @@ export default async function CoursesPage() {
         '@type': 'Course',
         name: course.title,
         description: course.description,
-        url: `https://www.skdriving.co.za/courses/${course.id}`,
-        provider: { '@type': 'Organization', name: 'SK Driving', url: 'https://www.skdriving.co.za' },
+        url: `${SITE_URL}/courses/${course.id}`,
+        provider: { '@type': 'Organization', name: 'Sathuthuka', url: SITE_URL },
       },
     })),
   } : null
@@ -65,7 +66,7 @@ export default async function CoursesPage() {
         <div className="section-container text-center">
           <span className="inline-block text-xs font-bold text-accent-400 uppercase tracking-widest mb-3">K53 Practice Tests</span>
           <h1 className="text-3xl sm:text-4xl font-extrabold mb-3 tracking-tight">Online K53 Learners Course</h1>
-          <p className="text-blue-200 text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="text-brand-200 text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
             Choose your licence code and start practising. You need 75%+ in each section to pass the official test.
           </p>
         </div>
@@ -83,8 +84,8 @@ export default async function CoursesPage() {
               desc: '28 questions — pass mark 23',
             },
             {
-              color: 'bg-blue-50 border-blue-100 text-blue-700',
-              badge: 'bg-blue-100 text-blue-700',
+              color: 'bg-brand-50 border-brand-100 text-brand-700',
+              badge: 'bg-brand-100 text-brand-700',
               title: 'Rules of the Road',
               desc: '28 questions — pass mark 22',
             },
