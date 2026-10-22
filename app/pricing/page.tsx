@@ -26,9 +26,9 @@ const FEATURES = [
 const productSchema = {
   '@context': 'https://schema.org',
   '@type': 'Product',
-  name: 'Sathuthuka K53 Full Access',
+  name: 'Thompho’s K53 Full Access',
   description: `Unlimited K53 practice tests, study notes, resources and videos for ${ACCESS_DURATION_DAYS} days.`,
-  brand: { '@type': 'Brand', name: 'Sathuthuka' },
+  brand: { '@type': 'Brand', name: 'Thompho’s' },
   url: `${SITE_URL}/pricing`,
   offers: {
     '@type': 'Offer',
@@ -70,7 +70,7 @@ export default async function PricingPage({
     <main className="bg-gray-50 min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       <div className="bg-brand-700 text-white py-14 px-4 text-center">
-        <span className="text-xs font-bold tracking-widest uppercase text-brand-200 block mb-3">Sathuthuka</span>
+        <span className="text-xs font-bold tracking-widest uppercase text-brand-200 block mb-3">Thompho’s</span>
         <h1 className="text-3xl sm:text-4xl font-extrabold mb-3 leading-tight">Prepare to Pass Your K53 the First Time</h1>
         <p className="text-brand-100 text-base sm:text-lg max-w-xl mx-auto">
           Try any test free for 2 minutes. Unlock everything for{' '}

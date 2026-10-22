@@ -1,5 +1,5 @@
 -- ================================================================
--- Sathuthuka Driving School — Affiliate / Referral Schema
+-- Thompho’s Driving Academy — Affiliate / Referral Schema
 -- Run in: Supabase Dashboard → SQL Editor → New Query → Run
 --
 -- Model: a user enrols as an affiliate and gets a unique referral

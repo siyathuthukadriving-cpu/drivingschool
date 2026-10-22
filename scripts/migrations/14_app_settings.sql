@@ -1,5 +1,5 @@
 -- ================================================================
--- Sathuthuka Driving School — App Settings (admin-editable key/value config)
+-- Thompho’s Driving Academy — App Settings (admin-editable key/value config)
 -- Run in: Supabase Dashboard → SQL Editor → New Query → Run
 --
 -- Holds small bits of config the admin can change without a code deploy —

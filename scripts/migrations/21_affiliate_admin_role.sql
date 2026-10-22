@@ -1,5 +1,5 @@
 -- ================================================================
--- Sathuthuka Driving School — Affiliate admin role
+-- Thompho’s Driving Academy — Affiliate admin role
 -- Run in: Supabase Dashboard → SQL Editor → New Query → Run
 --
 -- One affiliate can also run the programme. `is_admin` marks them, and

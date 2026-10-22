@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Become a Trainer — Earn 66% Revenue from Your Learners',
-  description: 'Join Sathuthuka as a certified trainer. Build your own learner base, set your own prices, and earn 66.67% of every learner payment. R1,500/year.',
+  description: 'Join Thompho’s as a certified trainer. Build your own learner base, set your own prices, and earn 66.67% of every learner payment. R1,500/year.',
 }
 
 export default function TrainerLandingPage() {
@@ -14,7 +14,7 @@ export default function TrainerLandingPage() {
       <div className="text-center mb-14">
         <span className="text-xs font-bold text-brand-600 uppercase tracking-widest">For Driving Instructors</span>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2 mb-4 leading-tight">
-          Become an Sathuthuka Trainer
+          Become an Thompho’s Trainer
         </h1>
         <p className="text-gray-500 text-base max-w-xl mx-auto mb-8">
           Get your own branded learner page, upload premium study materials, and earn <strong>66.67%</strong> of every learner payment. You set the price. We handle the platform.
@@ -77,9 +77,9 @@ export default function TrainerLandingPage() {
             'Upload lesson notes, video links and resources',
             'Mark learners as paid to unlock your materials',
             'Earnings tracker and learner list',
-            'Full access to all Sathuthuka practice tests for your learners',
+            'Full access to all Thompho’s practice tests for your learners',
             'Set your own lesson prices',
-            'Support from Sathuthuka team',
+            'Support from Thompho’s team',
           ].map(item => (
             <li key={item} className="flex items-start gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm text-gray-700 shadow-sm">
               <span className="text-green-500 font-bold shrink-0 mt-0.5">✓</span> {item}

@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!data) return { title: 'Trainer not found' }
   return {
     title: `${data.name} — K53 Driving Instructor${data.province ? ` | ${data.province}` : ''}`,
-    description: data.bio ?? `Book learner's licence lessons with ${data.name} on Sathuthuka.`,
+    description: data.bio ?? `Book learner's licence lessons with ${data.name} on Thompho’s.`,
   }
 }
 
@@ -78,7 +78,7 @@ export default async function TrainerPage({ params }: { params: { slug: string }
           </div>
           <div className="bg-gray-50 border border-gray-200 rounded-2xl p-5">
             <h3 className="font-bold text-gray-800 mb-2 text-sm">Also practice for free</h3>
-            <p className="text-xs text-gray-500 mb-3">Use Sathuthuka&apos;s free K53 practice tests to prepare for your theory exam.</p>
+            <p className="text-xs text-gray-500 mb-3">Use Thompho’s&apos;s free K53 practice tests to prepare for your theory exam.</p>
             <Link href="/courses" className="block text-center bg-brand-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl hover:bg-brand-800 transition-colors">
               Start free practice tests →
             </Link>

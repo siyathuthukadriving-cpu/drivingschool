@@ -1,10 +1,11 @@
-# Sathuthuka Driving School
+# Thompho’s Driving Academy
 
-> Sathuthuka Driving School teaches people across KwaZulu-Natal to drive: Code 8 lessons, Code 10 and Code 14 truck training, motorcycle training and learner's licence preparation. Learn to drive. Learn to arrive. The site also offers a free K53 study guide, exam-style practice tests, road-sign and road-rule notes, study videos and testing-centre search.
+> Thompho’s Driving Academy is a driving school in Sunnyside, Pretoria offering beginner driving lessons, K53 test preparation, learner confidence building, refresher lessons, parking and road skills, and driving test readiness. The site also provides an online K53 practice platform with a free study guide, exam-style practice tests, road-sign and road-rule notes and study videos.
 
 ## Start here
 
-- [Home](/): Courses, contact details and online learner's licence preparation.
+- [Home](/): Services, testimonials and contact details.
+- [Online practice platform](/practice): K53 practice tests, study guide, live notes and videos.
 - [Free K53 Learners Study Guide](/k53-learners-study-guide): Test sections, pass marks, learner categories, booking checklist, official references and an original PDF summary.
 - [K53 Practice Tests](/courses): Exam-style practice for South African learner's licence candidates.
 - [K53 Live Notes](/live-notes): Road traffic signs and rules study material.
@@ -22,9 +23,9 @@
 
 ## Contact
 
-- Address: Suite 12, Ayesha Centre, George Sewpersard Street, Verulam, KwaZulu-Natal, South Africa
-- Phone / WhatsApp: 076 754 5780 (+27 76 754 5780)
-- Email: Sathuthuka@gmail.com
+- Address: 81 Celliers St, Sunnyside, Pretoria, 0002 (Adverto Tower)
+- Phone: 012 772 1616
+- WhatsApp: +27 64 681 4176
 
 ## Policies
 

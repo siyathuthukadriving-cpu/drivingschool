@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { SCHOOL_EMAIL } from '@/lib/school'
+import { SCHOOL_ENQUIRY_URL, SCHOOL_WHATSAPP_DISPLAY } from '@/lib/school'
 
 export default function SubscribeFailedPage() {
   return (
@@ -41,8 +41,8 @@ export default function SubscribeFailedPage() {
 
         <p className="text-xs text-gray-400 mt-6">
           Need help? Contact us at{' '}
-          <a href={`mailto:${SCHOOL_EMAIL}`} className="underline">
-            {SCHOOL_EMAIL}
+          <a href={SCHOOL_ENQUIRY_URL} target="_blank" rel="noopener noreferrer" className="underline">
+            WhatsApp {SCHOOL_WHATSAPP_DISPLAY}
           </a>
         </p>
       </div>

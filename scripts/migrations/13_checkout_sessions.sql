@@ -1,5 +1,5 @@
 -- ================================================================
--- Sathuthuka Driving School — Checkout Sessions (reliable post-payment access)
+-- Thompho’s Driving Academy — Checkout Sessions (reliable post-payment access)
 -- Run in: Supabase Dashboard → SQL Editor → New Query → Run
 --
 -- Maps each Yoco checkout to the buyer's account at checkout-creation time so

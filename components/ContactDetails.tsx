@@ -4,8 +4,8 @@ import {
   SCHOOL_ENQUIRY_URL,
   SCHOOL_MAP_URL,
   SCHOOL_PHONE_DISPLAY,
-  SCHOOL_PHONE_INTL,
   SCHOOL_PHONE_TEL,
+  SCHOOL_WHATSAPP_DISPLAY,
 } from '@/lib/school'
 
 type Tone = 'light' | 'dark'
@@ -33,7 +33,7 @@ function Row({
     <li className="flex items-start gap-3">
       <span
         className={`mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${
-          dark ? 'bg-brand-600/20 text-brand-400' : 'bg-brand-50 text-brand-600'
+          dark ? 'bg-white/10 text-accent-300' : 'bg-brand-50 text-brand-600'
         }`}
       >
         <svg viewBox="0 0 20 20" className="h-[1.05rem] w-[1.05rem] fill-current" aria-hidden="true">
@@ -48,29 +48,31 @@ function Row({
   )
 }
 
-/** Address, phone, WhatsApp and email — shared by the home page, contact page and footer. */
+/** Address, phone, WhatsApp and (when published) email — shared by the landing page, contact page and footer. */
 export default function ContactDetails({ tone = 'light' }: { tone?: Tone }) {
-  const link = tone === 'dark' ? 'hover:text-brand-400' : 'hover:text-brand-700'
+  const link = tone === 'dark' ? 'hover:text-accent-300' : 'hover:text-brand-700'
   return (
     <ul className="space-y-5">
-      <Row icon="pin" label="Visit us" tone={tone}>
+      <Row icon="pin" label="Address" tone={tone}>
         <a href={SCHOOL_MAP_URL} target="_blank" rel="noopener noreferrer" className={`${link} transition-colors`}>
           {SCHOOL_ADDRESS_LINES.map(line => (
             <span key={line} className="block">{line}</span>
           ))}
         </a>
       </Row>
-      <Row icon="phone" label="Call us" tone={tone}>
+      <Row icon="phone" label="Phone" tone={tone}>
         <a href={`tel:${SCHOOL_PHONE_TEL}`} className={`${link} transition-colors`}>{SCHOOL_PHONE_DISPLAY}</a>
       </Row>
       <Row icon="whatsapp" label="WhatsApp" tone={tone}>
         <a href={SCHOOL_ENQUIRY_URL} target="_blank" rel="noopener noreferrer" className={`${link} transition-colors`}>
-          {SCHOOL_PHONE_INTL}
+          {SCHOOL_WHATSAPP_DISPLAY}
         </a>
       </Row>
-      <Row icon="mail" label="Email" tone={tone}>
-        <a href={`mailto:${SCHOOL_EMAIL}`} className={`${link} transition-colors break-all`}>{SCHOOL_EMAIL}</a>
-      </Row>
+      {SCHOOL_EMAIL && (
+        <Row icon="mail" label="Email" tone={tone}>
+          <a href={`mailto:${SCHOOL_EMAIL}`} className={`${link} transition-colors break-all`}>{SCHOOL_EMAIL}</a>
+        </Row>
+      )}
     </ul>
   )
 }
