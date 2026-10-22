@@ -12,6 +12,7 @@ import type { User } from '@supabase/supabase-js'
 
 const LINKS = [
   { href: '/',                          label: 'Home' },
+  { href: '/practice',                  label: 'Practice Home' },
   { href: '/k53-learners-study-guide',  label: 'Study Guide' },
   { href: '/courses',                   label: 'Practice Tests' },
   { href: '/centers',                   label: 'Find a Centre' },
@@ -52,6 +53,9 @@ export default function Navbar() {
     router.refresh()
   }
 
+  // the school landing page ("/") has its own header over the hero
+  if (pathname === '/') return null
+
   return (
     <nav className="bg-brand-900 text-white shadow-nav sticky top-0 z-50 backdrop-blur-sm bg-opacity-[0.97] border-b-2 border-brand-600">
       <div className="section-container h-[4.25rem] flex items-center justify-between gap-4">
@@ -61,13 +65,13 @@ export default function Navbar() {
           <Logo compact />
         </Link>
 
-        {/* Desktop nav links */}
+        {/* Desktop nav links (the logo already leads home) */}
         <div className="hidden xl:flex items-center gap-0.5 flex-1 justify-center">
-          {navLinks.map(l => (
+          {navLinks.filter(l => l.href !== '/').map(l => (
             <Link
               key={l.href}
               href={l.href}
-              className={`relative whitespace-nowrap px-3 py-2 rounded-lg text-[13px] font-semibold tracking-wide transition-all duration-200 ${
+              className={`relative whitespace-nowrap px-2.5 py-2 rounded-lg text-[13px] font-semibold tracking-wide transition-all duration-200 ${
                 isActive(l.href)
                   ? 'bg-white/15 text-white'
                   : 'text-gray-300 hover:text-white hover:bg-white/10'
