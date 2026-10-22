@@ -14,6 +14,7 @@ import YoutubeLiveSessionPopup from "@/components/YoutubeLiveSessionPopup";
 import YoutubeRecordingPopup from "@/components/YoutubeRecordingPopup";
 import FreePromoBanner from "@/components/FreePromoBanner";
 import FreePromoPopup from "@/components/FreePromoPopup";
+import HideOnLanding from "@/components/HideOnLanding";
 import { SITE_URL } from '@/lib/school'
 
 const geistSans = localFont({
@@ -127,18 +128,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <Suspense fallback={null}>
                                   <ReferralCapture />
                         </Suspense>
-                        <FreePromoBanner />
+                        <HideOnLanding><FreePromoBanner /></HideOnLanding>
                         <Navbar />
                   {children}
                         <Footer />
                         <CookieBanner />
-                        <FreePromoPopup />
-                        <TestPrepPopup />
-                        <LiveSessionPopup />
-                        <K53UnpackedPopup />
-                        <CourseIntroPopup />
-                        <YoutubeLiveSessionPopup />
-                        <YoutubeRecordingPopup />
+                        <HideOnLanding><FreePromoPopup /></HideOnLanding>
+                        <HideOnLanding><TestPrepPopup /></HideOnLanding>
+                        <HideOnLanding><LiveSessionPopup /></HideOnLanding>
+                        <HideOnLanding><K53UnpackedPopup /></HideOnLanding>
+                        <HideOnLanding><CourseIntroPopup /></HideOnLanding>
+                        <HideOnLanding><YoutubeLiveSessionPopup /></HideOnLanding>
+                        <HideOnLanding><YoutubeRecordingPopup /></HideOnLanding>
                 </body>
           </html>
         );

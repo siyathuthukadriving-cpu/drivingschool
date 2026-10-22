@@ -8,7 +8,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
 
   const staticPaths = [
-    '',                 // home
+    '',                 // school landing page
+    '/practice',        // online practice platform home
     '/k53-learners-study-guide',
     '/centers',         // find nearest writing centre — SEO priority page
     '/driving-schools', // driving school locator
