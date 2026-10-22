@@ -1,5 +1,5 @@
 -- ================================================================
--- Sathuthuka Driving School — database functions used by the app
+-- Thompho’s Driving Academy — database functions used by the app
 --
 -- has_active_access()        : RLS helper — does the signed-in user hold a live grant?
 -- grant_course_access()      : service-role only; upserts an access grant after payment

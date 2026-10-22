@@ -1,5 +1,5 @@
 -- ================================================================
--- Sathuthuka Driving School — public.affiliate_admin_stats
+-- Thompho’s Driving Academy — public.affiliate_admin_stats
 -- Run in: Supabase Dashboard → SQL Editor → New Query → Run
 --
 -- Per-affiliate roster figures for the programme admin's dashboard: sales,

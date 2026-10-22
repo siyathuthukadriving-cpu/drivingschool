@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `${SITE_URL}/courses` },
   openGraph: {
-    title: "Online K53 Learners Course — Code 8 & Code 10 | Sathuthuka Driving School",
+    title: "Online K53 Learners Course — Code 8 & Code 10 | Thompho’s Driving Academy",
     description: "The best online K53 learners licence course in South Africa. Practice road signs, rules of the road and vehicle controls for Code 8 and Code 10.",
     url: `${SITE_URL}/courses`,
   },
@@ -43,7 +43,7 @@ export default async function CoursesPage() {
   const courseSchema = courses && courses.length > 0 ? {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: "Sathuthuka K53 learner's licence courses",
+    name: "Thompho’s K53 learner's licence courses",
     itemListElement: (courses as Course[]).map((course, index) => ({
       '@type': 'ListItem',
       position: index + 1,
@@ -52,7 +52,7 @@ export default async function CoursesPage() {
         name: course.title,
         description: course.description,
         url: `${SITE_URL}/courses/${course.id}`,
-        provider: { '@type': 'Organization', name: 'Sathuthuka', url: SITE_URL },
+        provider: { '@type': 'Organization', name: 'Thompho’s', url: SITE_URL },
       },
     })),
   } : null

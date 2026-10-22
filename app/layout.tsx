@@ -15,7 +15,7 @@ import YoutubeRecordingPopup from "@/components/YoutubeRecordingPopup";
 import FreePromoBanner from "@/components/FreePromoBanner";
 import FreePromoPopup from "@/components/FreePromoPopup";
 import HideOnLanding from "@/components/HideOnLanding";
-import { SITE_URL } from '@/lib/school'
+import { SCHOOL_NAME, SITE_URL } from '@/lib/school'
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -28,16 +28,25 @@ const geistMono = localFont({
     weight: "100 900",
 });
 
+// Analytics, ads and search-console verification belong to the site owner: each is switched on
+// only when its own ID is set in the environment, so no other business's accounts are embedded.
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID
+const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID
+const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT
+const GOOGLE_VERIFICATION = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+
 export const metadata: Metadata = {
     metadataBase: new URL(SITE_URL),
     title: {
-        default: "Sathuthuka Driving School — Code 8, Code 10 & Learner's Licence in KwaZulu-Natal",
-        template: '%s | Sathuthuka Driving School',
+        default: `${SCHOOL_NAME} — Driving Made Easy`,
+        template: `%s | ${SCHOOL_NAME}`,
     },
-    description: "Teaching people across KwaZulu-Natal to drive for a generation. Code 8 lessons, Code 10 truck training, and learner's licence preparation. Learn to drive. Learn to arrive.",
+    description: "Thompho’s Driving Academy in Sunnyside, Pretoria. Patient instructors, K53 test preparation, and friendly driving lessons. Book on WhatsApp or call today.",
+    robots: { index: true, follow: true },
     keywords: [
-        "Sathuthuka Driving School", "driving school Verulam", "driving lessons KwaZulu-Natal",
-        "Code 8 driving lessons", "Code 10 truck training", "Code 14 driving school",
+        "Thompho’s Driving Academy", "driving school Sunnyside", "driving lessons Pretoria",
+        "K53 test preparation Pretoria", "beginner driving lessons Pretoria", "driving school Pretoria",
         "learners licence test", "K53 learners licence", "learners licence practice test",
         "K53 test questions", "learners licence questions South Africa",
         "K53 road signs", "learners licence study guide", "how to pass learners licence",
@@ -46,20 +55,18 @@ export const metadata: Metadata = {
         "learners licence road signs", "South African learner driver",
     ],
     openGraph: {
-        siteName: "Sathuthuka Driving School",
+        siteName: SCHOOL_NAME,
         locale: 'en_ZA',
         type: 'website',
-        title: "Sathuthuka Driving School — Learn to Drive. Learn to Arrive.",
-        description: "Code 8 lessons, Code 10 truck training and learner's licence preparation across KwaZulu-Natal. Over 30 years of teaching people to drive.",
+        title: `${SCHOOL_NAME} — Driving Made Easy`,
+        description: "Patient, professional driving lessons in Sunnyside, Pretoria. Book your lesson on WhatsApp or call us today.",
     },
     twitter: {
         card: 'summary_large_image',
-        title: "Sathuthuka Driving School — Learn to Drive. Learn to Arrive.",
-        description: "Code 8 lessons, Code 10 truck training and learner's licence preparation across KwaZulu-Natal.",
+        title: `${SCHOOL_NAME} — Driving Made Easy`,
+        description: "Patient, professional driving lessons in Sunnyside, Pretoria. Book your lesson on WhatsApp or call us today.",
     },
-    verification: {
-        google: "6uUYkLVNLPmMYVkSoW2wSlMcyOyA5MdR2vQxRUOUp7c",
-    },
+    ...(GOOGLE_VERIFICATION ? { verification: { google: GOOGLE_VERIFICATION } } : {}),
 };
 
 export default function RootLayout({
@@ -70,61 +77,69 @@ export default function RootLayout({
     return (
           <html lang="en">
                 <head>
-                      {/* Google tag (gtag.js) — GA4 G-ZZVWLTP51S */}
-                      <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZZVWLTP51S" />
-                      <script
-                            dangerouslySetInnerHTML={{
-                                  __html: `window.dataLayer = window.dataLayer || [];
+                      {GA_ID && (
+                            <>
+                                  {/* Google tag (gtag.js) */}
+                                  <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+                                  <script
+                                        dangerouslySetInnerHTML={{
+                                              __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-ZZVWLTP51S');`,
-                            }}
-                      />
-                      {/* End Google tag (gtag.js) */}
+gtag('config', '${GA_ID}');`,
+                                        }}
+                                  />
+                            </>
+                      )}
 
-                      {/* Google Tag Manager */}
-                      <script
-                            dangerouslySetInnerHTML={{
-                                  __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                      {GTM_ID && (
+                            <script
+                                  dangerouslySetInnerHTML={{
+                                        __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-M995P8CW');`,
-                            }}
-                      />
-                      {/* End Google Tag Manager */}
+})(window,document,'script','dataLayer','${GTM_ID}');`,
+                                  }}
+                            />
+                      )}
 
-                      {/* Meta Pixel */}
-                      <script
-                            dangerouslySetInnerHTML={{
-                                  __html: `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1492132475472276');fbq('track','PageView');`,
-                            }}
-                      />
-                      <noscript>
-                            <img height="1" width="1" style={{ display: 'none' }} src="https://www.facebook.com/tr?id=1492132475472276&ev=PageView&noscript=1" alt="" />
-                      </noscript>
-                      {/* End Meta Pixel */}
+                      {META_PIXEL_ID && (
+                            <>
+                                  <script
+                                        dangerouslySetInnerHTML={{
+                                              __html: `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${META_PIXEL_ID}');fbq('track','PageView');`,
+                                        }}
+                                  />
+                                  <noscript>
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                        <img height="1" width="1" style={{ display: 'none' }} src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`} alt="" />
+                                  </noscript>
+                            </>
+                      )}
 
-                      {/* Google AdSense */}
-                      <meta name="google-adsense-account" content="ca-pub-4650201068372958" />
-                      <script
-                            async
-                            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4650201068372958"
-                            crossOrigin="anonymous"
-                      />
-                      {/* End Google AdSense */}
+                      {ADSENSE_CLIENT && (
+                            <>
+                                  <meta name="google-adsense-account" content={ADSENSE_CLIENT} />
+                                  <script
+                                        async
+                                        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
+                                        crossOrigin="anonymous"
+                                  />
+                            </>
+                      )}
                 </head>
                 <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 min-h-screen`}>
-                      {/* Google Tag Manager (noscript) */}
-                      <noscript>
-                            <iframe
-                                  src="https://www.googletagmanager.com/ns.html?id=GTM-M995P8CW"
-                                  height="0"
-                                  width="0"
-                                  style={{ display: 'none', visibility: 'hidden' }}
-                            />
-                      </noscript>
-                      {/* End Google Tag Manager (noscript) */}
+                      {GTM_ID && (
+                            <noscript>
+                                  <iframe
+                                        src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+                                        height="0"
+                                        width="0"
+                                        style={{ display: 'none', visibility: 'hidden' }}
+                                  />
+                            </noscript>
+                      )}
                         <Suspense fallback={null}>
                                   <ReferralCapture />
                         </Suspense>

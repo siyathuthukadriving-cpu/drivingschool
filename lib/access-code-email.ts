@@ -36,7 +36,7 @@ export function accessCodeEmailText({ code, durationDays, baseUrl }: Omit<Access
     '',
     'Still stuck? Reply to this email or message us on WhatsApp and we will sort it out.',
     '',
-    'Sathuthuka',
+    'Thompho’s',
   ].join('\n')
 }
 
@@ -73,7 +73,7 @@ export async function sendAccessCodeEmail(params: AccessCodeEmailParams): Promis
   const { to, ...rest } = params
   return sendEmail({
     to,
-    subject: `Your Sathuthuka access code — ${rest.code}`,
+    subject: `Your Thompho’s access code — ${rest.code}`,
     text: accessCodeEmailText(rest),
     html: accessCodeEmailHtml(rest),
   })

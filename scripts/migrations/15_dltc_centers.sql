@@ -1,5 +1,5 @@
 -- ================================================================
--- Sathuthuka Driving School — DLTC Centers (Driving Licence Testing Centres)
+-- Thompho’s Driving Academy — DLTC Centers (Driving Licence Testing Centres)
 -- Run in: Supabase Dashboard → SQL Editor → New Query → Run
 -- After running this, run: node scripts/seed-dltc-centers.mjs
 -- ================================================================

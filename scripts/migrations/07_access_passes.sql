@@ -1,5 +1,5 @@
 -- ================================================================
--- Sathuthuka Driving School — Access Passes (one-time, time-boxed + lifetime)
+-- Thompho’s Driving Academy — Access Passes (one-time, time-boxed + lifetime)
 -- Run in: Supabase Dashboard → SQL Editor → New Query → Run
 --
 -- Replaces the recurring monthly/annual plans with three one-time

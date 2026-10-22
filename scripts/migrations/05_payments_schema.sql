@@ -1,5 +1,5 @@
 -- ================================================================
--- Sathuthuka Driving School — Yoco Payment / Subscription Schema
+-- Thompho’s Driving Academy — Yoco Payment / Subscription Schema
 -- Run in: Supabase Dashboard → SQL Editor → New Query → Run
 -- ================================================================
 

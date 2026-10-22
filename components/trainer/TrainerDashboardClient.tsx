@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { SCHOOL_EMAIL } from '@/lib/school'
+import { SCHOOL_ENQUIRY_URL, SCHOOL_WHATSAPP_DISPLAY } from '@/lib/school'
 
 type Learner = {
   id: number; name: string; email: string; phone: string | null
@@ -92,8 +92,8 @@ export default function TrainerDashboardClient({
       {/* Status banner */}
       {!trainer.is_active && (
         <div className="mb-6 bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4 text-sm text-amber-800">
-          <strong>Pending activation.</strong> Your account is awaiting payment confirmation. Email proof of your Yoco payment to{' '}
-          <a href={`mailto:${SCHOOL_EMAIL}`} className="underline">{SCHOOL_EMAIL}</a>.
+          <strong>Pending activation.</strong> Your account is awaiting payment confirmation. Send proof of your Yoco payment on WhatsApp to{' '}
+          <a href={SCHOOL_ENQUIRY_URL} target="_blank" rel="noopener noreferrer" className="underline">{SCHOOL_WHATSAPP_DISPLAY}</a>.
         </div>
       )}
 

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `${SITE_URL}/live-notes` },
   openGraph: {
-    title: "K53 Study Notes — Road Signs Manual & Rules of the Road | Sathuthuka Driving School",
+    title: "K53 Study Notes — Road Signs Manual & Rules of the Road | Thompho’s Driving Academy",
     description: "Study the full South African K53 manual chapter by chapter. Road signs, rules of the road — with a quiz after each chapter.",
     url: `${SITE_URL}/live-notes`,
   },

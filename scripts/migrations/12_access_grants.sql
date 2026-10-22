@@ -1,5 +1,5 @@
 -- ================================================================
--- Sathuthuka Driving School — Access Grants (register-before-pay model)
+-- Thompho’s Driving Academy — Access Grants (register-before-pay model)
 -- Run in: Supabase Dashboard → SQL Editor → New Query → Run
 --
 -- Anyone can register an account, but they have NO access until payment.

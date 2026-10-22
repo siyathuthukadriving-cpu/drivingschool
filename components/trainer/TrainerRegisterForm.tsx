@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { createClient } from '@/lib/supabase-browser'
-import { SCHOOL_EMAIL } from '@/lib/school'
+import { SCHOOL_ENQUIRY_URL, SCHOOL_WHATSAPP_DISPLAY } from '@/lib/school'
 
 const PROVINCES = [
   'Gauteng', 'Western Cape', 'KwaZulu-Natal', 'Eastern Cape',
@@ -77,7 +77,7 @@ export default function TrainerRegisterForm() {
         <h2 className="text-2xl font-extrabold text-gray-900 mb-2">Application received!</h2>
         <p className="text-gray-500 text-sm mb-6 leading-relaxed">
           Your trainer account is pending activation. Please pay the R1,500 annual fee via Yoco and send your proof of payment to{' '}
-          <a href={`mailto:${SCHOOL_EMAIL}`} className="text-brand-600 underline">{SCHOOL_EMAIL}</a>.
+          <a href={SCHOOL_ENQUIRY_URL} target="_blank" rel="noopener noreferrer" className="text-brand-600 underline">{SCHOOL_WHATSAPP_DISPLAY}</a>.
           We&apos;ll activate your account within 24 hours.
         </p>
         <p className="text-sm text-gray-400">

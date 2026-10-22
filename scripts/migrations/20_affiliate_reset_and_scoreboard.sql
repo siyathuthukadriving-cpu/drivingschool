@@ -1,5 +1,5 @@
 -- ================================================================
--- Sathuthuka Driving School — Affiliate programme reset + earnings scoreboard
+-- Thompho’s Driving Academy — Affiliate programme reset + earnings scoreboard
 -- Run in: Supabase Dashboard → SQL Editor → New Query → Run
 --
 -- PART 1 — Archive, then clear the programme.

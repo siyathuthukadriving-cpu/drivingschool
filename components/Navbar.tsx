@@ -61,7 +61,7 @@ export default function Navbar() {
       <div className="section-container h-[4.25rem] flex items-center justify-between gap-4">
 
         {/* Logo */}
-        <Link href="/" aria-label="Sathuthuka Driving School — home" className="shrink-0 hover:opacity-90 transition-opacity">
+        <Link href="/" aria-label="Thompho’s Driving Academy — home" className="shrink-0 hover:opacity-90 transition-opacity">
           <Logo compact />
         </Link>
 
