@@ -1,6 +1,8 @@
+import Image from 'next/image'
+
 /**
- * Thompho’s Driving Academy lockup: an orange "T" badge and a two-line wordmark.
- * The badge is a stand-in until the academy's own logo file is added to /public.
+ * Sathuthuka Driving School lockup: the "S" arrow mark plus the banner wordmark
+ * (white SATHUTHUKA with a red final A, red tracked DRIVING SCHOOL beneath).
  * Set `compact` to drop the wordmark on very small screens.
  */
 export default function Logo({
@@ -10,22 +12,28 @@ export default function Logo({
   size?: 'md' | 'lg'
   compact?: boolean
 }) {
-  const mark = size === 'lg' ? 'h-12 w-12 text-2xl' : 'h-10 w-10 text-xl'
-  const name = size === 'lg' ? 'text-[1.3rem]' : 'text-[1.05rem]'
-  const sub = size === 'lg' ? 'text-[0.62rem] tracking-[0.34em]' : 'text-[0.52rem] tracking-[0.32em]'
+  const mark = size === 'lg' ? 'h-12 w-12' : 'h-10 w-10'
+  const name = size === 'lg' ? 'text-[1.35rem]' : 'text-[1.05rem]'
+  const sub = size === 'lg' ? 'text-[0.6rem] tracking-[0.42em]' : 'text-[0.5rem] tracking-[0.4em]'
   return (
     <span className="inline-flex items-center gap-3">
-      <span
-        aria-hidden="true"
-        className={`${mark} flex shrink-0 items-center justify-center rounded-xl bg-accent-500 font-black leading-none text-white shadow-md`}
-      >
-        T
-      </span>
+      <Image
+        src="/logo-mark.jpg"
+        alt=""
+        width={96}
+        height={96}
+        className={`${mark} rounded-lg shrink-0`}
+        priority
+      />
       <span className={`flex-col leading-none ${compact ? 'hidden min-[360px]:flex' : 'flex'}`}>
-        <span className={`${name} font-extrabold uppercase tracking-[0.12em] text-white`}>Thompho’s</span>
-        <span className={`${sub} mt-1.5 font-bold uppercase text-accent-300`}>Driving Academy</span>
+        <span className={`${name} font-extrabold uppercase tracking-[0.14em] text-white`}>
+          Sathuthuk<span className="text-brand-600">a</span>
+        </span>
+        <span className={`${sub} mt-1.5 font-bold uppercase text-brand-500`}>
+          Driving School
+        </span>
       </span>
-      <span className="sr-only">Thompho’s Driving Academy</span>
+      <span className="sr-only">Sathuthuka Driving School</span>
     </span>
   )
 }

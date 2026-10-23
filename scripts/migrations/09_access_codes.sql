@@ -1,5 +1,5 @@
 -- ================================================================
--- Thompho’s Driving Academy — Access Codes (WhatsApp + manual provisioning model)
+-- Sathuthuka Driving School — Access Codes (WhatsApp + manual provisioning model)
 -- Run in: Supabase Dashboard → SQL Editor → New Query → Run
 --
 -- Replaces self-serve online payment. A paid member messages the admin on

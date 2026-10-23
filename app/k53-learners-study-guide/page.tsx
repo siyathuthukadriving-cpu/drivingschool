@@ -22,14 +22,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'article',
     url: PAGE_URL,
-    title: 'Free K53 Learners Study Guide for South Africa | Thompho’s Driving Academy',
+    title: 'Free K53 Learners Study Guide for South Africa | Sathuthuka Driving School',
     description:
-      "Study the K53 test sections, pass marks, licence categories and booking steps, then download Thompho’s free original PDF checklist.",
+      "Study the K53 test sections, pass marks, licence categories and booking steps, then download Sathuthuka's free original PDF checklist.",
   },
   twitter: {
     card: 'summary',
     title: 'Free K53 Learners Study Guide for South Africa',
-    description: 'Pass marks, categories, booking checklist, free PDF and practice tests from Thompho’s.',
+    description: 'Pass marks, categories, booking checklist, free PDF and practice tests from Sathuthuka.',
   },
 }
 
@@ -37,7 +37,7 @@ const faqs = [
   {
     question: "Where can I get free K53 learner's licence study material in South Africa?",
     answer:
-      "Thompho’s provides this free online K53 study guide, an original downloadable summary PDF and interactive practice tests covering Rules of the Road, Road Traffic Signs and Vehicle Controls.",
+      "Sathuthuka provides this free online K53 study guide, an original downloadable summary PDF and interactive practice tests covering Rules of the Road, Road Traffic Signs and Vehicle Controls.",
   },
   {
     question: "What are the pass marks for the K53 learner's licence test?",
@@ -74,8 +74,8 @@ const webPageSchema = {
     "A free guide to South Africa's K53 learner's licence test, including pass marks, licence categories, booking steps and study resources.",
   inLanguage: 'en-ZA',
   dateModified: '2026-07-16',
-  isPartOf: { '@type': 'WebSite', name: 'Thompho’s', url: BASE_URL },
-  publisher: { '@type': 'Organization', name: 'Thompho’s', url: BASE_URL },
+  isPartOf: { '@type': 'WebSite', name: 'Sathuthuka', url: BASE_URL },
+  publisher: { '@type': 'Organization', name: 'Sathuthuka', url: BASE_URL },
 }
 
 const faqSchema = {
@@ -112,18 +112,18 @@ export default function K53StudyGuidePage() {
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href="/downloads/thompho-free-k53-learners-study-guide.pdf"
+              href="/downloads/sathuthuka-free-k53-learners-study-guide.pdf"
               download
               className="rounded-full bg-yellow-300 px-6 py-3 text-center font-bold text-brand-950 hover:bg-yellow-200"
             >
-              Download the Thompho’s Free K53 Learners Study Guide PDF
+              Download the Sathuthuka Free K53 Learners Study Guide PDF
             </a>
             <Link href="/courses" className="rounded-full border-2 border-brand-300 px-6 py-3 text-center font-bold hover:bg-brand-600">
               Start free practice tests
             </Link>
           </div>
           <p className="mt-4 text-xs text-brand-200">
-            Original Thompho’s summary — not a copy of a commercial K53 book.
+            Original Sathuthuka summary — not a copy of a commercial K53 book.
           </p>
         </div>
       </header>
@@ -233,11 +233,11 @@ export default function K53StudyGuidePage() {
             <li><Link href="/courses" className="block rounded-xl bg-white p-4 font-bold text-brand-700 shadow-sm hover:underline">Take K53 practice tests online</Link></li>
             <li><Link href="/live-notes" className="block rounded-xl bg-white p-4 font-bold text-brand-700 shadow-sm hover:underline">Read K53 road signs and rules notes</Link></li>
             <li><Link href="/videos" className="block rounded-xl bg-white p-4 font-bold text-brand-700 shadow-sm hover:underline">Watch K53 study videos</Link></li>
-            <li><Link href="/pricing" className="block rounded-xl bg-white p-4 font-bold text-brand-700 shadow-sm hover:underline">View Thompho’s lesson and study packages</Link></li>
+            <li><Link href="/pricing" className="block rounded-xl bg-white p-4 font-bold text-brand-700 shadow-sm hover:underline">View Sathuthuka lesson and study packages</Link></li>
           </ul>
           <p className="mt-6 leading-7 text-gray-700">
             If you are ready to prepare with the complete platform, view our{' '}
-            <Link href="/pricing" className="font-bold text-brand-700 hover:underline">Thompho’s access packages</Link>.
+            <Link href="/pricing" className="font-bold text-brand-700 hover:underline">Sathuthuka access packages</Link>.
           </p>
         </section>
 

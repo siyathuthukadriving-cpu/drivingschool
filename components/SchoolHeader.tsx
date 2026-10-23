@@ -9,7 +9,6 @@ import { SCHOOL_BOOKING_URL } from '@/lib/school'
 const LINKS = [
   { href: '#about', label: 'About' },
   { href: '#services', label: 'Services' },
-  { href: '#reviews', label: 'Reviews' },
   { href: '/practice', label: 'Practice Tests' },
   { href: '#contact', label: 'Contact' },
 ]
@@ -24,11 +23,11 @@ export default function SchoolHeader() {
   return (
     <header className="absolute inset-x-0 top-0 z-30">
       <div className="section-container flex h-20 items-center justify-between gap-4 sm:h-24">
-        <Link href="/" aria-label="Thompho’s Driving Academy — home" className="shrink-0">
+        <Link href="/" aria-label="Sathuthuka Driving School — home" className="shrink-0">
           <Logo size="lg" compact />
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
+        <nav className="hidden items-center gap-1 md:flex" aria-label="Main">
           {LINKS.map(l => (
             <Link
               key={l.href}
@@ -49,7 +48,7 @@ export default function SchoolHeader() {
           </a>
         </nav>
 
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex items-center gap-2 md:hidden">
           <a
             href={SCHOOL_BOOKING_URL}
             target="_blank"
@@ -77,7 +76,7 @@ export default function SchoolHeader() {
       </div>
 
       {open && (
-        <div className="section-container lg:hidden">
+        <div className="section-container md:hidden">
           <nav className="rounded-2xl bg-brand-900/95 p-2 shadow-xl backdrop-blur" aria-label="Mobile">
             {LINKS.map(l => (
               <Link

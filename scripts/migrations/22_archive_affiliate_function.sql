@@ -1,5 +1,5 @@
 -- ================================================================
--- Thompho’s Driving Academy — archive_affiliate(): remove one affiliate, keep the books
+-- Sathuthuka Driving School — archive_affiliate(): remove one affiliate, keep the books
 -- Run in: Supabase Dashboard → SQL Editor → New Query → Run
 --
 -- Removing an affiliate cascades their referrals, commissions and clicks
