@@ -1,5 +1,5 @@
 -- ================================================================
--- Thompho’s Driving Academy — schema sync
+-- Sathuthuka Driving School — schema sync
 --
 -- Brings a database built from migrations 03–23 in line with the schema the
 -- app actually runs on: adds the base course tables, the legacy question

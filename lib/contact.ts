@@ -6,13 +6,13 @@ import { SITE_URL } from './school'
  * Paid access is arranged over WhatsApp or via Yoco card payment for R139 →
  * 60 days of full access.
  */
-export const WHATSAPP_NUMBER = '27646814176'           // +27 64 681 4176 (Thompho’s Driving Academy)
+export const WHATSAPP_NUMBER = '27767545780'           // +27 76 754 5780 (Sathuthuka Driving School)
 export const WHATSAPP_MESSAGE = "I'm interested in buying the course for R99 (special, down from R150)."
 export const WHATSAPP_URL =
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`
 
 /** Support line for checkout / payment queries. */
-export const WHATSAPP_QUERIES_NUMBER = '27646814176'   // +27 64 681 4176 (Thompho’s Driving Academy)
+export const WHATSAPP_QUERIES_NUMBER = '27767545780'   // +27 76 754 5780 (Sathuthuka Driving School)
 export const WHATSAPP_QUERIES_MESSAGE = 'Hi, I have a query about my course payment / checkout.'
 export const WHATSAPP_QUERIES_URL =
   `https://wa.me/${WHATSAPP_QUERIES_NUMBER}?text=${encodeURIComponent(WHATSAPP_QUERIES_MESSAGE)}`

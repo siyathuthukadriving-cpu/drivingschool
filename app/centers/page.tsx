@@ -215,11 +215,11 @@ export default function CentersPage({
           </p>
         </section>
 
-        {/* Pitch Thompho’s */}
+        {/* Pitch Sathuthuka */}
         <section className="mt-6 bg-green-50 border border-green-200 rounded-2xl p-5 flex flex-col sm:flex-row items-center gap-4">
           <div className="flex-1">
             <p className="text-sm font-bold text-green-900">Preparing for your writing centre test?</p>
-            <p className="text-xs text-green-700 mt-0.5">Thompho’s is South Africa&apos;s #1 online K53 learners course. Our practice tests mirror the real DLTC exam — pass your learner&apos;s test first time.</p>
+            <p className="text-xs text-green-700 mt-0.5">Sathuthuka is South Africa&apos;s #1 online K53 learners course. Our practice tests mirror the real DLTC exam — pass your learner&apos;s test first time.</p>
           </div>
           <Link href="/courses" className="shrink-0 bg-green-600 text-white font-bold px-6 py-3 rounded-full hover:bg-green-700 transition-colors text-sm whitespace-nowrap">
             Start Free Practice Tests →

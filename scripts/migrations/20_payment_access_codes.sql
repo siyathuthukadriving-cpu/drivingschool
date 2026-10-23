@@ -1,5 +1,5 @@
 -- ================================================================
--- Thompho’s Driving Academy — Access codes issued by payment
+-- Sathuthuka Driving School — Access codes issued by payment
 -- Run in: Supabase Dashboard → SQL Editor → New Query → Run
 --
 -- Every applied payment mints a single-use code. It is emailed to the buyer

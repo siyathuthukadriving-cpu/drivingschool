@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `${SITE_URL}/practice` },
   openGraph: {
-    title: "Free K53 Learner's Licence Practice Tests | Thompho’s Driving Academy",
+    title: "Free K53 Learner's Licence Practice Tests | Sathuthuka Driving School",
     description: "Pass your South African learner's licence first time. Free K53 practice tests for Code 8, Code 10 and Code 14 — road signs, vehicle controls, rules of the road.",
     url: `${SITE_URL}/practice`,
   },
@@ -76,7 +76,7 @@ const faqSchema = {
     {
       '@type': 'Question',
       name: "Can I practise for the K53 learner's licence test online?",
-      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Thompho’s offers free K53 practice tests online covering all three sections. Practising with timed tests regularly is the best way to prepare and pass first time.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Sathuthuka offers free K53 practice tests online covering all three sections. Practising with timed tests regularly is the best way to prepare and pass first time.' },
     },
   ],
 }
@@ -352,7 +352,7 @@ export default async function Home() {
             },
             {
               q: "Can I practise for the K53 learner's licence test online?",
-              a: "Yes — Thompho’s offers free K53 practice tests online covering all three sections. Practising with timed tests regularly is the best way to prepare and pass first time.",
+              a: "Yes — Sathuthuka offers free K53 practice tests online covering all three sections. Practising with timed tests regularly is the best way to prepare and pass first time.",
             },
           ].map(({ q, a }) => (
             <details key={q} className="card-elevated px-6 py-5 group cursor-pointer">

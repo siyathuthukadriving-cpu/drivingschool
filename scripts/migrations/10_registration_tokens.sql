@@ -1,5 +1,5 @@
 -- ================================================================
--- Thompho’s Driving Academy — Registration Tokens (account-based access)
+-- Sathuthuka Driving School — Registration Tokens (account-based access)
 -- Run in: Supabase Dashboard → SQL Editor → New Query → Run
 --
 -- Access is now tied to a registered account. A registration token grants

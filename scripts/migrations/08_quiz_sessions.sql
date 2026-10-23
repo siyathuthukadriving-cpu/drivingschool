@@ -1,5 +1,5 @@
 -- ================================================================
--- Thompho’s Driving Academy — Quiz Sessions (server-side free-preview timer)
+-- Sathuthuka Driving School — Quiz Sessions (server-side free-preview timer)
 -- Run in: Supabase Dashboard → SQL Editor → New Query → Run
 --
 -- Records when a free user first started a given test so the 3-minute
