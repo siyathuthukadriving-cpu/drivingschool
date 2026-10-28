@@ -18,6 +18,7 @@ export const ADMIN_EMAILS = [
  */
 export const PRIMARY_ADMIN_EMAILS = [
   'lungi09@gmail.com',
+  'lekobapk@gmail.com',
 ]
 
 /** True if the given email belongs to an admin (case-insensitive). */
