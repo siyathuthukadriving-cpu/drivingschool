@@ -37,7 +37,10 @@ export const LIVE_SESSION_RECORDING_FILE_ID = ''
  *                     shuts down at UNTIL, no code change needed.
  */
 export const FREE_PROMO_FROM  = ''                            // open now
-export const FREE_PROMO_UNTIL = '2099-12-31T23:59:59+02:00'  // open until the owner sets a paywall (then set to '')
+export const FREE_PROMO_UNTIL = '2026-11-07T13:11:00+02:00'  // 25-min test window from 12:46 SAST; then paid model resumes
+
+/** Set true to suspend all online payments (Yoco checkout). */
+export const PAYMENTS_PAUSED = true
 
 export function isFreePromoActive(): boolean {
   if (!FREE_PROMO_UNTIL) return false

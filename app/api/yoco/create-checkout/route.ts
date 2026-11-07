@@ -17,7 +17,7 @@ import { createAdminClient } from '@/lib/supabase-admin'
 import { createYocoCheckout } from '@/lib/yoco'
 import { REF_COOKIE } from '@/lib/referral'
 import { attributionMetadata, resolveAffiliateAttribution } from '@/lib/affiliate-attribution'
-import { ACCESS_PRICE_CENTS } from '@/lib/contact'
+import { ACCESS_PRICE_CENTS, PAYMENTS_PAUSED } from '@/lib/contact'
 import { accessDurationDaysFor } from '@/lib/entitlement'
 import { SITE_URL } from '@/lib/school'
 
@@ -41,6 +41,9 @@ function resolveBaseUrl(req: NextRequest): string {
 }
 
 export async function POST(req: NextRequest) {
+  if (PAYMENTS_PAUSED) {
+    return NextResponse.json({ error: 'Online payments are paused right now.' }, { status: 503 })
+  }
   if (!process.env.YOCO_SECRET_KEY) {
     return NextResponse.json({ error: 'Online payment is not available right now. Please use WhatsApp.' }, { status: 503 })
   }
