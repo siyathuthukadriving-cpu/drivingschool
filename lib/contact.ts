@@ -36,8 +36,11 @@ export const LIVE_SESSION_RECORDING_FILE_ID = ''
  * - Both set        → the promo activates automatically at FROM and
  *                     shuts down at UNTIL, no code change needed.
  */
-export const FREE_PROMO_FROM  = '2026-09-16T20:00:00+02:00'  // 8pm SAST (Wed 16 Sep)
-export const FREE_PROMO_UNTIL = '2026-09-17T00:00:00+02:00'  // 12am SAST
+export const FREE_PROMO_FROM  = ''                            // open now
+export const FREE_PROMO_UNTIL = '2026-11-07T13:11:00+02:00'  // 25-min test window from 12:46 SAST; then paid model resumes
+
+/** Set true to suspend all online payments (Yoco checkout). */
+export const PAYMENTS_PAUSED = true
 
 export function isFreePromoActive(): boolean {
   if (!FREE_PROMO_UNTIL) return false
