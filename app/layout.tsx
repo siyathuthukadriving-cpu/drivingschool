@@ -16,6 +16,7 @@ import FreePromoBanner from "@/components/FreePromoBanner";
 import FreePromoPopup from "@/components/FreePromoPopup";
 import HideOnLanding from "@/components/HideOnLanding";
 import { SCHOOL_NAME, SITE_URL } from '@/lib/school'
+import { POPUPS_PAUSED } from '@/lib/contact'
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -148,13 +149,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   {children}
                         <Footer />
                         <CookieBanner />
-                        <HideOnLanding><FreePromoPopup /></HideOnLanding>
-                        <HideOnLanding><TestPrepPopup /></HideOnLanding>
-                        <HideOnLanding><LiveSessionPopup /></HideOnLanding>
-                        <HideOnLanding><K53UnpackedPopup /></HideOnLanding>
-                        <HideOnLanding><CourseIntroPopup /></HideOnLanding>
-                        <HideOnLanding><YoutubeLiveSessionPopup /></HideOnLanding>
-                        <HideOnLanding><YoutubeRecordingPopup /></HideOnLanding>
+                        {!POPUPS_PAUSED && (
+                          <>
+                            <HideOnLanding><FreePromoPopup /></HideOnLanding>
+                            <HideOnLanding><TestPrepPopup /></HideOnLanding>
+                            <HideOnLanding><LiveSessionPopup /></HideOnLanding>
+                            <HideOnLanding><K53UnpackedPopup /></HideOnLanding>
+                            <HideOnLanding><CourseIntroPopup /></HideOnLanding>
+                            <HideOnLanding><YoutubeLiveSessionPopup /></HideOnLanding>
+                            <HideOnLanding><YoutubeRecordingPopup /></HideOnLanding>
+                          </>
+                        )}
                 </body>
           </html>
         );
