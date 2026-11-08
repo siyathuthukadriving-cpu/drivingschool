@@ -72,6 +72,9 @@ export async function generateMetadata(
     title: meta.title,
     description: meta.description,
     keywords: meta.keywords,
+    // The directory has no listings yet; keep it out of search so it neither looks thin nor competes
+    // with the Durban landing pages for the same keywords. Remove this line once schools are listed.
+    robots: { index: false, follow: true },
     openGraph: { title: meta.title, description: meta.description, type: 'website' },
   }
 }

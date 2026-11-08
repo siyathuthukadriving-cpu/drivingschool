@@ -7,6 +7,7 @@ import { createClient } from '@/lib/supabase-browser'
 import { ACCESS_PRICE } from '@/lib/contact'
 import { SCHOOL_PHONE_DISPLAY, SCHOOL_PHONE_TEL } from '@/lib/school'
 import Logo from '@/components/Logo'
+import { isSchoolPage } from '@/lib/locations'
 import { isAdminEmail } from '@/lib/admin-emails'
 import type { User } from '@supabase/supabase-js'
 
@@ -54,7 +55,7 @@ export default function Navbar() {
   }
 
   // the school landing page ("/") has its own header over the hero
-  if (pathname === '/') return null
+  if (isSchoolPage(pathname)) return null
 
   return (
     <nav className="bg-brand-900 text-white shadow-nav sticky top-0 z-50 backdrop-blur-sm bg-opacity-[0.97] border-b-2 border-brand-600">

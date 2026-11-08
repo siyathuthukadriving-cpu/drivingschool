@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { RULES_CHAPTERS } from '@/lib/rules-of-the-road'
 import { SITE_URL } from '@/lib/school'
+import { LOCATIONS } from '@/lib/locations'
 
 const BASE = SITE_URL
 
@@ -10,9 +11,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths = [
     '',                 // school landing page
     '/practice',        // online practice platform home
+    ...LOCATIONS.map(l => l.path), // Durban, Durban CBD and Durban North landing pages
     '/k53-learners-study-guide',
     '/centers',         // find nearest writing centre — SEO priority page
-    '/driving-schools', // driving school locator
     '/pricing',
     '/courses',
     '/live-notes',
@@ -28,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${BASE}${p}`,
     lastModified: now,
     changeFrequency: 'weekly',
-    priority: p === '' ? 1 : p === '/k53-learners-study-guide' ? 0.9 : 0.7,
+    priority: p === '' ? 1 : p === '/k53-learners-study-guide' || LOCATIONS.some(l => l.path === p) ? 0.9 : 0.7,
   }))
 
   const provinceEntries: MetadataRoute.Sitemap = [

@@ -8,6 +8,7 @@ import { ACCESS_PRICE, ACCESS_DURATION_DAYS } from '@/lib/contact'
 import { SCHOOL_BOOKING_URL, SCHOOL_MOTTO, SCHOOL_NAME, SCHOOL_TAGLINE } from '@/lib/school'
 import ContactDetails from './ContactDetails'
 import Logo from './Logo'
+import { LOCATIONS } from '@/lib/locations'
 
 const linkClass = 'text-gray-400 hover:text-white transition-colors'
 
@@ -54,6 +55,9 @@ export default function Footer() {
               <h4 className="mb-3 text-sm font-bold uppercase tracking-widest text-white">Explore</h4>
               <ul className="space-y-2 text-sm">
                 <li><Link href="/#services" className={linkClass}>Our courses</Link></li>
+                {LOCATIONS.map(l => (
+                  <li key={l.slug}><Link href={l.path} className={linkClass}>{l.linkText}</Link></li>
+                ))}
                 <li><Link href="/courses" className={linkClass}>Practice Tests</Link></li>
                 <li><Link href="/k53-learners-study-guide" className={linkClass}>Study Guide</Link></li>
                 <li><Link href="/live-notes" className={linkClass}>Live Notes</Link></li>
