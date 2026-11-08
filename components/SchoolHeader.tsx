@@ -7,10 +7,10 @@ import WhatsAppIcon from './WhatsAppIcon'
 import { SCHOOL_BOOKING_URL } from '@/lib/school'
 
 const LINKS = [
-  { href: '#about', label: 'About' },
-  { href: '#services', label: 'Services' },
+  { href: '/#about', label: 'About' },
+  { href: '/#services', label: 'Services' },
   { href: '/practice', label: 'Practice Tests' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/#contact', label: 'Contact' },
 ]
 
 /**

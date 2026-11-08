@@ -58,11 +58,13 @@ export const metadata: Metadata = {
         siteName: SCHOOL_NAME,
         locale: 'en_ZA',
         type: 'website',
+        images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: `${SCHOOL_NAME} — Learn to Drive. Learn to Arrive.` }],
         title: `${SCHOOL_NAME} — Learn to Drive. Learn to Arrive.`,
         description: "Code 8 lessons, Code 10 truck training and learner's licence preparation across KwaZulu-Natal. Over 30 years of teaching people to drive.",
     },
     twitter: {
         card: 'summary_large_image',
+        images: ['/og-image.jpg'],
         title: `${SCHOOL_NAME} — Learn to Drive. Learn to Arrive.`,
         description: "Code 8 lessons, Code 10 truck training and learner's licence preparation across KwaZulu-Natal.",
     },
@@ -75,7 +77,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-          <html lang="en">
+          <html lang="en-ZA">
                 <head>
                       {GA_ID && (
                             <>

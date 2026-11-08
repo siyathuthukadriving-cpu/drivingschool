@@ -6,6 +6,7 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp'
 import Hero from '@/components/Hero'
 import SchoolHeader from '@/components/SchoolHeader'
 import WhatsAppIcon from '@/components/WhatsAppIcon'
+import { LOCATIONS } from '@/lib/locations'
 import {
   SCHOOL_BLURB,
   SCHOOL_BOOKING_URL,
@@ -21,16 +22,18 @@ import {
 } from '@/lib/school'
 
 export const metadata: Metadata = {
-  title: { absolute: 'Sathuthuka Driving School — Code 8, Code 10 & Learner’s Licence in KwaZulu-Natal' },
-  description: `${SCHOOL_BLURB} ${SCHOOL_TAGLINE}`,
+  title: { absolute: 'Driving School in Durban, Durban North & Verulam | Sathuthuka' },
+  description:
+    'Sathuthuka Driving School in Verulam teaches learners from Durban, Durban CBD and Durban North: Code 8, Code 10 and Code 14 lessons and learner’s licence prep. Call 076 754 5780.',
   keywords: [
-    'Sathuthuka Driving School', 'driving school Verulam', 'driving lessons KwaZulu-Natal',
+    'driving school Durban', 'driving school Durban CBD', 'driving school Durban North',
+    'Sathuthuka Driving School', 'driving school Verulam', 'driving lessons KwaZulu-Natal', 'driving lessons Durban',
     'Code 8 driving lessons', 'Code 10 truck training', 'Code 14 driving school',
     'motorcycle licence training', 'learners licence KwaZulu-Natal',
   ],
   alternates: { canonical: SITE_URL },
   openGraph: {
-    title: 'Sathuthuka Driving School — Learn to Drive. Learn to Arrive.',
+    title: 'Driving School in Durban, Durban North & Verulam | Sathuthuka',
     description: SCHOOL_BLURB,
     url: SITE_URL,
   },
@@ -107,7 +110,7 @@ export default function Home() {
         <div className="section-container grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
             <span className="mb-3 inline-block rounded-full bg-brand-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-brand-600">About us</span>
-            <h2 className="text-3xl font-extrabold leading-tight text-gray-900 sm:text-4xl">Over 30 years on KwaZulu-Natal roads</h2>
+            <h2 className="text-3xl font-extrabold leading-tight text-gray-900 sm:text-4xl">A driving school serving Durban, Durban CBD and Durban North</h2>
             <p className="mt-5 text-base leading-relaxed text-gray-600 sm:text-lg">{SCHOOL_BLURB}</p>
             <p className="mt-3 text-base font-semibold text-gray-900 sm:text-lg">{SCHOOL_MOTTO}</p>
             <ul className="mt-6 space-y-3">
@@ -220,6 +223,29 @@ export default function Home() {
                 </Link>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Areas we serve ─── */}
+      <section id="areas" className="scroll-mt-6 bg-white py-14 sm:py-20">
+        <div className="section-container">
+          <div className="mb-10 text-center">
+            <span className="mb-3 inline-block rounded-full bg-brand-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-brand-600">Areas we serve</span>
+            <h2 className="text-2xl font-extrabold text-gray-900 sm:text-3xl">Driving lessons for learners across Durban</h2>
+            <p className="mx-auto mt-3 max-w-2xl text-gray-500">Based in Verulam, north of Durban, and welcoming learners from the city and the surrounding areas.</p>
+          </div>
+          <div className="grid gap-5 sm:grid-cols-3">
+            {LOCATIONS.map(l => (
+              <Link key={l.slug} href={l.path} className="card-elevated group block border-t-4 border-t-brand-600 p-6 transition-shadow hover:shadow-card-hover">
+                <h3 className="text-lg font-bold text-gray-900 group-hover:text-brand-700">{l.linkText}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-gray-500">{l.linkBlurb}</p>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-brand-700">
+                  Read more
+                  <Arrow />
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

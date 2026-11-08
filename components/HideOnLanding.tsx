@@ -1,6 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
+import { isSchoolPage } from '@/lib/locations'
 
 /**
  * The school landing page ("/") is a standalone front end. Practice-platform banners and
@@ -8,5 +9,5 @@ import { usePathname } from 'next/navigation'
  */
 export default function HideOnLanding({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
-  return pathname === '/' ? null : <>{children}</>
+  return isSchoolPage(pathname) ? null : <>{children}</>
 }
