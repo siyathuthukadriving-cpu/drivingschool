@@ -258,7 +258,7 @@ export default function K53StudyGuidePage() {
           <p className="mt-3 text-sm leading-6 text-gray-600">This guide was reviewed on 16 July 2026. Requirements can change, so confirm local fees and photo requirements with your DLTC.</p>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600">
             <li><a href="https://www.gov.za/services/driving-licence/apply-learners-licence" target="_blank" rel="noopener noreferrer" className="text-brand-700 hover:underline">South African Government: Apply for a learner&apos;s licence</a></li>
-            <li><a href="https://www.natis.gov.za/images/learners/1_Rules_of_the_Road_v100_Jun_2012.pdf" target="_blank" rel="noopener noreferrer" className="text-brand-700 hover:underline">Department of Transport: SA Learner Driver Manual — Rules of the Road</a></li>
+            <li><a href="https://www.natis.gov.za/" target="_blank" rel="noopener noreferrer" className="text-brand-700 hover:underline">NaTIS: official driving licence information</a></li>
             <li><a href="https://www.gov.za/sites/default/files/gcis_document/201409/28446b.pdf" target="_blank" rel="noopener noreferrer" className="text-brand-700 hover:underline">National Road Traffic Regulations: learner&apos;s licence testing requirements</a></li>
           </ul>
         </section>

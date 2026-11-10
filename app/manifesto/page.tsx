@@ -138,14 +138,12 @@ export default function ManifestoPage() {
           To find out how you and your organisation can support us to create fairer communities in South Africa and around the world, please get in touch.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <a
-            href="https://socialenterprise.academy/za/about-us/contact-us/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/contact"
             className="inline-block bg-brand-700 text-white font-bold px-8 py-3 rounded-full hover:bg-brand-800 transition-colors"
           >
-            Contact SEA South Africa →
-          </a>
+            Get in touch →
+          </Link>
           <Link
             href="/courses"
             className="inline-block border-2 border-brand-700 text-brand-700 font-bold px-8 py-3 rounded-full hover:bg-brand-50 transition-colors"
