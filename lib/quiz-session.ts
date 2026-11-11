@@ -1,7 +1,7 @@
 /**
  * lib/quiz-session.ts — server-side free-preview timer.
  *
- * The free 2-minute quiz sample is enforced from the server so it can't be
+ * The free 10-minute quiz sample is enforced from the server so it can't be
  * reset by reloading the page or editing the client timer. The start time
  * lives in `quiz_sessions` (keyed by user_id for logged-in users, or an
  * httpOnly cookie uuid for anonymous users).
@@ -17,7 +17,7 @@ import { createClient } from '@/lib/supabase-server'
 import { createAdminClient } from '@/lib/supabase-admin'
 import { hasFullAccess } from '@/lib/access'
 
-export const FREE_PREVIEW_SECONDS = 120
+export const FREE_PREVIEW_SECONDS = 600   // 10 minutes, a fresh window on every visit
 export const ANON_COOKIE = 'qz_sid'
 
 export interface QuizTiming {
@@ -67,5 +67,10 @@ export async function readQuizTiming(courseId: number, testNumber: number): Prom
   }
 
   const remaining = remainingFrom(data.started_at)
-  return { premium: false, locked: remaining <= 0, remaining, exists: true }
+  // The free window is per visit: once it has run out, the next visit starts a
+  // fresh one (the POST route resets the row), so the page never hard-locks.
+  if (remaining <= 0) {
+    return { premium: false, locked: false, remaining: FREE_PREVIEW_SECONDS, exists: false }
+  }
+  return { premium: false, locked: false, remaining, exists: true }
 }

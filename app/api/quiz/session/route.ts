@@ -76,6 +76,23 @@ export async function POST(req: NextRequest) {
 
   let startedAt = existing?.started_at as string | undefined
 
+  // Free access is 10 minutes per visit: if the previous window has run out,
+  // start a fresh one now (reloading mid-window still resumes the same one).
+  if (startedAt && remainingFrom(startedAt) <= 0) {
+    const fresh = new Date().toISOString()
+    const { error: resetErr } = await match(
+      admin.from('quiz_sessions')
+        .update({ started_at: fresh })
+        .eq('course_id', courseId)
+        .eq('test_number', testNumber),
+    )
+    if (resetErr) {
+      console.error('[quiz/session] reset error:', resetErr.message)
+      return NextResponse.json({ remaining: FREE_PREVIEW_SECONDS, locked: false })
+    }
+    startedAt = fresh
+  }
+
   // None yet → create one starting now.
   if (!startedAt) {
     const { data: inserted, error } = await admin
