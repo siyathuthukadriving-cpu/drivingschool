@@ -41,6 +41,8 @@ export const FREE_PROMO_UNTIL = '2026-11-07T13:11:00+02:00'  // 25-min test wind
 
 /** Set true to suspend all online payments (Yoco checkout). While true, customers pay via WhatsApp instead. */
 export const PAYMENTS_PAUSED = true
+/** Set true to hide the site-wide popups (free promo, test prep, live session, K53, intro, YouTube). */
+export const POPUPS_PAUSED = true
 
 export function isFreePromoActive(): boolean {
   if (!FREE_PROMO_UNTIL) return false
