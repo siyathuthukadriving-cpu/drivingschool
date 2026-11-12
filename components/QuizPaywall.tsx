@@ -7,7 +7,7 @@
  */
 import Link from 'next/link'
 import BuyAccessButton from '@/components/BuyAccessButton'
-import { WHATSAPP_URL, ACCESS_PRICE, ACCESS_PRICE_ORIGINAL, ACCESS_DURATION_DAYS } from '@/lib/contact'
+import { PAYMENTS_PAUSED, WHATSAPP_URL, ACCESS_PRICE, ACCESS_PRICE_ORIGINAL, ACCESS_DURATION_DAYS } from '@/lib/contact'
 
 const FEATURES = [
   { icon: '📝', label: 'Unlimited timed practice tests', sub: '1 minute per question — just like the real exam' },
@@ -54,7 +54,9 @@ export default function QuizPaywall({ courseId }: { courseId: number }) {
           <BuyAccessButton />
 
           {/* Divider */}
-          <div className="flex items-center gap-3 my-4">
+          {!PAYMENTS_PAUSED && (
+<>
+<div className="flex items-center gap-3 my-4">
             <span className="flex-1 h-px bg-gray-200" />
             <span className="text-xs text-gray-400 uppercase tracking-wide">or pay via WhatsApp</span>
             <span className="flex-1 h-px bg-gray-200" />
@@ -72,6 +74,8 @@ export default function QuizPaywall({ courseId }: { courseId: number }) {
             </svg>
             Pay {ACCESS_PRICE} via WhatsApp
           </a>
+</>
+)}
 
           <div className="flex gap-3 mt-3">
             <Link

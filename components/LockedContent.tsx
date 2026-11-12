@@ -1,11 +1,11 @@
 /**
  * LockedContent — premium gate for paid-only content (Resources, Videos,
- * Live Notes, Rules of the Road). Primary option: pay R150 online (Yoco).
+ * Live Notes, Rules of the Road). Primary option: pay online (Yoco) or via WhatsApp.
  * Alternative: WhatsApp. Also a link to redeem an existing access code.
  */
 import Link from 'next/link'
 import BuyAccessButton from '@/components/BuyAccessButton'
-import { WHATSAPP_URL, ACCESS_PRICE, ACCESS_PRICE_ORIGINAL, ACCESS_DURATION_DAYS } from '@/lib/contact'
+import { PAYMENTS_PAUSED, WHATSAPP_URL, ACCESS_PRICE, ACCESS_PRICE_ORIGINAL, ACCESS_DURATION_DAYS } from '@/lib/contact'
 
 export default function LockedContent({
   feature,
@@ -38,7 +38,9 @@ export default function LockedContent({
         <BuyAccessButton />
 
         {/* Alternative: WhatsApp */}
-        <div className="flex items-center gap-3 my-4">
+        {!PAYMENTS_PAUSED && (
+<>
+<div className="flex items-center gap-3 my-4">
           <span className="flex-1 h-px bg-gray-200" />
           <span className="text-xs text-gray-400 uppercase tracking-wide">or</span>
           <span className="flex-1 h-px bg-gray-200" />
@@ -54,6 +56,8 @@ export default function LockedContent({
           </svg>
           Pay via WhatsApp instead
         </a>
+</>
+)}
 
         <Link href="/login" className="block w-full text-brand-700 font-semibold py-3 mt-2 hover:underline text-sm">
           Already have an account? Log in

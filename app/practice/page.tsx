@@ -5,7 +5,7 @@ import BuyAccessButton from '@/components/BuyAccessButton'
 import GamificationTeaser from '@/components/GamificationTeaser'
 import PracticeHero from '@/components/PracticeHero'
 import { hasFullAccess } from '@/lib/access'
-import { WHATSAPP_URL, ACCESS_PRICE, ACCESS_PRICE_ORIGINAL, ACCESS_DURATION_DAYS } from '@/lib/contact'
+import { PAYMENTS_PAUSED, WHATSAPP_URL, ACCESS_PRICE, ACCESS_PRICE_ORIGINAL, ACCESS_DURATION_DAYS } from '@/lib/contact'
 import { SITE_URL } from '@/lib/school'
 
 export const dynamic = 'force-dynamic'
@@ -278,7 +278,9 @@ export default async function Home() {
 
               <BuyAccessButton />
 
-              <div className="flex items-center gap-3 my-4">
+              {!PAYMENTS_PAUSED && (
+<>
+<div className="flex items-center gap-3 my-4">
                 <span className="flex-1 h-px bg-gray-200" />
                 <span className="text-xs text-gray-400 uppercase tracking-wide">or</span>
                 <span className="flex-1 h-px bg-gray-200" />
@@ -294,6 +296,8 @@ export default async function Home() {
                 </svg>
                 Pay via WhatsApp instead
               </a>
+</>
+)}
               <Link href="/login" className="block text-brand-700 font-semibold mt-3 hover:underline text-sm">
                 Already have an account? Log in
               </Link>

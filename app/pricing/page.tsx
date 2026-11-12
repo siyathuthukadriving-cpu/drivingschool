@@ -4,7 +4,7 @@ import { createClient } from '@/lib/supabase-server'
 import { createAdminClient } from '@/lib/supabase-admin'
 import { accessDurationDaysFor } from '@/lib/entitlement'
 import {
-  WHATSAPP_URL, WHATSAPP_QUERIES_URL, ACCESS_PRICE, ACCESS_PRICE_ORIGINAL,
+  WHATSAPP_URL, WHATSAPP_QUERIES_URL, PAYMENTS_PAUSED, ACCESS_PRICE, ACCESS_PRICE_ORIGINAL,
   ACCESS_DISCOUNT_LABEL, ACCESS_DURATION_DAYS,
 } from '@/lib/contact'
 import { SITE_URL } from '@/lib/school'
@@ -34,7 +34,7 @@ const productSchema = {
     '@type': 'Offer',
     url: `${SITE_URL}/pricing`,
     priceCurrency: 'ZAR',
-    price: '99.00',
+    price: '129.00',
     availability: 'https://schema.org/InStock',
   },
 }
@@ -119,7 +119,9 @@ export default async function PricingPage({
           <BuyAccessButton durationDays={durationDays} />
 
           {/* Alternative: WhatsApp */}
-          <div className="flex items-center gap-3 my-4">
+          {!PAYMENTS_PAUSED && (
+<>
+<div className="flex items-center gap-3 my-4">
             <span className="flex-1 h-px bg-gray-200" />
             <span className="text-xs text-gray-400 uppercase tracking-wide">or</span>
             <span className="flex-1 h-px bg-gray-200" />
@@ -135,14 +137,17 @@ export default async function PricingPage({
             </svg>
             Pay via WhatsApp instead
           </a>
+</>
+)}
 
           <Link href="/login?next=/pricing%3Fpay%3D1" className="block text-center text-brand-700 font-semibold py-3 mt-1 hover:underline text-sm">
             Already have an account? Log in
           </Link>
 
           <p className="text-xs text-gray-400 text-center mt-2">
-            First create your pre-qualified account, then pay securely by card with Yoco. Premium
-            access activates only after payment is verified. Or message us on WhatsApp for help.
+            {PAYMENTS_PAUSED
+              ? 'Pay via WhatsApp and send your proof of payment. Premium access is activated once your payment is confirmed.'
+              : 'First create your pre-qualified account, then pay securely by card with Yoco. Premium access activates only after payment is verified. Or message us on WhatsApp for help.'}
           </p>
 
           <p className="text-xs text-center mt-3 pt-3 border-t border-gray-100 text-gray-500">

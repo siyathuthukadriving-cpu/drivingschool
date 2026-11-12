@@ -1,7 +1,7 @@
 'use client'
 
 /**
- * BuyAccessButton — primary "Pay R99" action.
+ * BuyAccessButton — primary "Pay R129" action.
  *
  * Enforces register-before-pay:
  *   - If the user isn't logged in, we send them to /register?next=/pricing?pay=1
@@ -15,7 +15,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase-browser'
-import { ACCESS_PRICE, ACCESS_PRICE_ORIGINAL, ACCESS_DURATION_DAYS } from '@/lib/contact'
+import { ACCESS_PRICE, ACCESS_PRICE_ORIGINAL, ACCESS_DURATION_DAYS, PAYMENTS_PAUSED, WHATSAPP_URL } from '@/lib/contact'
 import { getAccessStatus } from '@/lib/access-cache'
 
 export default function BuyAccessButton({
@@ -101,6 +101,24 @@ export default function BuyAccessButton({
     })()
     return () => { cancelled = true }
   }, [supabase, pay])
+
+  // Card payments are suspended: the primary action is paying through WhatsApp.
+  if (PAYMENTS_PAUSED) {
+    return (
+      <div className={className}>
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 w-full bg-green-600 text-white font-bold py-3.5 rounded-xl hover:bg-green-700 transition-colors"
+        >
+          Pay <span className="line-through opacity-70 font-normal">{ACCESS_PRICE_ORIGINAL}</span>
+          <span>{ACCESS_PRICE}</span>
+          <span className="font-normal opacity-90">· {durationDays} days · via WhatsApp</span>
+        </a>
+      </div>
+    )
+  }
 
   return (
     <div className={className}>

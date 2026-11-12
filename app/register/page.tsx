@@ -58,7 +58,7 @@ function RegisterForm() {
       <p className="text-sm text-gray-500 text-center mb-6">
         {token
           ? 'Your account unlocks 60 days of full access. This link works once, for this email only.'
-          : 'Create your email and password to pre-qualify. Premium access activates only after your R99 payment is verified.'}
+          : 'Create your email and password to pre-qualify. Premium access activates only after your R129 payment is verified.'}
       </p>
 
       <form onSubmit={submit} className="space-y-4">

@@ -6,13 +6,13 @@ import { SITE_URL } from './school'
  * Paid access is arranged over WhatsApp or via Yoco card payment for R139 →
  * 60 days of full access.
  */
-export const WHATSAPP_NUMBER = '27767545780'           // +27 76 754 5780 (Sathuthuka Driving School)
-export const WHATSAPP_MESSAGE = "I'm interested in buying the course for R99 (special, down from R150)."
+export const WHATSAPP_NUMBER = '27631721259'           // +27 63 172 1259 (payments)
+export const WHATSAPP_MESSAGE = "I'm interested in buying the learner's licence course for R129 (special, down from R180)."
 export const WHATSAPP_URL =
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`
 
 /** Support line for checkout / payment queries. */
-export const WHATSAPP_QUERIES_NUMBER = '27767545780'   // +27 76 754 5780 (Sathuthuka Driving School)
+export const WHATSAPP_QUERIES_NUMBER = '27631721259'   // +27 63 172 1259 (payments)
 export const WHATSAPP_QUERIES_MESSAGE = 'Hi, I have a query about my course payment / checkout.'
 export const WHATSAPP_QUERIES_URL =
   `https://wa.me/${WHATSAPP_QUERIES_NUMBER}?text=${encodeURIComponent(WHATSAPP_QUERIES_MESSAGE)}`
@@ -39,7 +39,7 @@ export const LIVE_SESSION_RECORDING_FILE_ID = ''
 export const FREE_PROMO_FROM  = ''                            // open now
 export const FREE_PROMO_UNTIL = '2026-11-07T13:11:00+02:00'  // 25-min test window from 12:46 SAST; then paid model resumes
 
-/** Set true to suspend all online payments (Yoco checkout). */
+/** Set true to suspend all online payments (Yoco checkout). While true, customers pay via WhatsApp instead. */
 export const PAYMENTS_PAUSED = true
 
 export function isFreePromoActive(): boolean {
@@ -51,8 +51,8 @@ export function isFreePromoActive(): boolean {
 }
 
 /** Headline price for full access (discounted from ACCESS_PRICE_ORIGINAL). */
-export const ACCESS_PRICE = 'R99'
-export const ACCESS_PRICE_CENTS = 9900            // R99.00 in ZAR cents (Yoco)
+export const ACCESS_PRICE = 'R129'
+export const ACCESS_PRICE_CENTS = 12900           // R129.00 in ZAR cents (Yoco)
 /**
  * Every price we have ever charged for full access, in cents. A checkout is
  * created at the price current at that moment, but may be PAID after a price
@@ -60,9 +60,9 @@ export const ACCESS_PRICE_CENTS = 9900            // R99.00 in ZAR cents (Yoco)
  * against the current price alone rejected those genuine payments. Add the
  * old price here whenever ACCESS_PRICE_CENTS changes.
  */
-export const ACCEPTED_ACCESS_PRICES_CENTS: readonly number[] = [ACCESS_PRICE_CENTS, 13900, 15000]
-export const ACCESS_PRICE_ORIGINAL = 'R150'       // shown struck-through
-export const ACCESS_DISCOUNT_LABEL = 'Save R51'   // (R150 − R99); ~34% off
+export const ACCEPTED_ACCESS_PRICES_CENTS: readonly number[] = [ACCESS_PRICE_CENTS, 9900, 13900, 15000]
+export const ACCESS_PRICE_ORIGINAL = 'R180'       // shown struck-through
+export const ACCESS_DISCOUNT_LABEL = 'Save R51'   // (R180 − R129); ~28% off
 /**
  * How long one full-access purchase lasts.
  *
