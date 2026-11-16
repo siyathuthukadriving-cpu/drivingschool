@@ -5,6 +5,7 @@
 export const ADMIN_EMAILS = [
   'lungi09@gmail.com',
   'lekobapk@gmail.com',
+  'olwethunosisa.shozi@gmail.com', // secondary admin
 ]
 
 /**
