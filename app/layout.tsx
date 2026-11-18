@@ -15,6 +15,7 @@ import YoutubeRecordingPopup from "@/components/YoutubeRecordingPopup";
 import FreePromoBanner from "@/components/FreePromoBanner";
 import FreePromoPopup from "@/components/FreePromoPopup";
 import HideOnLanding from "@/components/HideOnLanding";
+import DurbanPopup from "@/components/DurbanPopup";
 import { SCHOOL_NAME, SITE_URL } from '@/lib/school'
 
 const geistSans = localFont({
@@ -150,6 +151,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   {children}
                         <Footer />
                         <CookieBanner />
+                        <DurbanPopup />
                         <HideOnLanding><FreePromoPopup /></HideOnLanding>
                         <HideOnLanding><TestPrepPopup /></HideOnLanding>
                         <HideOnLanding><LiveSessionPopup /></HideOnLanding>
