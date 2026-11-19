@@ -25,7 +25,7 @@ const FAQS: Faq[] = [
   },
   {
     q: 'Does Sathuthuka charge for online practice?',
-    a: `Some of our K53 practice is free. Full access to our practice tests costs R${ACCESS_PRICE} for ${ACCESS_DURATION_DAYS} days. This is Sathuthuka’s own product and is not a government fee.`,
+    a: `Some of our K53 practice is free. Full access to our practice tests costs ${ACCESS_PRICE} for ${ACCESS_DURATION_DAYS} days. This is Sathuthuka’s own product and is not a government fee.`,
   },
 ]
 
@@ -66,7 +66,7 @@ export default function Page() {
         {
           heading: 'Practise before you pay to write',
           paragraphs: [
-            <>The cheapest test is the one you only book once. Work through our <Link href="/practice" className={A}>K53 practice tests</Link> and the free <Link href="/k53-learners-study-guide" className={A}>study guide</Link> until you can pass each section comfortably. Full practice access costs R{ACCESS_PRICE} for {ACCESS_DURATION_DAYS} days. That is Sathuthuka’s price, not a government fee.</>,
+            <>The cheapest test is the one you only book once. Work through our <Link href="/practice" className={A}>K53 practice tests</Link> and the free <Link href="/k53-learners-study-guide" className={A}>study guide</Link> until you can pass each section comfortably. Full practice access costs {ACCESS_PRICE} for {ACCESS_DURATION_DAYS} days. That is Sathuthuka’s price, not a government fee.</>,
           ],
         },
       ]}

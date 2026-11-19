@@ -57,7 +57,7 @@ export default function Page() {
         {
           heading: 'Practise online',
           paragraphs: [
-            <>Our <Link href="/practice" className={A}>K53 practice tests</Link> let you try questions on signs, rules and controls for Code 8, Code 10 and Code 14, and see where you need more work. Some practice is free. Full access costs R{ACCESS_PRICE} for {ACCESS_DURATION_DAYS} days.</>,
+            <>Our <Link href="/practice" className={A}>K53 practice tests</Link> let you try questions on signs, rules and controls for Code 8, Code 10 and Code 14, and see where you need more work. Some practice is free. Full access costs {ACCESS_PRICE} for {ACCESS_DURATION_DAYS} days.</>,
             'Practise until you are scoring well in every section, not just overall. The test is marked section by section, so a weak score in one section means you fail even if the others are strong.',
           ],
         },

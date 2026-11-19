@@ -5,7 +5,7 @@
  */
 import Link from 'next/link'
 import { ACCESS_PRICE, ACCESS_DURATION_DAYS } from '@/lib/contact'
-import { SCHOOL_BOOKING_URL, SCHOOL_MOTTO, SCHOOL_NAME, SCHOOL_TAGLINE } from '@/lib/school'
+import { LEARNER_PAGES, LESSON_PAGES, SCHOOL_BOOKING_URL, SCHOOL_MOTTO, SCHOOL_NAME, SCHOOL_TAGLINE } from '@/lib/school'
 import ContactDetails from './ContactDetails'
 import Logo from './Logo'
 import { LOCATIONS } from '@/lib/locations'
@@ -21,7 +21,7 @@ export default function Footer() {
             <Logo size="lg" />
             <p className="mt-5 text-sm font-bold text-accent-400 tracking-wide">{SCHOOL_TAGLINE}</p>
             <p className="mt-2 text-sm text-gray-400 max-w-sm">
-              {SCHOOL_MOTTO} Learner’s, Code 8, Code 10/14 and motorcycle training across KwaZulu-Natal.
+              {SCHOOL_MOTTO} Manual and automatic Code 8, Code 10 and 14, motorcycle and defensive driving lessons, with pick-up across Durban and eThekwini.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -50,26 +50,13 @@ export default function Footer() {
             <ContactDetails tone="dark" />
           </div>
 
-          <div className="lg:col-span-4 grid grid-cols-3 gap-6">
-            <div>
-              <h4 className="mb-3 text-sm font-bold uppercase tracking-widest text-white">Explore</h4>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="/#services" className={linkClass}>Our courses</Link></li>
-                {LOCATIONS.map(l => (
-                  <li key={l.slug}><Link href={l.path} className={linkClass}>{l.linkText}</Link></li>
-                ))}
-                <li><Link href="/courses" className={linkClass}>Practice Tests</Link></li>
-                <li><Link href="/k53-learners-study-guide" className={linkClass}>Study Guide</Link></li>
-                <li><Link href="/live-notes" className={linkClass}>Live Notes</Link></li>
-                <li><Link href="/videos" className={linkClass}>Videos</Link></li>
-              </ul>
-            </div>
-
+          <div className="lg:col-span-4 grid grid-cols-2 gap-6">
             <div>
               <h4 className="mb-3 text-sm font-bold uppercase tracking-widest text-white">Company</h4>
               <ul className="space-y-2 text-sm">
                 <li><Link href="/about" className={linkClass}>About</Link></li>
                 <li><Link href="/contact" className={linkClass}>Contact</Link></li>
+                <li><Link href="/pricing" className={linkClass}>Pricing</Link></li>
                 <li><Link href="/affiliate" className={linkClass}>Affiliates</Link></li>
                 <li><Link href="/trainer" className={linkClass}>Trainers</Link></li>
               </ul>
@@ -84,6 +71,40 @@ export default function Footer() {
                 <li><Link href="/admin" className={linkClass}>Admin</Link></li>
               </ul>
             </div>
+          </div>
+        </div>
+
+        <div className="mt-12 grid grid-cols-1 gap-8 border-t border-white/10 pt-10 sm:grid-cols-3">
+          <div>
+            <h4 className="mb-3 text-sm font-bold uppercase tracking-widest text-white">Driving lessons</h4>
+            <ul className="space-y-2 text-sm">
+              {LESSON_PAGES.map(p => (
+                <li key={p.href}><Link href={p.href} className={linkClass}>{p.label}</Link></li>
+              ))}
+              {LOCATIONS.map(l => (
+                <li key={l.slug}><Link href={l.path} className={linkClass}>{l.linkText}</Link></li>
+              ))}
+              <li><Link href="/contact" className={linkClass}>Book or contact us</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="mb-3 text-sm font-bold uppercase tracking-widest text-white">Learner’s licence</h4>
+            <ul className="space-y-2 text-sm">
+              {LEARNER_PAGES.map(p => (
+                <li key={p.href}><Link href={p.href} className={linkClass}>{p.label}</Link></li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="mb-3 text-sm font-bold uppercase tracking-widest text-white">Learn online</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/courses" className={linkClass}>Online K53 course</Link></li>
+              <li><Link href="/live-notes" className={linkClass}>Live notes</Link></li>
+              <li><Link href="/videos" className={linkClass}>Videos</Link></li>
+              <li><Link href="/resources" className={linkClass}>Resources</Link></li>
+            </ul>
           </div>
         </div>
 

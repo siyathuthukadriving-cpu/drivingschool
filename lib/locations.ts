@@ -229,6 +229,8 @@ export const SCHOOL_PATHS = [
   '/how-to-book-learners-licence-durban',
   '/learners-licence-cost',
   '/licence-codes',
+  '/about',
+  '/contact',
 ] as const
 
 /** Pages that use the school's own header instead of the practice-platform navbar. */
