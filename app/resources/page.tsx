@@ -9,5 +9,13 @@ export const metadata = pageMetadata({
 })
 
 export default function ResourcesPage() {
-  return <ResourcesClient />
+  return (
+    <>
+      <header className="section-container max-w-6xl pt-12">
+        <h1 className="text-3xl font-extrabold text-gray-900">K53 Study Resources</h1>
+        <p className="mt-2 text-gray-500">Download K53 practice tests, memos with highlighted answers, and reference manuals.</p>
+      </header>
+      <ResourcesClient />
+    </>
+  )
 }

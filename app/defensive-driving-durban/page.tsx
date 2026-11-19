@@ -8,7 +8,7 @@ const PATH = '/defensive-driving-durban'
 export const metadata = pageMetadata({
   path: PATH,
   title: 'Defensive Driving Lessons in Durban | Sathuthuka',
-  description: `Defensive driving lessons for licensed drivers in Durban and eThekwini: hazard awareness, following distance and calm decisions in traffic. Call ${SCHOOL_PHONE_DISPLAY}.`,
+  description: `Defensive driving lessons for licensed drivers in Durban and eThekwini: hazard awareness, safe following distances and calm decisions. Call ${SCHOOL_PHONE_DISPLAY}.`,
 })
 
 const FAQS: Faq[] = [

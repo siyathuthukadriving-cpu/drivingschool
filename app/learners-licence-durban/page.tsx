@@ -12,7 +12,7 @@ const A = 'font-semibold text-brand-700 hover:underline'
 export const metadata = pageMetadata({
   path: PATH,
   title: 'Learner’s Licence Prep in Durban | Sathuthuka',
-  description: `Prepare for your K53 learner’s licence in Durban with Sathuthuka: free study guide, practice tests and a guide to booking at a local DLTC. Call ${SCHOOL_PHONE_DISPLAY}.`,
+  description: `Prepare for your K53 learner’s licence in Durban with Sathuthuka: study guide, practice tests and a guide to booking at a local DLTC. Call ${SCHOOL_PHONE_DISPLAY}.`,
 })
 
 const FAQS: Faq[] = [

@@ -18,7 +18,7 @@ export async function generateMetadata(
   return pageMetadata({
     path: `/centers?province=${encodeURIComponent(province.name)}`,
     title: `Learner’s Licence Centres in ${province.name} | Sathuthuka`,
-    description: `Find official learner’s licence testing centres (DLTCs) in ${province.name}, including ${province.eg}. Confirm hours and requirements with the centre.`,
+    description: `Find learner’s licence testing centres (DLTCs) in ${province.name}, including ${province.eg}. Confirm hours and requirements with the centre.`,
   })
 }
 

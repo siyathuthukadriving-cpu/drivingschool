@@ -1,29 +1,17 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase-server'
 import { hasFullAccess } from '@/lib/access'
 import LockedContent from '@/components/LockedContent'
 import ProgressVisit from '@/components/ProgressVisit'
-import { CANONICAL_URL } from '@/lib/school'
+import { pageMetadata } from '@/lib/seo'
 
 const LIVE_NOTES_DESC = 'Read the full Road Traffic Signs Manual — all 18 chapters with chapter quizzes — with full access.'
 
-export const metadata: Metadata = {
-  title: "K53 Study Notes — Road Signs Manual & Rules of the Road",
-  description: "Study the full South African K53 Road Traffic Signs Manual and Rules of the Road chapter by chapter. 18 chapters, 56 pages, with a quiz after each chapter to test your knowledge.",
-  keywords: [
-    "K53 road signs manual", "learners licence study notes", "K53 study guide South Africa",
-    "road traffic signs South Africa", "learners licence road signs", "K53 rules of the road",
-    "South African road signs", "K53 learner driver manual", "learners licence chapters",
-    "K53 chapter quiz",
-  ],
-  alternates: { canonical: `${CANONICAL_URL}/live-notes` },
-  openGraph: {
-    title: "K53 Study Notes — Road Signs Manual & Rules of the Road | Sathuthuka Driving School",
-    description: "Study the full South African K53 manual chapter by chapter. Road signs, rules of the road — with a quiz after each chapter.",
-    url: `${CANONICAL_URL}/live-notes`,
-  },
-}
+export const metadata = pageMetadata({
+  path: '/live-notes',
+  title: 'K53 Road Signs and Rules Study Notes | Sathuthuka',
+  description: 'Study the South African K53 Road Traffic Signs Manual and Rules of the Road chapter by chapter, with a quiz after each chapter.',
+})
 
 export const dynamic = 'force-dynamic'
 

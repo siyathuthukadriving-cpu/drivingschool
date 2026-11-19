@@ -100,10 +100,7 @@ export default function ResourcesClient() {
 
   return (
     <main className="max-w-6xl mx-auto px-4 py-12">
-      <div className="mb-10">
-        <h1 className="text-3xl font-extrabold text-gray-900 mb-2">Study Resources</h1>
-        <p className="text-gray-500">Download K53 practice tests, memos with highlighted answers, and reference manuals.</p>
-      </div>
+      <h2 className="sr-only">Resources by category</h2>
       <div className="flex gap-4 mb-10 flex-wrap">
         {Object.entries(grouped).map(([cat, items]) => (
           <div key={cat} className="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 shadow-sm">
