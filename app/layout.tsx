@@ -7,16 +7,14 @@ import Footer from "@/components/Footer";
 import ReferralCapture from "@/components/ReferralCapture";
 import CookieBanner from "@/components/CookieBanner";
 import LiveSessionPopup from "@/components/LiveSessionPopup";
-import TestPrepPopup from "@/components/TestPrepPopup";
 import K53UnpackedPopup from "@/components/K53UnpackedPopup";
 import CourseIntroPopup from "@/components/CourseIntroPopup";
-import YoutubeLiveSessionPopup from "@/components/YoutubeLiveSessionPopup";
-import YoutubeRecordingPopup from "@/components/YoutubeRecordingPopup";
 import FreePromoBanner from "@/components/FreePromoBanner";
 import FreePromoPopup from "@/components/FreePromoPopup";
 import HideOnLanding from "@/components/HideOnLanding";
 import DurbanPopup from "@/components/DurbanPopup";
-import { SCHOOL_NAME, SITE_URL } from '@/lib/school'
+import { CANONICAL_URL, SCHOOL_NAME, SCHOOL_SHORT_NAME } from '@/lib/school'
+import { OG_IMAGE } from '@/lib/seo'
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -37,37 +35,32 @@ const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID
 const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT
 const GOOGLE_VERIFICATION = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
 
+const DEFAULT_TITLE = 'Driving School in Durban & Verulam | Sathuthuka'
+const DEFAULT_DESCRIPTION =
+    "Sathuthuka Driving School in Verulam has taught people across KwaZulu-Natal to drive for over 30 years. Code 8, 10 and 14 lessons and K53 learner's prep."
+
 export const metadata: Metadata = {
-    metadataBase: new URL(SITE_URL),
+    metadataBase: new URL(CANONICAL_URL),
     title: {
-        default: `${SCHOOL_NAME} — Code 8, Code 10 & Learner's Licence in KwaZulu-Natal`,
-        template: `%s | ${SCHOOL_NAME}`,
+        default: DEFAULT_TITLE,
+        template: `%s | ${SCHOOL_SHORT_NAME}`,
     },
-    description: "Teaching people across KwaZulu-Natal to drive for a generation. Code 8 lessons, Code 10 truck training, and learner's licence preparation. Learn to drive. Learn to arrive.",
+    description: DEFAULT_DESCRIPTION,
+    applicationName: SCHOOL_NAME,
     robots: { index: true, follow: true },
-    keywords: [
-        "Sathuthuka Driving School", "driving school Verulam", "driving lessons KwaZulu-Natal",
-        "Code 8 driving lessons", "Code 10 truck training", "Code 14 driving school",
-        "learners licence test", "K53 learners licence", "learners licence practice test",
-        "K53 test questions", "learners licence questions South Africa",
-        "K53 road signs", "learners licence study guide", "how to pass learners licence",
-        "Code 8 learners licence", "Code 10 learners licence", "free learners licence test online",
-        "K53 questions and answers", "learners licence test South Africa",
-        "learners licence road signs", "South African learner driver",
-    ],
     openGraph: {
         siteName: SCHOOL_NAME,
         locale: 'en_ZA',
         type: 'website',
-        images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: `${SCHOOL_NAME} — Learn to Drive. Learn to Arrive.` }],
-        title: `${SCHOOL_NAME} — Learn to Drive. Learn to Arrive.`,
-        description: "Code 8 lessons, Code 10 truck training and learner's licence preparation across KwaZulu-Natal. Over 30 years of teaching people to drive.",
+        images: [OG_IMAGE],
+        title: DEFAULT_TITLE,
+        description: DEFAULT_DESCRIPTION,
     },
     twitter: {
         card: 'summary_large_image',
-        images: ['/og-image.jpg'],
-        title: `${SCHOOL_NAME} — Learn to Drive. Learn to Arrive.`,
-        description: "Code 8 lessons, Code 10 truck training and learner's licence preparation across KwaZulu-Natal.",
+        images: [OG_IMAGE.url],
+        title: DEFAULT_TITLE,
+        description: DEFAULT_DESCRIPTION,
     },
     ...(GOOGLE_VERIFICATION ? { verification: { google: GOOGLE_VERIFICATION } } : {}),
 };
@@ -153,12 +146,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <CookieBanner />
                         <DurbanPopup />
                         <HideOnLanding><FreePromoPopup /></HideOnLanding>
-                        <HideOnLanding><TestPrepPopup /></HideOnLanding>
                         <HideOnLanding><LiveSessionPopup /></HideOnLanding>
                         <HideOnLanding><K53UnpackedPopup /></HideOnLanding>
                         <HideOnLanding><CourseIntroPopup /></HideOnLanding>
-                        <HideOnLanding><YoutubeLiveSessionPopup /></HideOnLanding>
-                        <HideOnLanding><YoutubeRecordingPopup /></HideOnLanding>
                 </body>
           </html>
         );

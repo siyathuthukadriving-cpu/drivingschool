@@ -19,13 +19,13 @@ export default function Logo({
     <span className="inline-flex items-center gap-3">
       <Image
         src="/logo-mark.jpg"
-        alt=""
+        alt="Sathuthuka Driving School logo"
         width={96}
         height={96}
         className={`${mark} rounded-lg shrink-0`}
         priority
       />
-      <span className={`flex-col leading-none ${compact ? 'hidden min-[360px]:flex' : 'flex'}`}>
+      <span aria-hidden="true" className={`flex-col leading-none ${compact ? 'hidden min-[360px]:flex' : 'flex'}`}>
         <span className={`${name} font-extrabold uppercase tracking-[0.14em] text-white`}>
           Sathuthuk<span className="text-brand-600">a</span>
         </span>
@@ -33,7 +33,6 @@ export default function Logo({
           Driving School
         </span>
       </span>
-      <span className="sr-only">Sathuthuka Driving School</span>
     </span>
   )
 }

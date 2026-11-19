@@ -7,13 +7,14 @@ import {
   WHATSAPP_URL, WHATSAPP_QUERIES_URL, PAYMENTS_PAUSED, ACCESS_PRICE, ACCESS_PRICE_ORIGINAL,
   ACCESS_DISCOUNT_LABEL, ACCESS_DURATION_DAYS,
 } from '@/lib/contact'
-import { SITE_URL } from '@/lib/school'
+import { CANONICAL_URL, LESSON_PAGES, SCHOOL_BOOKING_URL, SCHOOL_PHONE_DISPLAY, SCHOOL_PICKUP_LINE } from '@/lib/school'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata = {
-  title: 'Get Full Access — K53 Learner\'s',
-  description: 'Unlock unlimited K53 practice tests, Live Notes, resources and videos.',
-  alternates: { canonical: `${SITE_URL}/pricing` },
-}
+export const metadata = pageMetadata({
+  path: '/pricing',
+  title: 'K53 Practice Access & Lesson Bookings',
+  description: `Full online K53 practice access is ${ACCESS_PRICE} for ${ACCESS_DURATION_DAYS} days. Message Sathuthuka on WhatsApp for in-person driving lesson prices in Durban.`,
+})
 
 const FEATURES = [
   'Unlimited timed practice tests (Code 8 & Code 10)',
@@ -29,10 +30,10 @@ const productSchema = {
   name: 'Sathuthuka K53 Full Access',
   description: `Unlimited K53 practice tests, study notes, resources and videos for ${ACCESS_DURATION_DAYS} days.`,
   brand: { '@type': 'Brand', name: 'Sathuthuka' },
-  url: `${SITE_URL}/pricing`,
+  url: `${CANONICAL_URL}/pricing`,
   offers: {
     '@type': 'Offer',
-    url: `${SITE_URL}/pricing`,
+    url: `${CANONICAL_URL}/pricing`,
     priceCurrency: 'ZAR',
     price: '129.00',
     availability: 'https://schema.org/InStock',
@@ -71,7 +72,7 @@ export default async function PricingPage({
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       <div className="bg-brand-700 text-white py-14 px-4 text-center">
         <span className="text-xs font-bold tracking-widest uppercase text-brand-200 block mb-3">Sathuthuka</span>
-        <h1 className="text-3xl sm:text-4xl font-extrabold mb-3 leading-tight">Prepare to Pass Your K53 the First Time</h1>
+        <h1 className="text-3xl sm:text-4xl font-extrabold mb-3 leading-tight">K53 Practice Access and Lesson Bookings</h1>
         <p className="text-brand-100 text-base sm:text-lg max-w-xl mx-auto">
           Try any test free for 10 minutes, every time you open it. Unlock everything for{' '}
           <span className="line-through opacity-60 mr-1">{ACCESS_PRICE_ORIGINAL}</span>
@@ -157,6 +158,26 @@ export default async function PricingPage({
             </a>
           </p>
         </div>
+
+        <section className="mt-10 rounded-2xl border border-gray-200 bg-white p-7 shadow-sm">
+          <h2 className="text-xl font-extrabold text-gray-900">In-person driving lessons</h2>
+          <p className="mt-3 text-sm leading-relaxed text-gray-600">
+            Lesson prices depend on the licence and how many lessons you need. Message us on WhatsApp or call {SCHOOL_PHONE_DISPLAY} for current prices. {SCHOOL_PICKUP_LINE}
+          </p>
+          <a
+            href={SCHOOL_BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 flex w-full items-center justify-center rounded-xl bg-green-600 py-3 font-semibold text-white transition-colors hover:bg-green-700"
+          >
+            Ask for lesson prices on WhatsApp
+          </a>
+          <ul className="mt-5 space-y-2 text-sm">
+            {LESSON_PAGES.map(p => (
+              <li key={p.href}><Link href={p.href} className="font-semibold text-brand-700 hover:underline">{p.label}</Link></li>
+            ))}
+          </ul>
+        </section>
       </div>
     </main>
   )

@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import BookSlideshow from '@/components/BookSlideshow'
 import BuyAccessButton from '@/components/BuyAccessButton'
@@ -6,27 +5,44 @@ import GamificationTeaser from '@/components/GamificationTeaser'
 import PracticeHero from '@/components/PracticeHero'
 import { hasFullAccess } from '@/lib/access'
 import { PAYMENTS_PAUSED, WHATSAPP_URL, ACCESS_PRICE, ACCESS_PRICE_ORIGINAL, ACCESS_DURATION_DAYS } from '@/lib/contact'
-import { SITE_URL } from '@/lib/school'
+import JsonLd from '@/components/JsonLd'
+import { faqSchema, pageMetadata, type Faq } from '@/lib/seo'
+import { CANONICAL_URL } from '@/lib/school'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = {
-  title: "Free K53 Learner's Licence Practice Tests South Africa",
-  description: "Study for your South African learner's licence with free K53 practice tests. Covers road signs, vehicle controls, and rules of the road for Code 8, Code 10 and Code 14. Pass first time.",
-  keywords: [
-    "learners licence test South Africa", "K53 practice test", "free learners licence test",
-    "K53 questions and answers", "learners licence road signs", "learners licence rules of the road",
-    "Code 8 learners licence", "Code 10 learners licence", "how to pass learners licence",
-    "learners licence study guide South Africa", "K53 learner driver manual",
-    "learners test questions South Africa", "learners licence test online free",
-  ],
-  alternates: { canonical: `${SITE_URL}/practice` },
-  openGraph: {
-    title: "Free K53 Learner's Licence Practice Tests | Sathuthuka Driving School",
-    description: "Pass your South African learner's licence first time. Free K53 practice tests for Code 8, Code 10 and Code 14 — road signs, vehicle controls, rules of the road.",
-    url: `${SITE_URL}/practice`,
+export const metadata = pageMetadata({
+  path: '/practice',
+  title: 'Free K53 Practice Tests | Sathuthuka',
+  description: 'Free K53 learner’s licence practice tests for Code 8, Code 10 and Code 14, covering road signs, rules of the road and vehicle controls.',
+})
+
+const FAQS: Faq[] = [
+  {
+    q: "How many questions are on the South African learner's licence test?",
+    a: 'The K53 test has 64 questions in three sections: Road signs (28 questions, pass mark 23), Rules of the road (28 questions, pass mark 22), and Vehicle controls (8 questions, pass mark 6). You must pass all three sections.',
   },
-}
+  {
+    q: "What mark do you need to pass the learner's licence test?",
+    a: 'You need 23/28 (82%) for road signs, 22/28 (79%) for rules of the road, and 6/8 (75%) for vehicle controls. Failing any one section means you fail the entire test.',
+  },
+  {
+    q: "What is the difference between a Code 8 and Code 10 learner's licence?",
+    a: "Code 8 commonly refers to a Code B driving licence for light vehicles up to 3,500 kg GVM. Code 10 commonly refers to Code C1 for vehicles over 3,500 kg and up to 16,000 kg GVM. When booking a learner's test, the official learner categories are Code 1, Code 2 and Code 3, so confirm the correct category with your DLTC.",
+  },
+  {
+    q: "How do I book a learner's licence test in South Africa?",
+    a: 'Gauteng residents should apply through the official eNaTIS online portal. In other areas, contact or visit your nearest Driving Licence Testing Centre because online availability and booking procedures vary. Fees also vary by testing centre or municipality.',
+  },
+  {
+    q: "What documents do I need for the learner's licence test?",
+    a: 'Take your identity document, the number of ID photographs required by your DLTC, proof of postal and residential address, the booking fee and a completed LL1 application form. Applicants aged 65 or older must also complete a Medical Certificate form.',
+  },
+  {
+    q: "Can I practise for the K53 learner's licence test online?",
+    a: 'Yes. Sathuthuka offers free K53 practice tests online covering all three sections. Practising regularly with timed tests helps you find and fix weak areas before the real test.',
+  },
+]
 
 const appSchema = {
   '@context': 'https://schema.org',
@@ -34,7 +50,7 @@ const appSchema = {
   name: "K53 Learner's Licence Practice Tests",
   applicationCategory: 'EducationalApplication',
   operatingSystem: 'Web',
-  url: `${SITE_URL}/courses`,
+  url: `${CANONICAL_URL}/courses`,
   description: "Interactive K53 practice tests for the South African learner's licence — road signs, vehicle controls, rules of the road.",
   offers: {
     '@type': 'Offer',
@@ -42,43 +58,6 @@ const appSchema = {
     priceCurrency: 'ZAR',
     description: "Free learner's licence practice tests",
   },
-}
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: "How many questions are on the South African learner's licence test?",
-      acceptedAnswer: { '@type': 'Answer', text: 'The K53 learner\'s licence test has 64 questions divided into three sections: Road signs (28 questions, pass mark 23), Rules of the road (28 questions, pass mark 22), and Vehicle controls (8 questions, pass mark 6). You must pass all three sections to pass the test.' },
-    },
-    {
-      '@type': 'Question',
-      name: "What mark do you need to pass the learner's licence test?",
-      acceptedAnswer: { '@type': 'Answer', text: 'You need to pass all three sections of the K53 test: at least 23/28 (82%) for road signs, at least 22/28 (79%) for rules of the road, and at least 6/8 (75%) for vehicle controls. Failing even one section means you fail the entire test.' },
-    },
-    {
-      '@type': 'Question',
-      name: 'What is the difference between a Code 8 and Code 10 learner\'s licence?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Code 8 commonly refers to a Code B driving licence for light vehicles up to 3,500 kg GVM. Code 10 commonly refers to Code C1 for vehicles over 3,500 kg and up to 16,000 kg GVM. When booking a learner\'s test, the official learner categories are Code 1, Code 2 and Code 3, so confirm the correct category with your DLTC.' },
-    },
-    {
-      '@type': 'Question',
-      name: "How do I book a learner's licence test in South Africa?",
-      acceptedAnswer: { '@type': 'Answer', text: 'Gauteng residents should apply through the official eNaTIS online portal. In other areas, contact or visit your nearest Driving Licence Testing Centre because online availability and booking procedures vary. Fees also vary by testing centre or municipality.' },
-    },
-    {
-      '@type': 'Question',
-      name: "What documents do I need for the learner's licence test?",
-      acceptedAnswer: { '@type': 'Answer', text: 'Take your identity document, the number of ID photographs required by your DLTC, proof of postal and residential address, the booking fee and a completed LL1 application form. Applicants aged 65 or older must also complete a Medical Certificate form.' },
-    },
-    {
-      '@type': 'Question',
-      name: "Can I practise for the K53 learner's licence test online?",
-      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Sathuthuka offers free K53 practice tests online covering all three sections. Practising with timed tests regularly is the best way to prepare and pass first time.' },
-    },
-  ],
 }
 
 function FeatureIcon({ type }: { type: 'signs' | 'controls' | 'rules' }) {
@@ -116,8 +95,7 @@ export default async function Home() {
   const fullAccess = await hasFullAccess()
   return (
     <main>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <JsonLd data={[appSchema, faqSchema(FAQS)]} />
 
       {/* ─── Hero ─── */}
       <PracticeHero />
@@ -153,7 +131,7 @@ export default async function Home() {
         <div className="section-container">
           <div className="text-center mb-10 sm:mb-12">
             <span className="inline-block text-xs font-bold text-brand-600 uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full mb-3">Simple process</span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">Pass in 3 steps</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">Prepare in 3 steps</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-10 max-w-4xl mx-auto">
             {([
@@ -172,8 +150,8 @@ export default async function Home() {
               {
                 step: '3',
                 color: 'bg-green-50 text-green-600',
-                title: 'Pass first time',
-                desc: 'Go in confident. Our learners report a 90% pass rate after completing the course and practice tests.',
+                title: 'Book your test',
+                desc: 'When you are scoring well in every section, book your learner’s test at a driving licence testing centre and go in prepared.',
               },
             ]).map(({ step, color, title, desc }) => (
               <div key={step} className="flex flex-col items-center sm:items-start text-center sm:text-left gap-4">
@@ -193,7 +171,6 @@ export default async function Home() {
               Start Practising Free
               <svg viewBox="0 0 20 20" className="w-4 h-4 fill-current" aria-hidden="true"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" /></svg>
             </Link>
-            <p className="text-xs text-gray-400 mt-3 italic">Pass rate based on outcomes reported by learners who completed the course.</p>
           </div>
         </div>
       </section>
@@ -314,7 +291,7 @@ export default async function Home() {
             Everything You Need to Prepare for Only {ACCESS_PRICE}
           </h2>
           <p className="text-gray-300 mb-8 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-            Get two months of access to lessons, practice tests, road signs, vehicle controls
+            Get {ACCESS_DURATION_DAYS} days of access to lessons, practice tests, road signs, vehicle controls
             and rules of the road.
           </p>
           <Link
@@ -327,38 +304,29 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* ─── Durban test date ─── */}
+      <section className="section-container max-w-3xl pt-14 sm:pt-20">
+        <div className="card-elevated p-7 sm:p-9">
+          <h2 className="text-xl font-extrabold text-gray-900 sm:text-2xl">Study for a Durban / eThekwini test date</h2>
+          <p className="mt-3 text-sm leading-relaxed text-gray-600 sm:text-base">
+            Writing your learner’s in Durban or elsewhere in KwaZulu-Natal? Plan your practice around your test date, and check what to take and what it costs before you go.
+          </p>
+          <ul className="mt-4 space-y-2 text-sm font-semibold">
+            <li><Link href="/how-to-book-learners-licence-durban" className="text-brand-700 hover:underline">How to book a learner’s licence in Durban</Link></li>
+            <li><Link href="/learners-licence-cost" className="text-brand-700 hover:underline">Learner’s licence cost</Link></li>
+            <li><Link href="/centers" className="text-brand-700 hover:underline">Find a Durban or KZN test centre</Link></li>
+            <li><Link href="/learners-licence-durban" className="text-brand-700 hover:underline">Learner’s licence preparation in Durban</Link></li>
+          </ul>
+        </div>
+      </section>
+
       {/* ─── FAQ ─── */}
       <section className="section-container max-w-3xl py-14 sm:py-20">
         <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-8 text-center">
           Learner&apos;s Licence — Frequently Asked Questions
         </h2>
         <div className="space-y-3">
-          {[
-            {
-              q: "How many questions are on the South African learner's licence test?",
-              a: "The K53 test has 64 questions in three sections: Road signs (28 questions, pass mark 23), Rules of the road (28 questions, pass mark 22), and Vehicle controls (8 questions, pass mark 6). You must pass all three sections.",
-            },
-            {
-              q: "What mark do you need to pass the learner's licence test?",
-              a: "You need 23/28 (82%) for road signs, 22/28 (79%) for rules of the road, and 6/8 (75%) for vehicle controls. Failing any one section means you fail the entire test.",
-            },
-            {
-              q: "What is the difference between a Code 8 and Code 10 learner's licence?",
-              a: "Code 8 commonly refers to a Code B driving licence for light vehicles up to 3,500 kg GVM. Code 10 commonly refers to Code C1 for vehicles over 3,500 kg and up to 16,000 kg GVM. When booking a learner's test, the official learner categories are Code 1, Code 2 and Code 3, so confirm the correct category with your DLTC.",
-            },
-            {
-              q: "How do I book a learner's licence test in South Africa?",
-              a: "Gauteng residents should apply through the official eNaTIS online portal. In other areas, contact or visit your nearest Driving Licence Testing Centre because online availability and booking procedures vary. Fees also vary by testing centre or municipality.",
-            },
-            {
-              q: "What documents do I need for the learner's licence test?",
-              a: "Take your identity document, the number of ID photographs required by your DLTC, proof of postal and residential address, the booking fee and a completed LL1 application form. Applicants aged 65 or older must also complete a Medical Certificate form.",
-            },
-            {
-              q: "Can I practise for the K53 learner's licence test online?",
-              a: "Yes — Sathuthuka offers free K53 practice tests online covering all three sections. Practising with timed tests regularly is the best way to prepare and pass first time.",
-            },
-          ].map(({ q, a }) => (
+          {FAQS.map(({ q, a }) => (
             <details key={q} className="card-elevated px-6 py-5 group cursor-pointer">
               <summary className="font-semibold text-gray-900 text-sm sm:text-base list-none flex items-center justify-between gap-3">
                 {q}

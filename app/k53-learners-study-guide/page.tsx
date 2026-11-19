@@ -1,37 +1,16 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
-import { SITE_URL } from '@/lib/school'
+import { CANONICAL_URL, SCHOOL_NAME, SCHOOL_REF } from '@/lib/school'
+import { pageMetadata } from '@/lib/seo'
 
-const BASE_URL = SITE_URL
+const BASE_URL = CANONICAL_URL
 const PAGE_URL = `${BASE_URL}/k53-learners-study-guide`
 
-export const metadata: Metadata = {
-  title: "Free K53 Learners Study Guide South Africa",
-  description:
-    "Free South African K53 learner's licence study guide: official test sections and pass marks, Code 1, 2 and 3 age rules, booking checklist, PDF summary and online practice tests.",
-  keywords: [
-    'free K53 learners study guide',
-    'K53 learners book PDF download',
-    'K53 study material South Africa',
-    'learners licence pass marks',
-    'Code 1 Code 2 Code 3 learners licence',
-    'Code 8 Code 10 Code 14 learners test',
-    'how to book learners licence test',
-  ],
-  alternates: { canonical: PAGE_URL },
-  openGraph: {
-    type: 'article',
-    url: PAGE_URL,
-    title: 'Free K53 Learners Study Guide for South Africa | Sathuthuka Driving School',
-    description:
-      "Study the K53 test sections, pass marks, licence categories and booking steps, then download Sathuthuka's free original PDF checklist.",
-  },
-  twitter: {
-    card: 'summary',
-    title: 'Free K53 Learners Study Guide for South Africa',
-    description: 'Pass marks, categories, booking checklist, free PDF and practice tests from Sathuthuka.',
-  },
-}
+export const metadata = pageMetadata({
+  path: '/k53-learners-study-guide',
+  type: 'article',
+  title: 'Free K53 Learners Study Guide | Sathuthuka',
+  description: 'Free K53 study guide for the South African learner’s test: sections, pass marks, licence codes, a booking checklist and links to practice tests.',
+})
 
 const faqs = [
   {
@@ -73,9 +52,9 @@ const webPageSchema = {
   description:
     "A free guide to South Africa's K53 learner's licence test, including pass marks, licence categories, booking steps and study resources.",
   inLanguage: 'en-ZA',
-  dateModified: '2026-07-16',
-  isPartOf: { '@type': 'WebSite', name: 'Sathuthuka', url: BASE_URL },
-  publisher: { '@type': 'Organization', name: 'Sathuthuka', url: BASE_URL },
+  dateModified: '2026-11-19',
+  isPartOf: { '@type': 'WebSite', name: SCHOOL_NAME, url: BASE_URL },
+  publisher: SCHOOL_REF,
 }
 
 const faqSchema = {
@@ -227,10 +206,24 @@ export default function K53StudyGuidePage() {
           </div>
         </section>
 
+        <section aria-labelledby="booking-kzn" className="mt-14 scroll-mt-20">
+          <h2 id="booking-kzn" className="text-2xl font-extrabold text-gray-900 sm:text-3xl">Booking in Durban and KZN</h2>
+          <p className="mt-4 leading-7 text-gray-600">
+            In KwaZulu-Natal you apply in person at a driving licence testing centre, and the KZN Department of Transport asks for proof of
+            address that is not older than three months. Fees are set locally, so confirm the current booking and issue fees with your centre.
+          </p>
+          <ul className="mt-5 space-y-2 text-gray-600">
+            <li><Link href="/how-to-book-learners-licence-durban" className="font-semibold text-brand-700 hover:underline">How to book a learner’s licence in Durban</Link></li>
+            <li><Link href="/learners-licence-cost" className="font-semibold text-brand-700 hover:underline">What a learner’s licence costs</Link></li>
+            <li><Link href="/licence-codes" className="font-semibold text-brand-700 hover:underline">South African licence codes explained</Link></li>
+            <li><Link href="/centers" className="font-semibold text-brand-700 hover:underline">Find a Durban or KZN test centre</Link></li>
+          </ul>
+        </section>
+
         <section aria-labelledby="study-next" className="mt-14 rounded-3xl bg-brand-50 p-6 sm:p-8">
           <h2 id="study-next" className="text-2xl font-extrabold text-gray-900">Where to study next</h2>
           <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-            <li><Link href="/courses" className="block rounded-xl bg-white p-4 font-bold text-brand-700 shadow-sm hover:underline">Take K53 practice tests online</Link></li>
+            <li><Link href="/practice" className="block rounded-xl bg-white p-4 font-bold text-brand-700 shadow-sm hover:underline">Take K53 practice tests online</Link></li>
             <li><Link href="/live-notes" className="block rounded-xl bg-white p-4 font-bold text-brand-700 shadow-sm hover:underline">Read K53 road signs and rules notes</Link></li>
             <li><Link href="/videos" className="block rounded-xl bg-white p-4 font-bold text-brand-700 shadow-sm hover:underline">Watch K53 study videos</Link></li>
             <li><Link href="/pricing" className="block rounded-xl bg-white p-4 font-bold text-brand-700 shadow-sm hover:underline">View Sathuthuka lesson and study packages</Link></li>
@@ -255,7 +248,7 @@ export default function K53StudyGuidePage() {
 
         <section aria-labelledby="sources" className="mt-14 border-t border-gray-200 pt-8">
           <h2 id="sources" className="text-lg font-bold text-gray-900">Official sources and review date</h2>
-          <p className="mt-3 text-sm leading-6 text-gray-600">This guide was reviewed on 16 July 2026. Requirements can change, so confirm local fees and photo requirements with your DLTC.</p>
+          <p className="mt-3 text-sm leading-6 text-gray-600">This guide was reviewed on 19 November 2026. Requirements can change, so confirm local fees and photo requirements with your DLTC.</p>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600">
             <li><a href="https://www.gov.za/services/driving-licence/apply-learners-licence" target="_blank" rel="noopener noreferrer" className="text-brand-700 hover:underline">South African Government: Apply for a learner&apos;s licence</a></li>
             <li><a href="https://www.natis.gov.za/" target="_blank" rel="noopener noreferrer" className="text-brand-700 hover:underline">NaTIS: official driving licence information</a></li>

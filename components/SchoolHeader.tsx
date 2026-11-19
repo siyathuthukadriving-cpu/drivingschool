@@ -7,14 +7,15 @@ import WhatsAppIcon from './WhatsAppIcon'
 import { SCHOOL_BOOKING_URL } from '@/lib/school'
 
 const LINKS = [
-  { href: '/#about', label: 'About' },
-  { href: '/#services', label: 'Services' },
+  { href: '/about', label: 'About' },
+  { href: '/#services', label: 'Lessons' },
+  { href: '/learners-licence-durban', label: 'Learner’s' },
   { href: '/practice', label: 'Practice Tests' },
-  { href: '/#contact', label: 'Contact' },
+  { href: '/contact', label: 'Contact' },
 ]
 
 /**
- * Transparent header for the school landing page ("/"), laid over the hero.
+ * Transparent header for the school's own pages (home, lessons, locations, learner's guides), laid over the hero.
  * The practice platform keeps its own navbar on every other page.
  */
 export default function SchoolHeader() {

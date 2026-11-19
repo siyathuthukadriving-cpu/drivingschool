@@ -1,52 +1,83 @@
-import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import ContactDetails from '@/components/ContactDetails'
 import FloatingWhatsApp from '@/components/FloatingWhatsApp'
 import Hero from '@/components/Hero'
+import JsonLd from '@/components/JsonLd'
 import SchoolHeader from '@/components/SchoolHeader'
+import { FaqList } from '@/components/SchoolPageParts'
 import WhatsAppIcon from '@/components/WhatsAppIcon'
+import { ACCESS_DURATION_DAYS, ACCESS_PRICE } from '@/lib/contact'
 import { LOCATIONS } from '@/lib/locations'
+import { faqSchema, pageMetadata, type Faq } from '@/lib/seo'
 import {
+  CANONICAL_URL,
+  LEARNER_PAGES,
+  SCHOOL_ADDRESS,
   SCHOOL_BLURB,
   SCHOOL_BOOKING_URL,
+  SCHOOL_GOOGLE_PROFILE_URL,
   SCHOOL_MAP_URL,
   SCHOOL_MOTTO,
   SCHOOL_NAME,
   SCHOOL_PHONE_DISPLAY,
   SCHOOL_PHONE_TEL,
+  SCHOOL_PICKUP_LINE,
+  SCHOOL_REF,
   SCHOOL_SCHEMA,
   SCHOOL_SERVICES,
   SCHOOL_TAGLINE,
-  SITE_URL,
 } from '@/lib/school'
 
-export const metadata: Metadata = {
-  title: { absolute: 'Driving School in Durban, Durban North & Verulam | Sathuthuka' },
-  description:
-    'Sathuthuka Driving School in Verulam teaches learners from Durban, Durban CBD and Durban North: Code 8, Code 10 and Code 14 lessons and learner’s licence prep. Call 076 754 5780.',
+export const metadata = pageMetadata({
+  path: '/',
+  title: 'Driving School in Durban & Verulam | Sathuthuka',
+  description: `Sathuthuka Driving School in Verulam: Code 8 manual and automatic, Code 10 and 14 lessons and K53 prep, with pick-up across Durban. Call ${SCHOOL_PHONE_DISPLAY}.`,
   keywords: [
-    'driving school Durban', 'driving school Durban CBD', 'driving school Durban North',
-    'Sathuthuka Driving School', 'driving school Verulam', 'driving lessons KwaZulu-Natal', 'driving lessons Durban',
-    'Code 8 driving lessons', 'Code 10 truck training', 'Code 14 driving school',
-    'motorcycle licence training', 'learners licence KwaZulu-Natal',
+    'driving lessons durban', 'driving schools in durban', 'driving school verulam',
+    'Code 8 driving lessons', 'automatic driving lessons durban', 'Sathuthuka Driving School',
   ],
-  alternates: { canonical: SITE_URL },
-  openGraph: {
-    title: 'Driving School in Durban, Durban North & Verulam | Sathuthuka',
-    description: SCHOOL_BLURB,
-    url: SITE_URL,
-  },
-}
+})
 
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: SCHOOL_NAME,
-  url: SITE_URL,
+  url: CANONICAL_URL,
   description: SCHOOL_BLURB,
   inLanguage: 'en-ZA',
+  publisher: SCHOOL_REF,
 }
+
+const FAQS: Faq[] = [
+  {
+    q: 'Where are you based?',
+    a: `${SCHOOL_NAME} is at ${SCHOOL_ADDRESS}. ${SCHOOL_PICKUP_LINE}`,
+  },
+  {
+    q: 'Which licences do you teach?',
+    a: 'Code 8 in manual and automatic cars, Code 10 and Code 14 heavy vehicles, and motorcycles. We also offer defensive driving for licensed drivers and K53 learner’s licence preparation.',
+  },
+  {
+    q: 'Do you teach learners from Durban CBD and Durban North?',
+    a: 'Yes. We teach learners across Durban and eThekwini, including the CBD and Durban North, and we offer pick-up for lessons.',
+  },
+  {
+    q: 'How do I book?',
+    a: `Message us on WhatsApp or call ${SCHOOL_PHONE_DISPLAY}. Tell us which licence you are working towards and where you would like to be picked up. We are open Monday to Saturday, 08:00–17:00.`,
+  },
+  {
+    q: 'Can I prepare for my learner’s online?',
+    a: `Yes. Our free K53 study guide and practice tests cover road signs, rules of the road and vehicle controls. Full practice access costs ${ACCESS_PRICE} for ${ACCESS_DURATION_DAYS} days.`,
+  },
+]
+
+const WHY = [
+  { title: 'Over 30 years of teaching', text: 'We have taught people across KwaZulu-Natal to drive for more than three decades.' },
+  { title: 'Pick-up across Durban', text: 'Lessons start where you are, anywhere in Durban and eThekwini.' },
+  { title: 'Cars, trucks and motorcycles', text: 'One school from your first Code 8 lesson to a Code 14 licence.' },
+  { title: 'Open six days a week', text: 'Monday to Saturday, 08:00–17:00, so lessons can fit around work or school.' },
+]
 
 const ICON = {
   shield: 'M10 1.5l6 2.2v4.6c0 4-2.5 7.2-6 8.7-3.5-1.5-6-4.7-6-8.7V3.7l6-2.2zm-.9 10.3l4-4-1.1-1.1-2.9 2.9-1.2-1.2-1.1 1.1 2.3 2.3z',
@@ -58,13 +89,11 @@ const ICON = {
 
 const HIGHLIGHTS: { icon: keyof typeof ICON; title: string; text: string }[] = [
   { icon: 'shield', title: '30+ years', text: 'Teaching KZN to drive' },
-  { icon: 'car', title: 'Code 8', text: 'Light vehicle lessons' },
+  { icon: 'car', title: 'Code 8', text: 'Manual and automatic' },
   { icon: 'truck', title: 'Code 10 & 14', text: 'Truck training' },
   { icon: 'check', title: 'Learner’s prep', text: 'K53 practice online' },
   { icon: 'pin', title: 'Verulam, KZN', text: 'Ayesha Centre' },
 ]
-
-const COURSES = ['Code 8 driving lessons', 'Code 10 and Code 14 truck training', 'Motorcycle training', 'Learner’s licence preparation online']
 
 function Arrow() {
   return (
@@ -77,8 +106,7 @@ function Arrow() {
 export default function Home() {
   return (
     <main>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHOOL_SCHEMA) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+      <JsonLd data={[SCHOOL_SCHEMA, websiteSchema, faqSchema(FAQS)]} />
 
       {/* ─── Header + hero ─── */}
       <div className="relative">
@@ -105,21 +133,52 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── About ─── */}
-      <section id="about" className="scroll-mt-6 py-16 sm:py-24">
+      {/* ─── What we teach ─── */}
+      <section id="services" className="scroll-mt-6 py-16 sm:py-24">
+        <div className="section-container">
+          <div className="mb-10 text-center sm:mb-14">
+            <span className="mb-3 inline-block rounded-full bg-brand-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-brand-600">Our services</span>
+            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">What we teach</h2>
+            <p className="mx-auto mt-3 max-w-2xl text-gray-500">From your learner’s licence to your driving licence, and beyond. {SCHOOL_MOTTO}</p>
+          </div>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+            {SCHOOL_SERVICES.map(service => (
+              <div key={service.key} className="card-elevated flex flex-col border-t-4 border-t-brand-600 p-6">
+                <span className="self-start rounded-full bg-brand-50 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-widest text-brand-700">{service.badge}</span>
+                <h3 className="mt-4 text-lg font-bold text-gray-900">{service.title}</h3>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-500">{service.desc}</p>
+                <Link href={service.href} className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-brand-700 transition-all hover:gap-2.5 hover:text-brand-600">
+                  {service.linkText}
+                  <Arrow />
+                </Link>
+              </div>
+            ))}
+          </div>
+          <p className="mt-8 text-center text-sm text-gray-500">
+            Training for an articulated truck? See <Link href="/code-14-lessons" className="font-semibold text-brand-700 hover:underline">Code 14 lessons</Link>. Not sure which code you need? Read <Link href="/licence-codes" className="font-semibold text-brand-700 hover:underline">licence codes explained</Link>.
+          </p>
+        </div>
+      </section>
+
+      {/* ─── Why us ─── */}
+      <section id="about" className="scroll-mt-6 bg-white py-16 sm:py-24">
         <div className="section-container grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
             <span className="mb-3 inline-block rounded-full bg-brand-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-brand-600">About us</span>
-            <h2 className="text-3xl font-extrabold leading-tight text-gray-900 sm:text-4xl">A driving school serving Durban, Durban CBD and Durban North</h2>
-            <p className="mt-5 text-base leading-relaxed text-gray-600 sm:text-lg">{SCHOOL_BLURB}</p>
-            <p className="mt-3 text-base font-semibold text-gray-900 sm:text-lg">{SCHOOL_MOTTO}</p>
-            <ul className="mt-6 space-y-3">
-              {COURSES.map(c => (
-                <li key={c} className="flex items-start gap-3 text-gray-700">
+            <h2 className="text-3xl font-extrabold leading-tight text-gray-900 sm:text-4xl">Why learn with a Verulam school</h2>
+            <p className="mt-5 text-base leading-relaxed text-gray-600 sm:text-lg">
+              {SCHOOL_NAME} is based at the Ayesha Centre in Verulam, north of Durban, and has been teaching people to drive for over 30 years. We come to you, with pick-up for lessons anywhere in Durban and eThekwini.
+            </p>
+            <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+              {WHY.map(w => (
+                <li key={w.title} className="flex items-start gap-3">
                   <svg viewBox="0 0 20 20" className="mt-0.5 h-5 w-5 shrink-0 fill-brand-600" aria-hidden="true">
                     <path d={ICON.check} />
                   </svg>
-                  {c}
+                  <span>
+                    <span className="block font-semibold text-gray-900">{w.title}</span>
+                    <span className="text-sm text-gray-600">{w.text}</span>
+                  </span>
                 </li>
               ))}
             </ul>
@@ -133,12 +192,12 @@ export default function Home() {
                 Book a lesson
                 <Arrow />
               </a>
-              <a
-                href={`tel:${SCHOOL_PHONE_TEL}`}
+              <Link
+                href="/about"
                 className="inline-flex items-center justify-center rounded-full border-2 border-gray-200 px-7 py-3.5 text-sm font-bold text-gray-800 transition-colors hover:border-brand-600 hover:text-brand-700 active:scale-[0.98]"
               >
-                Call {SCHOOL_PHONE_DISPLAY}
-              </a>
+                About the school
+              </Link>
             </div>
           </div>
           <div className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-card">
@@ -154,88 +213,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── Services ─── */}
-      <section id="services" className="scroll-mt-6 bg-white py-16 sm:py-24">
-        <div className="section-container">
-          <div className="mb-10 text-center sm:mb-14">
-            <span className="mb-3 inline-block rounded-full bg-brand-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-brand-600">Our services</span>
-            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">From learner’s to licence holder</h2>
-            <p className="mx-auto mt-3 max-w-2xl text-gray-500">{SCHOOL_MOTTO}</p>
-          </div>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
-            {SCHOOL_SERVICES.map(service => (
-              <div key={service.key} className="card-elevated flex flex-col border-t-4 border-t-brand-600 p-6">
-                <span className="self-start rounded-full bg-brand-50 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-widest text-brand-700">{service.badge}</span>
-                <h3 className="mt-4 text-lg font-bold text-gray-900">{service.title}</h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-500">{service.desc}</p>
-                {service.key === 'learners' ? (
-                  <Link href="/practice" className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-brand-700 transition-all hover:gap-2.5 hover:text-brand-600">
-                    Start practising
-                    <Arrow />
-                  </Link>
-                ) : (
-                  <a
-                    href={SCHOOL_BOOKING_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-brand-700 transition-all hover:gap-2.5 hover:text-brand-600"
-                  >
-                    Enquire on WhatsApp
-                    <Arrow />
-                  </a>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Practice platform ─── */}
-      <section className="py-14 sm:py-20">
-        <div className="section-container">
-          <div className="relative overflow-hidden rounded-3xl bg-brand-900 px-6 py-10 text-white sm:px-12 sm:py-14">
-            <div
-              className="pointer-events-none absolute inset-0"
-              style={{ backgroundImage: 'radial-gradient(50% 80% at 100% 0%, rgba(224,146,1,0.2), transparent 60%), radial-gradient(45% 70% at 0% 100%, rgba(203,18,13,0.3), transparent 65%)' }}
-              aria-hidden="true"
-            />
-            <div className="relative flex flex-col items-center gap-6 text-center lg:flex-row lg:justify-between lg:text-left">
-              <div className="max-w-2xl">
-                <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent-300">Learner’s licence prep</p>
-                <h2 className="mt-3 text-2xl font-extrabold sm:text-3xl">Practise for your K53 learner’s online</h2>
-                <p className="mt-3 text-gray-300">
-                  Exam-style practice tests, a free study guide, live notes and videos for Code 8, Code 10 and Code 14.
-                </p>
-              </div>
-              <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row lg:flex-col xl:flex-row">
-                <Link
-                  href="/practice"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-600 px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-brand-500 active:scale-[0.98]"
-                >
-                  Open the practice platform
-                  <Arrow />
-                </Link>
-                <Link
-                  href="/courses"
-                  className="inline-flex items-center justify-center rounded-full border-2 border-white/30 px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-white/10 active:scale-[0.98]"
-                >
-                  Go to the tests
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ─── Areas we serve ─── */}
-      <section id="areas" className="scroll-mt-6 bg-white py-14 sm:py-20">
+      <section id="areas" className="scroll-mt-6 py-14 sm:py-20">
         <div className="section-container">
           <div className="mb-10 text-center">
             <span className="mb-3 inline-block rounded-full bg-brand-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-brand-600">Areas we serve</span>
-            <h2 className="text-2xl font-extrabold text-gray-900 sm:text-3xl">Driving lessons for learners across Durban</h2>
-            <p className="mx-auto mt-3 max-w-2xl text-gray-500">Based in Verulam, north of Durban, and welcoming learners from the city and the surrounding areas.</p>
+            <h2 className="text-2xl font-extrabold text-gray-900 sm:text-3xl">Driving lessons for Durban, Durban CBD and Durban North</h2>
+            <p className="mx-auto mt-3 max-w-2xl text-gray-500">Based in Verulam, with pick-up for lessons anywhere in Durban and eThekwini.</p>
           </div>
-          <div className="grid gap-5 sm:grid-cols-3">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {LOCATIONS.map(l => (
               <Link key={l.slug} href={l.path} className="card-elevated group block border-t-4 border-t-brand-600 p-6 transition-shadow hover:shadow-card-hover">
                 <h3 className="text-lg font-bold text-gray-900 group-hover:text-brand-700">{l.linkText}</h3>
@@ -250,22 +236,66 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ─── Practice platform ─── */}
+      <section className="bg-white py-14 sm:py-20">
+        <div className="section-container">
+          <div className="relative overflow-hidden rounded-3xl bg-brand-900 px-6 py-10 text-white sm:px-12 sm:py-14">
+            <div
+              className="pointer-events-none absolute inset-0"
+              style={{ backgroundImage: 'radial-gradient(50% 80% at 100% 0%, rgba(224,146,1,0.2), transparent 60%), radial-gradient(45% 70% at 0% 100%, rgba(203,18,13,0.3), transparent 65%)' }}
+              aria-hidden="true"
+            />
+            <div className="relative flex flex-col gap-8 lg:flex-row lg:justify-between">
+              <div className="max-w-2xl">
+                <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent-300">Learner’s licence prep</p>
+                <h2 className="mt-3 text-2xl font-extrabold sm:text-3xl">Practise for your K53 learner’s online</h2>
+                <p className="mt-3 text-gray-300">
+                  Exam-style practice tests, a free study guide, live notes and videos for Code 8, Code 10 and Code 14.
+                  Full access is {ACCESS_PRICE} for {ACCESS_DURATION_DAYS} days.
+                </p>
+                <Link
+                  href="/practice"
+                  className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-brand-600 px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-brand-500 active:scale-[0.98]"
+                >
+                  Start practising
+                  <Arrow />
+                </Link>
+              </div>
+              <ul className="space-y-2 text-sm lg:min-w-[18rem]">
+                {LEARNER_PAGES.filter(p => p.href !== '/practice').map(p => (
+                  <li key={p.href}>
+                    <Link href={p.href} className="font-semibold text-accent-300 hover:text-accent-200 hover:underline">{p.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <FaqList faqs={FAQS} heading="Driving school questions" />
+
       {/* ─── Contact ─── */}
       <section id="contact" className="scroll-mt-6 bg-brand-900 py-16 text-white sm:py-24">
         <div className="section-container grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
             <span className="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-accent-300">Find us</span>
-            <h2 className="mb-8 text-3xl font-extrabold sm:text-4xl">Visit us, call us or message us</h2>
+            <h2 className="mb-8 text-3xl font-extrabold sm:text-4xl">Visit us or book on WhatsApp</h2>
             <ContactDetails tone="dark" />
-            <a
-              href={SCHOOL_MAP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-7 inline-flex items-center gap-1.5 text-sm font-bold text-accent-300 hover:text-accent-200"
-            >
-              Open in Google Maps
-              <Arrow />
-            </a>
+            <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm font-bold">
+              <a href={SCHOOL_MAP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-accent-300 hover:text-accent-200">
+                Open in Google Maps
+                <Arrow />
+              </a>
+              <a href={SCHOOL_GOOGLE_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-accent-300 hover:text-accent-200">
+                See us on Google
+                <Arrow />
+              </a>
+              <Link href="/contact" className="inline-flex items-center gap-1.5 text-accent-300 hover:text-accent-200">
+                Contact page
+                <Arrow />
+              </Link>
+            </div>
           </div>
           <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-brand-800 via-brand-700 to-brand-600 p-7 text-center shadow-hero sm:p-10 lg:text-left">
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent-300">{SCHOOL_TAGLINE}</p>

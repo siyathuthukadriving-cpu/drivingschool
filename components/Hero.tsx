@@ -1,11 +1,16 @@
 import Image from 'next/image'
 import WhatsAppIcon from './WhatsAppIcon'
 import {
+  SCHOOL_ADDRESS,
   SCHOOL_BLURB,
   SCHOOL_BOOKING_URL,
+  SCHOOL_HOURS,
   SCHOOL_MOTTO,
+  SCHOOL_NAME,
   SCHOOL_PHONE_DISPLAY,
   SCHOOL_PHONE_TEL,
+  SCHOOL_PICKUP_LINE,
+  SCHOOL_TAGLINE,
 } from '@/lib/school'
 
 /** Full-width hero of the school landing page: photo behind a brand-colour overlay. */
@@ -37,14 +42,18 @@ export default function Hero() {
           </div>
 
           <h1 className="text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-            Learn to Drive.
-            <span className="block text-accent-400">Learn to Arrive.</span>
+            Driving School in Durban and Verulam
           </h1>
+          <p className="mt-4 text-2xl font-extrabold tracking-tight text-accent-400 sm:text-3xl">{SCHOOL_TAGLINE}</p>
 
-          <p className="mt-7 max-w-2xl text-lg leading-relaxed text-white/90 sm:text-xl">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/90 sm:text-xl">
             {SCHOOL_BLURB}
           </p>
           <p className="mt-3 text-base font-semibold italic text-white/80 sm:text-lg">{SCHOOL_MOTTO}</p>
+          <address className="mt-6 space-y-1 text-base not-italic text-white/85">
+            <span className="block font-semibold text-white">{SCHOOL_NAME} · {SCHOOL_ADDRESS}</span>
+            <span className="block">{SCHOOL_HOURS.display} · {SCHOOL_PICKUP_LINE}</span>
+          </address>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:gap-4">
             <a

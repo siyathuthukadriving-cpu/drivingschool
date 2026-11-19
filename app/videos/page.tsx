@@ -1,17 +1,16 @@
-import type { Metadata } from 'next'
 import { YouTubeCard, DriveCard } from '@/components/VideoCard'
 import { hasFullAccess } from '@/lib/access'
 import LockedContent from '@/components/LockedContent'
 import { getLatestRecording } from '@/lib/settings'
-import { SITE_URL } from '@/lib/school'
+import { pageMetadata } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = {
-  title: 'K53 Videos — Study Resources',
+export const metadata = pageMetadata({
+  path: '/videos',
+  title: 'K53 Study Videos | Sathuthuka',
   description: "Watch K53 learner's licence study videos covering road signs, rules of the road, and vehicle controls.",
-  alternates: { canonical: `${SITE_URL}/videos` },
-}
+})
 
 const youtubeVideos = [
   { id: '2BUf8Kk0cAU', url: 'https://youtu.be/2BUf8Kk0cAU' },

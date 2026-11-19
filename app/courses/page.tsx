@@ -1,27 +1,16 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
 import { hasFullAccess } from '@/lib/access'
 import LiveSessionCard from '@/components/LiveSessionCard'
 import type { Course } from '@/lib/types'
-import { SITE_URL } from '@/lib/school'
+import { pageMetadata } from '@/lib/seo'
+import { CANONICAL_URL, SCHOOL_NAME } from '@/lib/school'
 
-export const metadata: Metadata = {
-  title: "Online K53 Learners Course — Code 8 & Code 10 Practice Tests",
-  description: "South Africa's best online learners licence course. Structured K53 practice tests for Code 8 and Code 10 — road signs, rules of the road, vehicle controls. Pass your learners test first time.",
-  keywords: [
-    "a learners course", "online learners licence course", "K53 learners course South Africa",
-    "learners licence practice test", "K53 practice test", "Code 8 learners test",
-    "Code 10 learners test", "K53 road signs questions", "learners licence study online",
-    "free learners course South Africa", "learners licence mock test",
-  ],
-  alternates: { canonical: `${SITE_URL}/courses` },
-  openGraph: {
-    title: "Online K53 Learners Course — Code 8 & Code 10 | Sathuthuka Driving School",
-    description: "The best online K53 learners licence course in South Africa. Practice road signs, rules of the road and vehicle controls for Code 8 and Code 10.",
-    url: `${SITE_URL}/courses`,
-  },
-}
+export const metadata = pageMetadata({
+  path: '/courses',
+  title: 'Online K53 Learners Course | Sathuthuka',
+  description: 'Structured K53 practice for Code 8 and Code 10: road signs, rules of the road and vehicle controls, from Sathuthuka Driving School.',
+})
 
 // Reads access (cookies) to show paid members the live-session link.
 export const dynamic = 'force-dynamic'
@@ -51,8 +40,8 @@ export default async function CoursesPage() {
         '@type': 'Course',
         name: course.title,
         description: course.description,
-        url: `${SITE_URL}/courses/${course.id}`,
-        provider: { '@type': 'Organization', name: 'Sathuthuka', url: SITE_URL },
+        url: `${CANONICAL_URL}/courses/${course.id}`,
+        provider: { '@type': 'Organization', name: SCHOOL_NAME, url: CANONICAL_URL },
       },
     })),
   } : null
@@ -67,7 +56,7 @@ export default async function CoursesPage() {
           <span className="inline-block text-xs font-bold text-accent-400 uppercase tracking-widest mb-3">K53 Practice Tests</span>
           <h1 className="text-3xl sm:text-4xl font-extrabold mb-3 tracking-tight">Online K53 Learners Course</h1>
           <p className="text-brand-200 text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
-            Choose your licence code and start practising. You need 75%+ in each section to pass the official test.
+            Choose your licence code and start practising. You must reach the pass mark in each of the three sections to pass the official test.
           </p>
         </div>
       </section>
