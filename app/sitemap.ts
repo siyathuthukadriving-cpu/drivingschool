@@ -1,63 +1,65 @@
 import type { MetadataRoute } from 'next'
 import { RULES_CHAPTERS } from '@/lib/rules-of-the-road'
-import { SITE_URL } from '@/lib/school'
+import { CANONICAL_URL, LEARNER_PAGES, LESSON_PAGES } from '@/lib/school'
 import { LOCATIONS } from '@/lib/locations'
 
-const BASE = SITE_URL
+const BASE = CANONICAL_URL
+
+/** Date the school, lesson and learner's-licence pages were last edited. Update it when their content changes. */
+const SCHOOL_PAGES_UPDATED = new Date('2026-11-19')
+
+const PROVINCES = [
+  'Gauteng', 'Western Cape', 'KwaZulu-Natal', 'Eastern Cape',
+  'Mpumalanga', 'Limpopo', 'Free State', 'North West', 'Northern Cape',
+]
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
 
-  const staticPaths = [
-    '',                 // school landing page
-    '/practice',        // online practice platform home
-    ...LOCATIONS.map(l => l.path), // Durban, Durban CBD and Durban North landing pages
-    '/k53-learners-study-guide',
-    '/centers',         // find nearest writing centre — SEO priority page
-    '/pricing',
-    '/courses',
-    '/live-notes',
-    '/live-notes/rules',
-    '/videos',
-    '/resources',
-    '/about',
-    '/contact',
-    '/affiliate',
-  ]
+  const schoolEntries: MetadataRoute.Sitemap = [
+    { path: '', priority: 1 },
+    ...LOCATIONS.map(l => ({ path: l.path, priority: 0.9 })),
+    ...LESSON_PAGES.map(p => ({ path: p.href, priority: 0.9 })),
+    ...LEARNER_PAGES.map(p => ({ path: p.href, priority: 0.8 })),
+    { path: '/about', priority: 0.6 },
+    { path: '/contact', priority: 0.7 },
+    { path: '/pricing', priority: 0.6 },
+    { path: '/courses', priority: 0.6 },
+    { path: '/resources', priority: 0.5 },
+  ].map(({ path, priority }) => ({
+    url: `${BASE}${path}`,
+    lastModified: SCHOOL_PAGES_UPDATED,
+    changeFrequency: 'monthly',
+    priority,
+  }))
 
-  const staticEntries: MetadataRoute.Sitemap = staticPaths.map(p => ({
+  const otherEntries: MetadataRoute.Sitemap = ['/live-notes', '/live-notes/rules', '/videos', '/affiliate'].map(p => ({
     url: `${BASE}${p}`,
     lastModified: now,
     changeFrequency: 'weekly',
-    priority: p === '' ? 1 : p === '/k53-learners-study-guide' || LOCATIONS.some(l => l.path === p) ? 0.9 : 0.7,
+    priority: 0.5,
   }))
 
-  const provinceEntries: MetadataRoute.Sitemap = [
-    'Gauteng', 'Western Cape', 'KwaZulu-Natal', 'Eastern Cape',
-    'Mpumalanga', 'Limpopo', 'Free State', 'North West', 'Northern Cape',
-  ].map(prov => ({
+  const provinceEntries: MetadataRoute.Sitemap = PROVINCES.map(prov => ({
     url: `${BASE}/centers?province=${encodeURIComponent(prov)}`,
-    lastModified: now,
+    lastModified: SCHOOL_PAGES_UPDATED,
     changeFrequency: 'monthly' as const,
-    priority: 0.8,
+    priority: prov === 'KwaZulu-Natal' ? 0.6 : 0.3,
   }))
 
   const ruleEntries: MetadataRoute.Sitemap = RULES_CHAPTERS.map(c => ({
     url: `${BASE}/live-notes/rules/${c.slug}`,
     lastModified: now,
     changeFrequency: 'monthly',
-    priority: 0.6,
+    priority: 0.5,
   }))
 
-  const schoolProvinceEntries: MetadataRoute.Sitemap = [
-    'Gauteng', 'Western Cape', 'KwaZulu-Natal', 'Eastern Cape',
-    'Mpumalanga', 'Limpopo', 'Free State', 'North West', 'Northern Cape',
-  ].map(prov => ({
+  const schoolProvinceEntries: MetadataRoute.Sitemap = PROVINCES.map(prov => ({
     url: `${BASE}/driving-schools?province=${encodeURIComponent(prov)}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,
-    priority: 0.8,
+    priority: 0.2,
   }))
 
-  return [...staticEntries, ...provinceEntries, ...schoolProvinceEntries, ...ruleEntries]
+  return [...schoolEntries, ...otherEntries, ...provinceEntries, ...ruleEntries, ...schoolProvinceEntries]
 }

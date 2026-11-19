@@ -2,10 +2,11 @@
 
 ## About Sathuthuka Driving School
 
-Sathuthuka Driving School teaches people across KwaZulu-Natal to drive. It offers Code 8 lessons, Code 10 and Code 14 truck training, motorcycle training and learner's licence preparation. Its motto is "We build drivers, not just licence holders" and its tagline is "Learn to Drive. Learn to Arrive."
+Sathuthuka Driving School, based in Verulam, has taught people across KwaZulu-Natal to drive for over 30 years. It offers manual and automatic Code 8 lessons, Code 10 and Code 14 truck training, motorcycle training, defensive driving and learner's licence preparation, with pick-up for lessons anywhere in Durban and eThekwini. Its motto is "We build drivers, not just licence holders" and its tagline is "Learn to Drive. Learn to Arrive."
 
-Address: Suite 12, Ayesha Centre, George Sewpersard Street, Verulam, KwaZulu-Natal, South Africa.
+Address: Suite 12, Ayesha Centre, George Sewpersadh Street, Verulam, KwaZulu-Natal, South Africa.
 Phone and WhatsApp: 076 754 5780 (+27 76 754 5780). Email: Sathuthuka@gmail.com.
+Hours: Monday to Saturday, 08:00–17:00.
 
 The website also provides a free public K53 guide, exam-style practice tests, road-sign and road-rule study notes, study videos, a testing-centre search and a paid full-access package for the online learner's licence practice tests.
 
@@ -21,7 +22,10 @@ Page: /k53-learners-study-guide
 
 ## Useful pages
 
-- Practice tests: /courses
+- Locations: /driving-school-verulam, /driving-school-durban, /driving-school-durban-cbd, /driving-school-durban-north
+- Lessons: /code-8-lessons, /automatic-driving-lessons-durban, /code-10-lessons, /code-14-lessons, /motorcycle-lessons, /defensive-driving-durban
+- Learner's licence: /learners-licence-durban, /how-to-book-learners-licence-durban, /learners-licence-cost, /licence-codes
+- Practice tests: /practice
 - Live notes: /live-notes
 - Rules of the Road: /live-notes/rules
 - Study videos: /videos

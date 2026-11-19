@@ -4,7 +4,7 @@ import { createClient } from '@/lib/supabase-server'
 import { hasFullAccess } from '@/lib/access'
 import LockedContent from '@/components/LockedContent'
 import ProgressVisit from '@/components/ProgressVisit'
-import { SITE_URL } from '@/lib/school'
+import { CANONICAL_URL } from '@/lib/school'
 
 const LIVE_NOTES_DESC = 'Read the full Road Traffic Signs Manual — all 18 chapters with chapter quizzes — with full access.'
 
@@ -17,11 +17,11 @@ export const metadata: Metadata = {
     "South African road signs", "K53 learner driver manual", "learners licence chapters",
     "K53 chapter quiz",
   ],
-  alternates: { canonical: `${SITE_URL}/live-notes` },
+  alternates: { canonical: `${CANONICAL_URL}/live-notes` },
   openGraph: {
     title: "K53 Study Notes — Road Signs Manual & Rules of the Road | Sathuthuka Driving School",
     description: "Study the full South African K53 manual chapter by chapter. Road signs, rules of the road — with a quiz after each chapter.",
-    url: `${SITE_URL}/live-notes`,
+    url: `${CANONICAL_URL}/live-notes`,
   },
 }
 

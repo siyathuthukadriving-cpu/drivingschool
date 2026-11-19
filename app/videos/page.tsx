@@ -3,14 +3,14 @@ import { YouTubeCard, DriveCard } from '@/components/VideoCard'
 import { hasFullAccess } from '@/lib/access'
 import LockedContent from '@/components/LockedContent'
 import { getLatestRecording } from '@/lib/settings'
-import { SITE_URL } from '@/lib/school'
+import { CANONICAL_URL } from '@/lib/school'
 
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'K53 Videos — Study Resources',
   description: "Watch K53 learner's licence study videos covering road signs, rules of the road, and vehicle controls.",
-  alternates: { canonical: `${SITE_URL}/videos` },
+  alternates: { canonical: `${CANONICAL_URL}/videos` },
 }
 
 const youtubeVideos = [

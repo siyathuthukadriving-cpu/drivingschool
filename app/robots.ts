@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
-import { SITE_URL } from '@/lib/school'
+import { CANONICAL_URL } from '@/lib/school'
 
-const BASE = SITE_URL
+const BASE = CANONICAL_URL
 
 export default function robots(): MetadataRoute.Robots {
   return {

@@ -1,20 +1,37 @@
 # Sathuthuka Driving School
 
-> Sathuthuka Driving School teaches people across KwaZulu-Natal to drive: Code 8 lessons, Code 10 and Code 14 truck training, motorcycle training and learner's licence preparation. Learn to drive. Learn to arrive. The site also offers a free K53 study guide, exam-style practice tests, road-sign and road-rule notes, study videos and testing-centre search.
+> Sathuthuka Driving School, based in Verulam, has taught people across KwaZulu-Natal to drive for over 30 years. It offers manual and automatic Code 8 lessons, Code 10 and Code 14 truck training, motorcycle training, defensive driving and learner's licence preparation, with pick-up for lessons anywhere in Durban and eThekwini. Open Monday to Saturday, 08:00–17:00. Learn to drive. Learn to arrive. The site also offers a free K53 study guide, exam-style practice tests, road-sign and road-rule notes, study videos and testing-centre search.
 
 ## Start here
 
-- [Driving school in Durban](/driving-school-durban): Code 8, Code 10/14 and learner’s licence training for Durban learners.
+- [Home](/): Lessons, contact details and online learner's licence preparation.
+- [Driving school in Verulam](/driving-school-verulam): The school's base at Ayesha Centre, Verulam.
+- [Driving school in Durban](/driving-school-durban): Lessons for learners across Durban, with pick-up.
 - [Driving school in Durban CBD](/driving-school-durban-cbd): For learners who live or work in the city centre.
 - [Driving school in Durban North](/driving-school-durban-north): For learners from Durban North and the northern suburbs.
-- [Home](/): Courses, contact details and online learner's licence preparation.
+
+## Lessons
+
+- [Code 8 driving lessons](/code-8-lessons): Manual and automatic light-vehicle lessons.
+- [Automatic driving lessons](/automatic-driving-lessons-durban): Automatic Code 8 lessons and the automatic-only licence endorsement.
+- [Code 10 lessons](/code-10-lessons): Code C1 truck and heavy-vehicle training.
+- [Code 14 lessons](/code-14-lessons): Code EC articulated heavy-vehicle training.
+- [Motorcycle lessons](/motorcycle-lessons): Motorcycle licence training.
+- [Defensive driving](/defensive-driving-durban): Lessons for licensed drivers.
+
+## Learner's licence
+
+- [Learner's licence preparation in Durban](/learners-licence-durban): Study, practise and book your K53 test.
+- [How to book a learner's licence in Durban](/how-to-book-learners-licence-durban): Documents, KZN testing centres and official booking routes.
+- [Learner's licence cost](/learners-licence-cost): Booking and issue fees, and why to confirm the local amount with your DLTC.
+- [Licence codes explained](/licence-codes): Learner's codes 1, 2 and 3 and driving-licence codes including Code 8, 10 and 14.
 - [Free K53 Learners Study Guide](/k53-learners-study-guide): Test sections, pass marks, learner categories, booking checklist, official references and an original PDF summary.
-- [K53 Practice Tests](/courses): Exam-style practice for South African learner's licence candidates.
+- [K53 Practice Tests](/practice): Exam-style practice for South African learner's licence candidates.
 - [K53 Live Notes](/live-notes): Road traffic signs and rules study material.
 - [Rules of the Road](/live-notes/rules): Chapter-based road-rule lessons and quizzes.
 - [Study Videos](/videos): K53 teaching videos and recorded study sessions.
-- [Find a Testing Centre](/centers): Search for nearby Driving Licence Testing Centres.
-- [Pricing](/pricing): Full-access package details and current visible price.
+- [Find a Testing Centre](/centers): Search for Driving Licence Testing Centres in KwaZulu-Natal and other provinces.
+- [Pricing](/pricing): Full-access package details and lesson-price enquiries.
 
 ## Key facts
 
@@ -25,9 +42,11 @@
 
 ## Contact
 
-- Address: Suite 12, Ayesha Centre, George Sewpersard Street, Verulam, KwaZulu-Natal, South Africa
+- Address: Suite 12, Ayesha Centre, George Sewpersadh Street, Verulam, KwaZulu-Natal, South Africa
 - Phone / WhatsApp: 076 754 5780 (+27 76 754 5780)
 - Email: Sathuthuka@gmail.com
+- Hours: Monday to Saturday, 08:00–17:00
+- Google Business Profile: https://www.google.com/search?kgmid=%2Fg%2F1thjq89p
 
 ## Policies
 
