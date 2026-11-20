@@ -3,7 +3,7 @@
 /**
  * WelcomeQuizPopup — the compulsory gate before practising.
  *
- * Shown on the practice platform pages (/practice, /courses, /quiz) to anyone
+ * Shown on every full page load (every refresh) except admin, sign-in and payment pages.
  * without access, on every full page load. It can't be dismissed:
  *
  *   1. Read     — the school's history, with a note that the practice platform
@@ -20,13 +20,16 @@
  * Visitors with full access or a valid pass never see it.
  */
 import { useEffect, useState } from 'react'
+import { isSchoolPage } from '@/lib/locations'
 import {
   SCHOOL_NAME, SCHOOL_FOUNDED_YEAR, SCHOOL_YEARS, SCHOOL_DRIVERS_LICENSED_LABEL,
   SCHOOL_PHONE_DISPLAY, SCHOOL_PHONE_TEL, SCHOOL_ADDRESS_LINES, SCHOOL_MAP_URL,
 } from '@/lib/school'
 
-/** Pages of the practice platform where the quiz is compulsory. */
-const GATED_PREFIXES = ['/practice', '/courses', '/quiz']
+/** Pages where the popup never appears (admin, sign-in and payment flows). */
+const NEVER_PREFIXES = ['/admin', '/login', '/register', '/signup', '/forgot-password', '/reset-password', '/subscribe', '/auth', '/access-code']
+/** Set just before reloading after a pass, so the popup doesn't greet the learner again straight away. */
+const PASSED_FLAG = 'sk_welcome_just_passed'
 const DURBAN_WHATSAPP_GROUP_URL = 'https://chat.whatsapp.com/CmUQ51EvQri6u8r8aT1JKR?s=cl&p=a&iam=2'
 
 interface Question { id: string; prompt: string; options: { id: string; label: string }[] }
@@ -53,6 +56,10 @@ const inputClass = 'w-full rounded-xl border-2 border-gray-200 px-3 py-2.5 text-
 
 export default function WelcomeQuizPopup() {
   const [open, setOpen] = useState(false)
+  // Compulsory for anyone without access on the practice platform. Visitors who
+  // already have access (passed, paid, admin) and visitors on the school's own
+  // pages see the same popup on every refresh but can close it.
+  const [dismissible, setDismissible] = useState(false)
   const [step, setStep] = useState<Step>('read')
   const [questions, setQuestions] = useState<Question[]>([])
   const [passPercent, setPassPercent] = useState(80)
@@ -65,25 +72,33 @@ export default function WelcomeQuizPopup() {
   const [error, setError] = useState('')
   const [result, setResult] = useState<{ score: number; total: number; passed: boolean } | null>(null)
 
-  function load(): Promise<boolean> {
+  function load(): Promise<{ show: boolean; hasAccess: boolean }> {
     return fetch('/api/welcome-quiz', { cache: 'no-store' })
       .then(r => r.json())
       .then(d => {
-        if (d.hasAccess) return false
         setQuestions((d.questions as Question[]).map(q => ({ ...q, options: shuffled(q.options) })))
         setPassPercent(d.passPercent ?? 80)
         setPassMinutes(d.passMinutes ?? 60)
         setRegistered(!!d.registered)
-        return true
+        return { show: true, hasAccess: !!d.hasAccess }
       })
   }
 
   useEffect(() => {
     const path = window.location.pathname
-    if (!GATED_PREFIXES.some(p => path.startsWith(p))) return
+    if (NEVER_PREFIXES.some(p => path.startsWith(p))) return
+    try {
+      if (sessionStorage.getItem(PASSED_FLAG)) { sessionStorage.removeItem(PASSED_FLAG); return }
+    } catch {}
     let cancelled = false
     load()
-      .then(show => { if (!cancelled && show) setOpen(true) })
+      .then(({ hasAccess }) => {
+        // Don't interrupt a quiz in progress for someone who already has access.
+        if (hasAccess && path.startsWith('/quiz')) return
+        if (cancelled) return
+        setDismissible(hasAccess || isSchoolPage(path))
+        setOpen(true)
+      })
       .catch(() => { /* if the check fails, don't block the page */ })
     return () => { cancelled = true }
   }, [])
@@ -160,7 +175,10 @@ export default function WelcomeQuizPopup() {
       <div className="absolute inset-0 bg-black/80" />
 
       <div className="relative flex max-h-[92vh] w-full max-w-xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl">
-        <div className="shrink-0 bg-brand-700 px-6 pb-5 pt-6 text-center text-white">
+        <div className="relative shrink-0 bg-brand-700 px-6 pb-5 pt-6 text-center text-white">
+          {dismissible && (
+            <button onClick={() => setOpen(false)} aria-label="Close" className="absolute right-4 top-3 text-2xl leading-none text-brand-200 hover:text-white">×</button>
+          )}
           <span className="mb-2 inline-block rounded-full bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-widest text-brand-100">{stepLabel}</span>
           <h2 id="welcome-popup-title" className="text-2xl font-extrabold">{title}</h2>
         </div>
@@ -169,7 +187,7 @@ export default function WelcomeQuizPopup() {
           {step === 'read' && (
             <div className="space-y-5 text-sm leading-relaxed text-gray-700">
               <p className="rounded-xl border border-green-200 bg-green-50 px-3 py-2 font-semibold text-green-900">
-                You will access the practice platform free after the quiz. Read the details below, give us your details, then answer the quiz.
+                To access the learner’s licence quiz for free, read the details below first, then answer the quiz. You will access the practice platform free after the quiz.
               </p>
 
               <section>
@@ -289,9 +307,14 @@ export default function WelcomeQuizPopup() {
 
         <div className="shrink-0 space-y-2 border-t border-gray-100 px-6 py-4">
           {step === 'read' && (
-            <button onClick={() => { setError(''); setStep(registered ? 'quiz' : 'details') }} disabled={questions.length === 0} className="w-full rounded-xl bg-brand-600 py-3 font-bold text-white transition-colors hover:bg-brand-700 disabled:opacity-60">
-              I’ve read it — continue →
-            </button>
+            <>
+              <button onClick={() => { setError(''); setStep(registered ? 'quiz' : 'details') }} disabled={questions.length === 0} className="w-full rounded-xl bg-brand-600 py-3 font-bold text-white transition-colors hover:bg-brand-700 disabled:opacity-60">
+                I’ve read it — continue →
+              </button>
+              {dismissible && (
+                <button onClick={() => setOpen(false)} className="w-full py-2 text-sm font-medium text-gray-500 hover:text-gray-700">Close</button>
+              )}
+            </>
           )}
           {step === 'details' && (
             <>
@@ -310,7 +333,7 @@ export default function WelcomeQuizPopup() {
             </>
           )}
           {step === 'result' && result?.passed && (
-            <button onClick={() => { setOpen(false); window.location.reload() }} className="w-full rounded-xl bg-green-600 py-3 font-bold text-white transition-colors hover:bg-green-700">
+            <button onClick={() => { try { sessionStorage.setItem(PASSED_FLAG, '1') } catch {} setOpen(false); window.location.reload() }} className="w-full rounded-xl bg-green-600 py-3 font-bold text-white transition-colors hover:bg-green-700">
               Start practising →
             </button>
           )}
