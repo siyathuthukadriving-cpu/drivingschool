@@ -17,6 +17,7 @@ import FreePromoPopup from "@/components/FreePromoPopup";
 import HideOnLanding from "@/components/HideOnLanding";
 import DurbanPopup from "@/components/DurbanPopup";
 import WelcomeQuizPopup from "@/components/WelcomeQuizPopup";
+import AfterWelcome from "@/components/AfterWelcome";
 import { SCHOOL_NAME, SITE_URL } from '@/lib/school'
 
 const geistSans = localFont({
@@ -154,13 +155,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <CookieBanner />
                         <WelcomeQuizPopup />
                         <DurbanPopup />
-                        <HideOnLanding><FreePromoPopup /></HideOnLanding>
-                        <HideOnLanding><TestPrepPopup /></HideOnLanding>
-                        <HideOnLanding><LiveSessionPopup /></HideOnLanding>
-                        <HideOnLanding><K53UnpackedPopup /></HideOnLanding>
-                        <HideOnLanding><CourseIntroPopup /></HideOnLanding>
-                        <HideOnLanding><YoutubeLiveSessionPopup /></HideOnLanding>
-                        <HideOnLanding><YoutubeRecordingPopup /></HideOnLanding>
+                        <HideOnLanding><AfterWelcome><FreePromoPopup /></AfterWelcome></HideOnLanding>
+                        <HideOnLanding><AfterWelcome><TestPrepPopup /></AfterWelcome></HideOnLanding>
+                        <HideOnLanding><AfterWelcome><LiveSessionPopup /></AfterWelcome></HideOnLanding>
+                        <HideOnLanding><AfterWelcome><K53UnpackedPopup /></AfterWelcome></HideOnLanding>
+                        <HideOnLanding><AfterWelcome><CourseIntroPopup /></AfterWelcome></HideOnLanding>
+                        <HideOnLanding><AfterWelcome><YoutubeLiveSessionPopup /></AfterWelcome></HideOnLanding>
+                        <HideOnLanding><AfterWelcome><YoutubeRecordingPopup /></AfterWelcome></HideOnLanding>
                 </body>
           </html>
         );
