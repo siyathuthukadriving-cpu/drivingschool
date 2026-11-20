@@ -24,6 +24,9 @@ export const SCHOOL_MOTTO = 'We build drivers, not just licence holders.'
 export const SCHOOL_BLURB =
   'Teaching people across KwaZulu-Natal to drive for a generation. Code 8 lessons, Code 10 truck training, and learner’s licence preparation.'
 export const SCHOOL_EXPERIENCE = 'Over 30 years'
+export const SCHOOL_FOUNDED_YEAR = 1996
+export const SCHOOL_YEARS = 30
+export const SCHOOL_DRIVERS_LICENSED_LABEL = 'Over 2000'
 
 export const SCHOOL_PHONE_DISPLAY = '076 754 5780'
 export const SCHOOL_PHONE_INTL = '+27 76 754 5780'

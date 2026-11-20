@@ -16,7 +16,7 @@ import { randomUUID } from 'crypto'
 import { cookies } from 'next/headers'
 import { createClient } from '@/lib/supabase-server'
 import { createAdminClient } from '@/lib/supabase-admin'
-import { hasFullAccess } from '@/lib/access'
+import { hasQuizAccess } from '@/lib/access'
 import { FREE_PREVIEW_SECONDS, ANON_COOKIE } from '@/lib/quiz-session'
 
 function remainingFrom(startedAtIso: string): number {
@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
   }
 
   // Full-access users are never timed.
-  if (await hasFullAccess()) return NextResponse.json({ unlimited: true })
+  if (await hasQuizAccess()) return NextResponse.json({ unlimited: true })
 
   const supabase = createClient()
   const { data: { user } } = await supabase.auth.getUser()

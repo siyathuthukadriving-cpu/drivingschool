@@ -10,6 +10,7 @@ import { createAdminClient } from '@/lib/supabase-admin'
 import { getAdminUser } from '@/lib/admin'
 import { isFreePromoActive } from '@/lib/contact'
 import { getPromoWindow, isPromoActiveNow } from '@/lib/settings'
+import { hasQuizPass } from '@/lib/quiz-pass'
 
 /** Whether the current visitor may see paid content. */
 export async function hasFullAccess(): Promise<boolean> {
@@ -34,6 +35,16 @@ export async function hasFullAccess(): Promise<boolean> {
 
   if (!data) return false
   return !data.expires_at || new Date(data.expires_at).getTime() > Date.now()
+}
+
+/**
+ * Whether the visitor may use the practice quizzes without the free-preview
+ * limit: full access, or a still-valid welcome-quiz pass (lib/quiz-pass.ts).
+ * The pass unlocks the practice quizzes only, not Live Notes or Videos.
+ */
+export async function hasQuizAccess(): Promise<boolean> {
+  if (hasQuizPass()) return true
+  return hasFullAccess()
 }
 
 export interface GrantOptions {

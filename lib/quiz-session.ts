@@ -15,7 +15,7 @@
 import { cookies } from 'next/headers'
 import { createClient } from '@/lib/supabase-server'
 import { createAdminClient } from '@/lib/supabase-admin'
-import { hasFullAccess } from '@/lib/access'
+import { hasQuizAccess } from '@/lib/access'
 
 export const FREE_PREVIEW_SECONDS = 600   // 10 minutes, a fresh window on every visit
 export const ANON_COOKIE = 'qz_sid'
@@ -38,7 +38,7 @@ function remainingFrom(startedAtIso: string): number {
  * or set cookies — safe inside a Server Component render.
  */
 export async function readQuizTiming(courseId: number, testNumber: number): Promise<QuizTiming> {
-  if (await hasFullAccess()) {
+  if (await hasQuizAccess()) {
     return { premium: true, locked: false, remaining: 0, exists: true }
   }
 

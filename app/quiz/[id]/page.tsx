@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
-import { hasFullAccess } from '@/lib/access'
+import { hasQuizAccess } from '@/lib/access'
 import { readQuizTiming } from '@/lib/quiz-session'
 import QuizClient from '@/components/QuizClient'
 import QuizPaywall from '@/components/QuizPaywall'
@@ -18,7 +18,7 @@ export default async function QuizPage({ params, searchParams }: Props) {
   const testNumber = Number(searchParams.test ?? 1)
 
   // Full-access visitors skip the timer; everyone else gets a 10-minute sample.
-  const premium = await hasFullAccess()
+  const premium = await hasQuizAccess()
 
   const { data: course, error: courseError } = await supabase
     .from('courses')
