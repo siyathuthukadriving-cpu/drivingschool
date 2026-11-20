@@ -13,7 +13,7 @@ import { cookies } from 'next/headers'
 
 export const QUIZ_PASS_COOKIE = 'sk_quiz_pass'
 /** How long a passed welcome quiz unlocks the practice quizzes. */
-export const QUIZ_PASS_MINUTES = 60
+export const QUIZ_PASS_MINUTES = 24 * 60   // 24 hours
 
 function secret(): string {
   return process.env.QUIZ_PASS_SECRET || process.env.SUPABASE_SERVICE_ROLE_KEY || ''

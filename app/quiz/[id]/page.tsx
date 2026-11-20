@@ -1,9 +1,8 @@
 import { notFound } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
 import { hasQuizAccess } from '@/lib/access'
-import { readQuizTiming } from '@/lib/quiz-session'
 import QuizClient from '@/components/QuizClient'
-import QuizPaywall from '@/components/QuizPaywall'
+import QuizGate from '@/components/QuizGate'
 import type { Course, QuizQuestion } from '@/lib/types'
 
 // Per-visitor paywall state (reads cookies) — must render dynamically.
@@ -17,8 +16,10 @@ interface Props {
 export default async function QuizPage({ params, searchParams }: Props) {
   const testNumber = Number(searchParams.test ?? 1)
 
-  // Full-access visitors skip the timer; everyone else gets a 10-minute sample.
+  // The welcome quiz is compulsory: practising needs full access or a passed
+  // welcome quiz. Anyone else sees the gate (and the welcome popup on top).
   const premium = await hasQuizAccess()
+  if (!premium) return <QuizGate />
 
   const { data: course, error: courseError } = await supabase
     .from('courses')
@@ -56,18 +57,6 @@ export default async function QuizPage({ params, searchParams }: Props) {
 
   const c = course as Course
 
-  // Server-side free-preview enforcement: if a non-premium visitor's window
-  // has already expired, render the paywall here — a reload or a tampered
-  // client timer can't get past this.
-  let initialSeconds: number | undefined
-  if (!premium) {
-    const timing = await readQuizTiming(c.id, testNumber)
-    if (timing.locked) {
-      return <QuizPaywall courseId={c.id} />
-    }
-    initialSeconds = timing.remaining
-  }
-
   return (
     <QuizClient
       questions={questions as QuizQuestion[]}
@@ -75,7 +64,6 @@ export default async function QuizPage({ params, searchParams }: Props) {
       courseId={c.id}
       testNumber={testNumber}
       isPremium={premium}
-      initialSeconds={initialSeconds}
       splitScoring={testNumber === 2 && ['code8', 'code10'].includes(c.code)}
     />
   )

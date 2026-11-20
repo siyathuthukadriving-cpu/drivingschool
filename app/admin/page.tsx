@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { getAdminUser, isPrimaryAdminEmail } from '@/lib/admin'
 import { createAdminClient } from '@/lib/supabase-admin'
@@ -130,6 +131,12 @@ export default async function AdminPage() {
   }
 
   return (
+    <>
+    <div className="mx-auto max-w-6xl px-4 pt-6 text-right">
+      <Link href="/admin/learners" className="inline-block rounded-xl bg-brand-600 px-4 py-2 text-sm font-bold text-white hover:bg-brand-700">
+        Learners (names, emails, phones) →
+      </Link>
+    </div>
     <AdminDashboard
       adminEmail={admin.email ?? ''}
       isPrimary={isPrimary}
@@ -141,5 +148,6 @@ export default async function AdminPage() {
       initialPromo={promo}
       initialTrainers={trainerRows}
     />
+    </>
   )
 }
