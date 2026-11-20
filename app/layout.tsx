@@ -6,16 +6,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ReferralCapture from "@/components/ReferralCapture";
 import CookieBanner from "@/components/CookieBanner";
-import LiveSessionPopup from "@/components/LiveSessionPopup";
-import TestPrepPopup from "@/components/TestPrepPopup";
-import K53UnpackedPopup from "@/components/K53UnpackedPopup";
-import CourseIntroPopup from "@/components/CourseIntroPopup";
-import YoutubeLiveSessionPopup from "@/components/YoutubeLiveSessionPopup";
-import YoutubeRecordingPopup from "@/components/YoutubeRecordingPopup";
 import FreePromoBanner from "@/components/FreePromoBanner";
-import FreePromoPopup from "@/components/FreePromoPopup";
 import HideOnLanding from "@/components/HideOnLanding";
-import DurbanPopup from "@/components/DurbanPopup";
 import WelcomeQuizPopup from "@/components/WelcomeQuizPopup";
 import { SCHOOL_NAME, SITE_URL } from '@/lib/school'
 
@@ -153,14 +145,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <Footer />
                         <CookieBanner />
                         <WelcomeQuizPopup />
-                        <DurbanPopup />
-                        <HideOnLanding><FreePromoPopup /></HideOnLanding>
-                        <HideOnLanding><TestPrepPopup /></HideOnLanding>
-                        <HideOnLanding><LiveSessionPopup /></HideOnLanding>
-                        <HideOnLanding><K53UnpackedPopup /></HideOnLanding>
-                        <HideOnLanding><CourseIntroPopup /></HideOnLanding>
-                        <HideOnLanding><YoutubeLiveSessionPopup /></HideOnLanding>
-                        <HideOnLanding><YoutubeRecordingPopup /></HideOnLanding>
                 </body>
           </html>
         );
