@@ -23,9 +23,21 @@ export default function DurbanPopup() {
   useEffect(() => {
     if (pathname?.startsWith('/admin')) return
     try { if (localStorage.getItem(ANSWER_KEY)) return } catch {}
-    // A short delay so it appears after the page has painted.
-    const t = setTimeout(() => setOpen(true), 1200)
-    return () => clearTimeout(t)
+    // A short delay so it appears after the page has painted, and it waits
+    // for the welcome popup (which shows on every load) to be closed first.
+    let onClosed: (() => void) | null = null
+    const t = setTimeout(() => {
+      if ((window as any).__skWelcomeOpen) {
+        onClosed = () => setOpen(true)
+        window.addEventListener('sk-welcome-closed', onClosed, { once: true })
+      } else {
+        setOpen(true)
+      }
+    }, 1200)
+    return () => {
+      clearTimeout(t)
+      if (onClosed) window.removeEventListener('sk-welcome-closed', onClosed)
+    }
   }, [pathname])
 
   function answer(value: 'yes' | 'no') {
