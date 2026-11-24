@@ -26,7 +26,8 @@ const geistMono = localFont({
 // only when its own ID is set in the environment, so no other business's accounts are embedded.
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID
-const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID
+// The school's Meta Pixel. Set NEXT_PUBLIC_META_PIXEL_ID to use a different one.
+const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || '1492132475472276'
 const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT
 const GOOGLE_VERIFICATION = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
 
@@ -111,6 +112,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                         {/* eslint-disable-next-line @next/next/no-img-element */}
                                         <img height="1" width="1" style={{ display: 'none' }} src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`} alt="" />
                                   </noscript>
+                                  {/* Contact tracking: WhatsApp and phone-link clicks */}
+                                  <script
+                                        dangerouslySetInnerHTML={{
+                                              __html: `document.addEventListener('click', function (e) {
+  var a = e.target.closest('a');
+  if (!a || typeof fbq !== 'function') return;
+  if (/wa\\.me|whatsapp/i.test(a.href)) {
+    fbq('track', 'Contact', { method: 'whatsapp' });
+  } else if (a.href.indexOf('tel:') === 0) {
+    fbq('track', 'Contact', { method: 'phone' });
+  }
+});`,
+                                        }}
+                                  />
                             </>
                       )}
 
